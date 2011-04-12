@@ -1,17 +1,17 @@
 
-#include "mapa.h"
 
+class mapa;
 
 
 	/* Cria aleatoriamente um mapa */
-	mapa::mapa(void)	{
+	mapa()	{
 		//srand (time(NULL));
-		
-		/* Colocar arvores */
 		posicao p;
-		
+
+		/* Colocar arvores */
 		for( int i=0 ; i < NUM_ARVORES ; i++)	{
 			p.x = rand() * 2000 / RAND_MAX;
+			p.y = rand() * 2000 / RAND_MAX;
 
 	}
 

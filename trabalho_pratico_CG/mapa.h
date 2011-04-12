@@ -5,7 +5,9 @@
 
 #define NUM_ARVORES 2000
 
+#include <iostream>
 #include <list>
+#include <set>
 
 class mapa	{
 	public:
