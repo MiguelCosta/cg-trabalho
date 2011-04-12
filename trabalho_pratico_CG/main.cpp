@@ -168,18 +168,20 @@ void keyboard (unsigned char key, int x, int y) {
 		case 27:   // ESCape
 			exit (0);
 			break;
-		case '1':  cam_local= !cam_local;
-			
-		case GLUT_KEY_UP: cam_pos[0] = cam_pos[0] + cam_vd[0]*delta;
+		case '1': cam_local = false;
+				break;
+		case '2': cam_local = true;
+				break;
+		case 'w': cam_pos[0] = cam_pos[0] + cam_vd[0]*delta;
 				  cam_pos[1] = cam_pos[1] + cam_vd[1]*delta;
 				  cam_pos[2] = cam_pos[2] + cam_vd[2]*delta;				  
 				  break;
-		case GLUT_KEY_DOWN: cam_pos[0] = cam_pos[0] - cam_vd[0]*delta;
+		case 's': cam_pos[0] = cam_pos[0] - cam_vd[0]*delta;
 				    cam_pos[1] = cam_pos[1] - cam_vd[1]*delta;
 				    cam_pos[2] = cam_pos[2] - cam_vd[2]*delta;				  
 				    break;
 		//se a camara rodar com as setas
-		case GLUT_KEY_RIGHT: cam_alpha += 0.05;
+		case 'd': cam_alpha += 0.05;
 				     cam_vd[XX] = sin(cam_alpha); 		  
      				     cam_vd[ZZ] = -cos(cam_alpha);
 				     break;
