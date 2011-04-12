@@ -4,7 +4,7 @@ class mapa;
 
 
 	/* Cria aleatoriamente um mapa */
-	mapa()	{
+	mapa::mapa()	{
 		//srand (time(NULL));
 		posicao p;
 
@@ -15,10 +15,10 @@ class mapa;
 
 	}
 
-	/* Cria um mapa com base num ficheiro de configuração */
+	/* Cria um mapa com base num ficheiro de configuração * /
 	mapa(char *filename)	{
 
-	}
+	} */
 	
 	//---
 	
