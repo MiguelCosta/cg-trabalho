@@ -71,13 +71,11 @@ void drawTree() {
 
 	glPushMatrix();
 	glRotatef(-90,1.0,0.0,0.0);
-	float color[] = {1.0,1.0,0.5,1.0};
-	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
-	glutSolidCone(0.25,4,5,1);
-	float color2[] = {0.0, 0.5 + rand() * 0.5f/RAND_MAX,0.0,1.0};
-	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color2);
+	glColor3f(1.0,1.0,0.5);
+	glutSolidCone(0.25,4,8,1);
+	glColor3f(0.0,1.0,0.0);
 	glTranslatef(0.0,0.0,2.0);
-	glutSolidCone(2.0,5.0,5,1);
+	glutSolidCone(2.0,5.0,8,1);
 	glPopMatrix();
 }
 
@@ -93,7 +91,7 @@ void placeTrees() {
 
 	while (arvores < ARVORES) {
 
-		rr = rand() * 150.0/ RAND_MAX;
+		rr = rand() * 70.0/ RAND_MAX;
 		alpha = rand() * 6.28 / RAND_MAX;
 
 		x = cos(alpha) * (rr + r);
@@ -110,13 +108,6 @@ void placeTrees() {
 	}
 }
 
-
-
-
-
-
-
-
 void drawPlane() {
 
 	glColor3f(0.5,0.75,0.0);
@@ -128,13 +119,13 @@ void drawPlane() {
 	glEnd();
 }
 
-
-void drawDonut() {
+void drawBoneco() {
 
 	glPushMatrix();
-	glTranslatef(0.0,0.5,0.0);
-	glColor3f(1.0,0.0,1.0);
-	glutSolidTorus(0.5,1.25,8,16);
+	glTranslatef(0.0,2,0.0);
+	glColor3f(0.0,0.5,1.0);
+	glutSolidTeapot(2);
+	//glutSolidTorus(0.5,1.25,8,16);
 	glPopMatrix();
 }
 
@@ -174,10 +165,10 @@ void scene() {
 
 	drawPlane();
 	placeTrees();
-	drawDonut();
+	drawBoneco();
 
-	drawCowboys();
-	drawIndios();
+	//drawCowboys();
+	//drawIndios();
 }
 
 void renderScene(void) {
