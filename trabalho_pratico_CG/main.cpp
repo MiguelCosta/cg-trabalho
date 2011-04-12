@@ -3,20 +3,14 @@
 #include <math.h>
 #include <GL/glut.h>
 
-#define COWBOYS 8
-#define RAIO_COWBOYS 5
-#define INDIOS 16
-#define RAIO_INDIOS 25
 #define ARVORES 300
-#define STEP_COWBOY 1.0f
-#define STEP_INDIO 0.5f
 
 #define XX 0
 #define YY 1
 #define ZZ 2
 
 // local camera position
-GLdouble cam_pos[]={0.0, 1.2, (GLdouble)(RAIO_INDIOS+20)};
+GLdouble cam_pos[]={0.0, 1.2, (GLdouble)(20)};
 // local camera view direction
 GLdouble cam_vd[]={0.0, 0.0, -1.0};
 // camera orientation angle
@@ -70,12 +64,12 @@ void drawAxis() {
 void drawTree() {
 
 	glPushMatrix();
-	glRotatef(-90,1.0,0.0,0.0);
-	glColor3f(1.0,1.0,0.5);
-	glutSolidCone(0.25,4,8,1);
-	glColor3f(0.0,1.0,0.0);
-	glTranslatef(0.0,0.0,2.0);
-	glutSolidCone(2.0,5.0,8,1);
+		glRotatef(-90,1.0,0.0,0.0);
+		glColor3f(1.0,1.0,0.5);
+		glutSolidCone(0.25,4,8,1);
+		glColor3f(0.0,1.0,0.0);
+		glTranslatef(0.0,0.0,2.0);
+		glutSolidCone(2.0,5.0,8,1);
 	glPopMatrix();
 }
 
@@ -129,37 +123,6 @@ void drawBoneco() {
 	glPopMatrix();
 }
 
-void drawIndios() {
-
-	float angulo;
-	glColor3f(1.0,0.0,0.0);
-	for (int i = 0; i < INDIOS; i++) {
-		
-		angulo = i * 360.0/INDIOS + step * STEP_INDIO;
-		glPushMatrix();
-		glRotatef(angulo,0.0,1.0,0.0);
-		glTranslatef(0.0,1.0,RAIO_INDIOS);
-		glColor3d(1,0,0);
-		glutSolidTeapot(1);
-		glPopMatrix();
-	}
-}
-
-void drawCowboys() {
-
-	float angulo;
-	glColor3f(0.0,0.0,1.0);
-	for (int i = 0; i < COWBOYS; i++) {
-		
-		angulo = i * 360.0/COWBOYS + step * STEP_COWBOY;
-		glPushMatrix();
-		glRotatef(-angulo,0.0,1.0,0.0);
-		glTranslatef(RAIO_COWBOYS,1.0,0.0);
-		glColor3d(0,0,1);
-		glutSolidTeapot(1);
-		glPopMatrix();
-	}
-}
 
 void scene() {
 
@@ -167,8 +130,6 @@ void scene() {
 	placeTrees();
 	drawBoneco();
 
-	//drawCowboys();
-	//drawIndios();
 }
 
 void renderScene(void) {
@@ -237,7 +198,7 @@ int main(int argc, char **argv) {
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowPosition(100,100);
 	glutInitWindowSize(1024,1024);
-	glutCreateWindow("CG@DI-UM");
+	glutCreateWindow("Trabalho Patra de CG");
 
 	glutDisplayFunc(renderScene);
 	glutIdleFunc(renderScene);
