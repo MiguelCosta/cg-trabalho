@@ -45,6 +45,12 @@ void changeSize(int w, int h) {
 	glMatrixMode(GL_MODELVIEW);
 }
 
+void fps()	{
+
+
+	step=0;
+}
+
 void drawAxis() {
    glBegin(GL_LINES);
       glColor3f(1.0, 0.0, 0.0);
