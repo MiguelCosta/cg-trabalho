@@ -25,6 +25,8 @@
 
 
 void keyboard(unsigned char key, int x, int y);
+void keybord_special(int key, int x, int y);
+
 void drawTree();
 void placeTrees();
 void drawWorld();
