@@ -77,6 +77,7 @@ int main(int argc, char **argv) {
 
 	glutMouseFunc(processMouseButtons);
 	glutMotionFunc(processMouseMotion);
+	//glutPassiveMotionFunc(funcaoRato);
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
