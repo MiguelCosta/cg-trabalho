@@ -3,18 +3,32 @@
 #include <math.h>
 #include <GL/glut.h>
 
-#define ARVORES 5000
 
 #define XX 0
 #define YY 1
 #define ZZ 2
 
-// local camera position
-GLdouble cam_pos[]={0.0, 1.2,20};
-// local camera view direction
+/* Tipos de camera */
+#define FIST_PERSON		1
+#define THIRD_PERSON	2
+#define GOD_MODE		3
+#define _ANTERIOR		4
+#define _ANTERIOR_		5
+
+/* Tipo de camera */
+int cam_type = GOD_MODE;
+
+/* Posicao do agente */
+GLdouble pos[]={0.0, 1.2, 0.0};
+
+/* local camera position */
+GLdouble cam_pos[]={0.0, 1.2,20}; 
+
+/* local camera view direction */
 GLdouble cam_vd[]={0.0, 0.0, -1.0};
-// camera orientation angle
-int startX, startY, tracking = 0;
+
+/* camera orientation angle */
+int startX, startY, tracking = 0; /* Coisas para o rato! */
 int alpha = 0, beta = 0, r = 5;
 float camX = 0, camY, camZ = 5;
 
@@ -22,7 +36,8 @@ float cam_alpha=0.0;
 
 bool cam_local=false; // switch between camera local to agent and high camera
 
-float step = 0.0;
+
+/* Velocidade do agente */
 float delta = 1;
 
 void changeSize(int w, int h) {
@@ -49,25 +64,19 @@ void changeSize(int w, int h) {
 	glMatrixMode(GL_MODELVIEW);
 }
 
-void fps()	{
-
-
-	step=0;
-}
-
 void drawAxis() {
    glBegin(GL_LINES);
       glColor3f(1.0, 0.0, 0.0);
       glVertex3f(0.0, 0.0, 0.0);
-      glVertex3f(100.0, 0.0, 0.0);
+      glVertex3f(2000.0, 0.0, 0.0);
 
 	  glColor3f(0.0, 1.0, 0.0);
       glVertex3f(0.0, 0.0, 0.0);
-      glVertex3f(0.0, 100.0, 0.0);
+      glVertex3f(0.0, 2000.0, 0.0);
       
 	  glColor3f(0.0, 0.0, 1.0);
       glVertex3f(0.0, 0.0, 0.0);
-      glVertex3f(0.0, 0.0, 100.0);
+      glVertex3f(0.0, 0.0, 2000.0);
    glEnd();
 }
 
@@ -93,7 +102,7 @@ void placeTrees() {
 	srand(31457);
 	int arvores = 0;
 
-	while (arvores < ARVORES) {
+	while (arvores < 500) {
 
 		rr = rand() * 2000.0/ RAND_MAX;
 		alpha = rand() * 6.28 / RAND_MAX;
@@ -148,55 +157,92 @@ void renderScene(void) {
 
 	glLoadIdentity();
 	
-
-	if(cam_local) gluLookAt(cam_pos[0],cam_pos[1],cam_pos[2],
-							cam_pos[0]+cam_vd[0],cam_pos[1]+cam_vd[1],cam_pos[2]+cam_vd[2],
-							0,1,0);
-	
-	else gluLookAt(camX,camY,camZ,
+	switch(cam_type)	{
+		case FIST_PERSON:
+			gluLookAt(	pos[XX], pos[YY], pos[ZZ],
+						pos[XX]+cam_vd[XX], pos[YY]+cam_vd[YY], pos[ZZ]+cam_vd[ZZ],
+						0,1,0);
+			break;
+		case THIRD_PERSON:
+			gluLookAt(	pos[XX], pos[YY], 20+pos[ZZ],
+						pos[XX]+cam_vd[XX], pos[YY]+cam_vd[YY], 20+pos[ZZ]+cam_vd[ZZ],
+						0,1,0);
+			break;
+		case GOD_MODE:
+			gluLookAt(	pos[XX], 1000, pos[ZZ],
+						0,0,-1,//0,
+						0,1,0);
+		case _ANTERIOR:
+			gluLookAt(	cam_pos[0],cam_pos[1],cam_pos[2],
+						cam_pos[0]+cam_vd[0],cam_pos[1]+cam_vd[1],cam_pos[2]+cam_vd[2],
+						0,1,0);
+			break;
+		case _ANTERIOR_:
+			gluLookAt(camX,camY,camZ,
 					0,0,0,
 					0,1,0);
+	}
+	
 	drawAxis();
 	scene();
-	step++;
 
 	glutSwapBuffers();
 }
 
 void keyboard (unsigned char key, int x, int y) {
-	switch (key) {
+	switch (key)	{
 		case 27:   // ESCape
 			exit (0);
 			break;
-		case '1': cam_local = false;
-				break;
-		case '2': cam_local = true;
-				break;
-		case 'w': cam_pos[0] = cam_pos[0] + cam_vd[0]*delta;
-				  cam_pos[1] = cam_pos[1] + cam_vd[1]*delta;
-				  cam_pos[2] = cam_pos[2] + cam_vd[2]*delta;				  
-				  break;
-		case 's': cam_pos[0] = cam_pos[0] - cam_vd[0]*delta;
-				    cam_pos[1] = cam_pos[1] - cam_vd[1]*delta;
-				    cam_pos[2] = cam_pos[2] - cam_vd[2]*delta;				  
-				    break;
+		case '1': 
+			cam_type = FIST_PERSON;
+			break;
+		case '2':
+			cam_type = THIRD_PERSON;
+			break;
+		case '3':
+			cam_type = GOD_MODE;
+			break;
+		case '4':
+			cam_type = _ANTERIOR;
+			break;
+		case '5':
+			cam_type = _ANTERIOR_;
+			break;
+
+		case 'w': 
+			pos[XX] += cam_vd[XX]*delta;
+			//pos[YY] += cam_vd[YY]*delta;
+			pos[ZZ] += cam_vd[ZZ]*delta;				  
+			break;
+		case 's': 
+			pos[XX] -= cam_vd[XX]*delta;
+			//pos[YY] -= cam_vd[YY]*delta;
+			pos[ZZ] -= cam_vd[ZZ]*delta;				  
+			break;
+		case 'a':
+			pos[XX] -= cam_vd[ZZ]*delta;
+			//pos[ZZ] 
+		case 'd':
+
+		default: 
+			break;
+	}
 		//se a camara rodar com as setas
-		case 'd': cam_alpha += 0.05;
+		/*case 'd': cam_alpha += 0.05;
 				     cam_vd[XX] = sin(cam_alpha); 		  
      				     cam_vd[ZZ] = -cos(cam_alpha);
 				     break;
 		case 'a': cam_alpha -= 0.05;
 				    cam_vd[XX] = sin(cam_alpha); 		  
      				    cam_vd[ZZ] = -cos(cam_alpha);			  
-				    break;
-		default: 
-			break;
-	}
+				    break;*/
+	
 	glutPostRedisplay();
 }
 
 void processMouseButtons(int button, int state, int xx, int yy) 
-{
+{	/*
    if (state == GLUT_DOWN)  {
       startX = xx;
       startY = yy;
@@ -220,13 +266,24 @@ void processMouseButtons(int button, int state, int xx, int yy)
       }
       tracking = 0;
    }
-
+   */
    
 }
 
+void processMouseMove(int x, int y)	{
+	static int lastX = x;
+	static int lastY = y;
 
-void processMouseMotion(int xx, int yy)
-{
+	cam_vd[0]+= (x-lastX);
+	cam_vd[1]+= (y-lastY);
+
+	lastX = x;
+	lastY = y;
+
+	SetCursorPos()
+}
+
+void processMouseMotion(int xx, int yy)	{
 
    int deltaX, deltaY;
    int alphaAux, betaAux;
@@ -263,15 +320,14 @@ void processMouseMotion(int xx, int yy)
    camZ = rAux * cos(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0);
    camY = rAux *                          sin(betaAux * 3.14 / 180.0);
 
-
 }
 
-void special_kb(int key, int x, int y) {
+/*void special_kb(int key, int x, int y) {
 	switch (key) {
 		
 	}
 
-}
+}*/
 
 int main(int argc, char **argv) {
 
@@ -286,10 +342,11 @@ int main(int argc, char **argv) {
 	glutIdleFunc(renderScene);
 	glutReshapeFunc(changeSize);
 	glutKeyboardFunc (keyboard);
-	glutSpecialFunc(special_kb);
+	//glutSpecialFunc(special_kb);
 	//glutMouseFunc(mouse);
 	glutMouseFunc(processMouseButtons);
-    glutMotionFunc(processMouseMotion);
+    glutPassiveMotionFunc(processMouseMove);
+	//glutMotionFunc(processMouseMotion);
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
