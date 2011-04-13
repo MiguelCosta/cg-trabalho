@@ -76,7 +76,7 @@ int main(int argc, char **argv) {
 	glutSpecialFunc(keybord_special);
 
 	glutMouseFunc(processMouseButtons);
-    glutMotionFunc(processMouseMotion2);
+	glutMotionFunc(processMouseMotion);
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
