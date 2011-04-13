@@ -13,8 +13,11 @@ int alpha = 0, beta = 0, r = 5;
 float camX = 0, camY, camZ = 5;
 
 float cam_alpha=0.0;
-float delta = 1;
-bool cam_local=true; // switch between camera local to agent and high camera
+
+
+float velocidade_cam = 1;
+
+bool cam_local = true; // switch between camera local to agent and high camera
 
 unsigned int texID;
 unsigned int largura, altura, format, il_img[20];
@@ -25,22 +28,32 @@ unsigned char *il_imgData;
 
 void keyboard(unsigned char key, int x, int y){
 	switch(key) {
-		case 27:   // ESCape
+		case 27:   // ESCape, fechar a janela
 			exit (0);
 			break;
-		case '1': cam_local = false;
+
+		// alterar o modo da camara
+		case '1': 
+				cam_local = false;	// vista de third person
 				break;
-		case '2': cam_local = true;
+		case '2': 
+				cam_local = true;		// vista de first person
 				break;
-		case 'w': cam_pos[0] = cam_pos[0] + cam_vd[0]*delta;
-				  cam_pos[1] = cam_pos[1] + cam_vd[1]*delta;
-				  cam_pos[2] = cam_pos[2] + cam_vd[2]*delta;				  
-				  break;
-		case 's': cam_pos[0] = cam_pos[0] - cam_vd[0]*delta;
-				    cam_pos[1] = cam_pos[1] - cam_vd[1]*delta;
-				    cam_pos[2] = cam_pos[2] - cam_vd[2]*delta;				  
-				    break;
-		//se a camara rodar com as setas
+
+		// alterar a posição da camara
+		case 'w': 
+			cam_pos[0] = cam_pos[0] + cam_vd[0]*VELOCIDADE_CAM;
+			cam_pos[1] = cam_pos[1] + cam_vd[1]*VELOCIDADE_CAM;
+			cam_pos[2] = cam_pos[2] + cam_vd[2]*VELOCIDADE_CAM;				  
+			break;
+
+		case 's': 
+			cam_pos[0] = cam_pos[0] - cam_vd[0]*VELOCIDADE_CAM;
+			cam_pos[1] = cam_pos[1] - cam_vd[1]*VELOCIDADE_CAM;
+			cam_pos[2] = cam_pos[2] - cam_vd[2]*VELOCIDADE_CAM;				  
+			break;
+
+		//rodar a camara
 		case 'd': cam_alpha += 0.05;
 				     cam_vd[XX] = sin(cam_alpha); 		  
      				     cam_vd[ZZ] = -cos(cam_alpha);
@@ -297,40 +310,51 @@ void processMouseButtons(int button, int state, int xx, int yy)
 void processMouseMotion(int xx, int yy)
 {
 
-   int deltaX, deltaY;
-   int alphaAux, betaAux;
-   int rAux;
+   int deltaX, deltaY;		// para colocar as variaçoes do movimento
+   int alphaAux, betaAux;	// alpha e beta auxiliares
+   int rAux= r;				// raio auxiliar
 
+   int meioEcraX = glutGet(GLUT_WINDOW_WIDTH);
+   int meioEcraY = glutGet(GLUT_WINDOW_HEIGHT);
+
+   /*
    if (!tracking)
       return;
-
+	  */
    deltaX = xx - startX;
    deltaY = yy - startY;
 
-   if (tracking == 1) {
+   /* quando não está nenuma tecla activa */
+   if (tracking == 0) {
 
       alphaAux = alpha + deltaX;
       betaAux = beta + deltaY;
 
-      if (betaAux > 85.0)
+      if (betaAux > 85.0)	// limite superior da camara
          betaAux = 85.0;
-      else if (betaAux < -85.0)
+      if (betaAux < -85.0)	// limite inferior da camara
          betaAux = -85.0;
-
-      rAux = r;
+	  glutWarpPointer(meioEcraX, meioEcraY);
+      rAux = r;				// raio da camara
    }
-   else if (tracking == 2) {
-
+   
+   /* quando está o botão direito do rato activo */
+	if (tracking == 2) {
       alphaAux = alpha;
       betaAux = beta;
       rAux = r - deltaY;
-      if (rAux < 3)
+
+      if (rAux < 3)		// limite inferior do zoom
          rAux = 3;
    }
+
+   // calcula a nova posição da camara
    camX = rAux * sin(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0);
    camZ = rAux * cos(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0);
    camY = rAux *                          sin(betaAux * 3.14 / 180.0);
 
+
+   
 
 }
 
