@@ -34,7 +34,7 @@ void keyboard(unsigned char key, int x, int y){
 
 		// alterar o modo da camara
 		case '1': 
-				cam_local = false;	// vista de third person
+				cam_local = false;		// vista de third person
 				break;
 		case '2': 
 				cam_local = true;		// vista de first person
@@ -262,37 +262,49 @@ void cria_menu(){
 			glutAddSubMenu("Mapas", submenu1);
 			glutAddSubMenu("Face dos Objetos", submenu2);
 	
-
-	glutAttachMenu(GLUT_RIGHT_BUTTON);
+			glutAttachMenu(GLUT_MIDDLE_BUTTON);
 
 }
 
 
 //Botão premido ou solto
-//tracking == 1 -> botão esquerdo premido
-//tracking == 2 -> botão direito premido
+//tracking == 1 -> botão esquerdo premido	-> move a camara
+//tracking == 2 -> botão direito premido	-> zoom da camara
+//tracking == 3 -> botão scroll premido		-> menu
 //tracking == 0 -> nenhum botão premido
 void processMouseButtons(int button, int state, int xx, int yy) 
 {
    if (state == GLUT_DOWN)  {
-      startX = xx;
+		// onde está o ponteiro quando se clica
+	  startX = xx;
       startY = yy;
-      if (button == GLUT_LEFT_BUTTON)
-         tracking = 1;
-      else if (button == GLUT_RIGHT_BUTTON)
-		cria_menu();
-	  else if (button == GLUT_MIDDLE_BUTTON)
-		tracking = 2;
-      else
-         tracking = 0;
+
+	  // botão esquerdo do rato primido
+	  if (button == GLUT_LEFT_BUTTON){ 
+		  tracking = 1; 
+		  printf("\nTraching; %d",tracking);
+	  }
+	  // botão direito do rato primido
+	  else if (button == GLUT_RIGHT_BUTTON) { 
+		  tracking = 2; 
+		  printf("\nTraching; %d",tracking);
+	  }
+
+	  // botão scroll primido
+	  else if (button == GLUT_MIDDLE_BUTTON) { 
+		  cria_menu(); 
+		  tracking = 3; 
+		  printf("\nTraching; %d",tracking);
+	  }
+      else tracking = 0;
    }
+   
    else if (state == GLUT_UP) {
       if (tracking == 1) {
          alpha += (xx - startX);
          beta += (yy - startY);
       }
       else if (tracking == 2) {
-         
          r -= yy - startY;
          if (r < 3)
             r = 3.0;
@@ -318,23 +330,30 @@ void processMouseMotion(int xx, int yy)
    int meioEcraY = glutGet(GLUT_WINDOW_HEIGHT)/2;
 
 
-   if (!tracking)
-      return;
+   if (!tracking){
+      printf("nada\n");
+	  return;
+   }
+
+   // é quando se mostra o menu
+   if (tracking == 3){
+	   return;
+   }
 
    deltaX = xx - startX;
    deltaY = yy - startY;
 
-   /* quando não está nenuma tecla activa */
+   /* quando botão direito está primido */
    if (tracking == 1) {
 
       alphaAux = alpha + deltaX;
       betaAux = beta + deltaY;
 
-      if (betaAux > 85.0) betaAux = 85.0;	// limite superior da camara
-      if (betaAux < -85.0) betaAux = -85.0;	// limite inferior da camara
+      if (betaAux > 80.0) betaAux = 80.0;	// limite superior da camara
+      if (betaAux < 3) betaAux = 3 ;	// limite inferior da camara
 
-	  glutWarpPointer(meioEcraX, meioEcraY);
-	  glutSetCursor(GLUT_CURSOR_NONE);
+	  //glutWarpPointer(meioEcraX, meioEcraY);
+	  //glutSetCursor(GLUT_CURSOR_NONE);
       rAux = r;								// raio da camara
    }
    
@@ -351,10 +370,8 @@ void processMouseMotion(int xx, int yy)
    // calcula a nova posição da camara
    camX = rAux * sin(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0);
    camZ = rAux * cos(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0);
-   camY = rAux *                          sin(betaAux * 3.14 / 180.0);
+   camY = rAux *                                sin(betaAux * 3.14 / 180.0);
 
-
-   
 
 }
 
