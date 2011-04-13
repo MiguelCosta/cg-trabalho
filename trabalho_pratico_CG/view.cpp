@@ -50,6 +50,16 @@ void keyboard(unsigned char key, int x, int y){
 	glutPostRedisplay();
 }
 
+
+//Teclas Especiais (F1..F12, Home, End, setas, etc...)
+void keybord_special(int key, int x, int y) {
+	switch (key) {
+		
+	}
+
+}
+
+
 //Desenha uma árvore
 void drawTree() {
 	glPushMatrix();
@@ -221,13 +231,7 @@ void processMouseButtons(int button, int state, int xx, int yy)
 }
 
 
-//Teclas Especiais (F1..F12, Home, End, setas, etc...)
-void special_kb(int key, int x, int y) {
-	switch (key) {
-		
-	}
 
-}
 
 
 
