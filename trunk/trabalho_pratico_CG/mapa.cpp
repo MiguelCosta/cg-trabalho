@@ -4,7 +4,7 @@
 ;
 
 /* Cria aleatoriamente um mapa */
-mapa::mapa(void)	{
+Mapa::Mapa(void)	{
 	//srand (time(NULL));
 	posicao p;
 
@@ -39,7 +39,7 @@ mapa(char *filename)	{
 //---
 
 /* Destroi o mapa */
-mapa::~mapa(void)	{
+Mapa::~Mapa(void)	{
 
 }
 
