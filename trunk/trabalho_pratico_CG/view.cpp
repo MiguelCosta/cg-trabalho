@@ -200,6 +200,72 @@ void renderScene(void) {
 }
 
 
+void menuFaceModo(int op){
+
+	switch(op){
+		case 0: glPolygonMode(GL_FRONT,GL_FILL);
+			break;
+		case 1: glPolygonMode(GL_FRONT,GL_LINE);
+			break;
+		case 2: glPolygonMode(GL_FRONT,GL_POINT);
+			break;
+		case 3: glPolygonMode(GL_BACK,GL_FILL);
+			break;
+		case 4: glPolygonMode(GL_BACK,GL_LINE);
+			break;
+		case 5: glPolygonMode(GL_BACK,GL_POINT);
+			break;
+		case 6: glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
+			break;
+		case 7: glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
+			break;
+		case 8: glPolygonMode(GL_FRONT_AND_BACK,GL_POINT);
+			break;
+	}
+	glutPostRedisplay();
+}
+void escolherMapa(int op){
+
+	switch(op){
+		case 0:
+			break;
+		default:
+			break;
+	}
+	glutPostRedisplay();
+}
+
+
+/**
+ * Funcao que cria menu de contexto do rato
+ */
+void cria_menu(){
+
+	int submenu1, submenu2;
+
+		submenu1 = glutCreateMenu(escolherMapa);
+			glutAddMenuEntry("Mapa 1", 1);
+			glutAddMenuEntry("Mapa 2", 2);
+		submenu2 = glutCreateMenu(menuFaceModo);
+			glutAddMenuEntry("GL_FRONT | GL_FILL",0);
+			glutAddMenuEntry("GL_FRONT | GL_LINE",1);
+			glutAddMenuEntry("GL_FRONT | GL_POINT)",2);
+			glutAddMenuEntry("GL_BACK  | GL_FILL",3);
+			glutAddMenuEntry("GL_BACK  | GL_LINE",4);
+			glutAddMenuEntry("GL_BACK  | GL_POINT)",5);
+			glutAddMenuEntry("GL_FRONT_AND_BACK | GL_FILL",6);
+			glutAddMenuEntry("GL_FRONT_AND_BACK | GL_LINE",7);
+			glutAddMenuEntry("GL_FRONT_AND_BACK | GL_POINT)",8);
+		glutCreateMenu(escolherMapa);
+			glutAddSubMenu("Mapas", submenu1);
+			glutAddSubMenu("Face dos Objetos", submenu2);
+	
+
+	glutAttachMenu(GLUT_RIGHT_BUTTON);
+
+}
+
+
 //Botão premido ou solto
 //tracking == 1 -> botão esquerdo premido
 //tracking == 2 -> botão direito premido
@@ -279,71 +345,6 @@ void processMouseMotion(int xx, int yy)
 
 
 }
-
-
-
-void menuFaceModo(int op){
-
-	switch(op){
-		case 0: glPolygonMode(GL_FRONT,GL_FILL);
-			break;
-		case 1: glPolygonMode(GL_FRONT,GL_LINE);
-			break;
-		case 2: glPolygonMode(GL_FRONT,GL_POINT);
-			break;
-		case 3: glPolygonMode(GL_BACK,GL_FILL);
-			break;
-		case 4: glPolygonMode(GL_BACK,GL_LINE);
-			break;
-		case 5: glPolygonMode(GL_BACK,GL_POINT);
-			break;
-		case 6: glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
-			break;
-		case 7: glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
-			break;
-		case 8: glPolygonMode(GL_FRONT_AND_BACK,GL_POINT);
-			break;
-	}
-	glutPostRedisplay();
-}
-void escolherMapa(int op){
-
-	switch(op){
-		case 0:
-			break;
-		default:
-			break;
-	}
-	glutPostRedisplay();
-}
-
-
-void cria_menu(){
-
-	int submenu1, submenu2;
-
-		submenu1 = glutCreateMenu(escolherMapa);
-			glutAddMenuEntry("Mapa 1", 1);
-			glutAddMenuEntry("Mapa 2", 2);
-		submenu2 = glutCreateMenu(menuFaceModo);
-			glutAddMenuEntry("GL_FRONT | GL_FILL",0);
-			glutAddMenuEntry("GL_FRONT | GL_LINE",1);
-			glutAddMenuEntry("GL_FRONT | GL_POINT)",2);
-			glutAddMenuEntry("GL_BACK  | GL_FILL",3);
-			glutAddMenuEntry("GL_BACK  | GL_LINE",4);
-			glutAddMenuEntry("GL_BACK  | GL_POINT)",5);
-			glutAddMenuEntry("GL_FRONT_AND_BACK | GL_FILL",6);
-			glutAddMenuEntry("GL_FRONT_AND_BACK | GL_LINE",7);
-			glutAddMenuEntry("GL_FRONT_AND_BACK | GL_POINT)",8);
-		glutCreateMenu(escolherMapa);
-			glutAddSubMenu("Mapas", submenu1);
-			glutAddSubMenu("Face dos Objetos", submenu2);
-	
-
-	glutAttachMenu(GLUT_RIGHT_BUTTON);
-
-}
-
 
 
 //Loading textura, nome da textura como parâmetro. Ex: Load_img(batman.jpg)
