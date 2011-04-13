@@ -7,8 +7,12 @@
 //#include "glm.h"
 #include "view.h"
 
+#include "mapa.h"
 
 #define _PI_ 3.14159
+
+Mapa *_mapa;
+
 
 //Redimensionar a janela
 void changeSize(int w, int h) {
@@ -77,6 +81,10 @@ int main(int argc, char **argv) {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 
+	// Codigo do programa
+	_mapa = new Mapa();
+	
+	
 	//criarTextura();
 	glutMainLoop();
 	return 0;
