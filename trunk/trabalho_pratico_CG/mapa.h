@@ -1,5 +1,6 @@
 
-#pragma once
+#ifndef __MAPA
+#define __MAPA
 
 #include <iostream>
 #include <list>
@@ -45,3 +46,4 @@ class Mapa	{
 		~Mapa(void);
 };
 
+#endif
