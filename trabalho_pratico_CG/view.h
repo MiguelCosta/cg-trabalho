@@ -19,23 +19,26 @@
 #define XX 0
 #define YY 1
 #define ZZ 2
+
+// numero de árvores no mapa
 #define ARVORES 5000
 
-
-
-
+// funções para o teclado
 void keyboard(unsigned char key, int x, int y);
 void keybord_special(int key, int x, int y);
 
-void drawTree();
-void placeTrees();
-void drawWorld();
-void drawBoneco();
-void drawPlane();
-void scene();
-void renderScene(void);
+// funções do rato
 void processMouseButtons(int button, int state, int xx, int yy);
 void processMouseMotion(int xx, int yy);
+						
+void drawTree();		// desenha uma arvore
+void placeTrees();		// desenha várias àrvores
+void drawWorld();		// desenhar o mundo à volta
+void drawBoneco();		// desenhar o boneco
+void drawPlane();		// desenhar o terreno
+void scene();			// desenhar todos os objectos
+void renderScene(void); // colcoar no mapa todos os objectos
+
 void cria_menu();
 
 
