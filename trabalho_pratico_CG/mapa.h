@@ -18,15 +18,14 @@ using namespace std;
 #define NUM_TORRES	8
 
 
+typedef struct _posicao	{
+	int x;
+	int y;
+}posicao;
 
 
-class mapa	{
+class Mapa	{
 	public:
-		
-		typedef struct _posicao	{
-			int x;
-			int y;
-		}posicao;
 
 		// Terreno
 		list<posicao> arvores;
@@ -40,14 +39,14 @@ class mapa	{
 
 
 		/* Cria aleatoriamente um mapa */
-		mapa(void);
+		Mapa(void);
 		/* Cria um mapa com base num ficheiro de configuração */
-		mapa(char *filename);
+		//Mapa(char *filename);
 
 		//---
 
 		/* Destroi o mapa */
-		~mapa(void);
+		~Mapa(void);
 }
 
 
