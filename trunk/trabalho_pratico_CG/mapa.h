@@ -1,12 +1,8 @@
 
 #pragma once
-#ifndef __MAPA
-#define __MAPA
-
 
 #include <iostream>
 #include <list>
-#include <set>
 
 using namespace std;
 
@@ -47,7 +43,5 @@ class Mapa	{
 
 		/* Destroi o mapa */
 		~Mapa(void);
-}
+};
 
-
-#endif
