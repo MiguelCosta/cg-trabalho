@@ -1,5 +1,5 @@
 #include "view.h"
-
+#include <math.h>
 
 // local camera position
 GLdouble cam_pos[]={0.0, 1.2,20};
@@ -19,6 +19,8 @@ bool cam_local=true; // switch between camera local to agent and high camera
 unsigned int texID;
 unsigned int largura, altura, format, il_img[20];
 unsigned char *il_imgData;
+
+
 
 
 void keyboard(unsigned char key, int x, int y){
@@ -130,17 +132,6 @@ void drawPlane() {
 	glBindTexture(GL_TEXTURE_2D, texID);
 
 	glPushMatrix();
-	//float color[] = {0.8,0.5,0.2,0.0};
-	//glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
-	//int x,y;
-
-	//glPushMatrix();
-	//glTranslatef(-100,0,-100);
-	//for(x=0; x < 500; x++){
-		//glBindTexture(GL_TEXTURE_2D, texID);
-		//glBegin(GL_QUADS);
-		//glTexCoord2f(largura, altura);
-	//}
 
 	glBegin(GL_QUADS);
 		glTexCoord2f(-2000,2000);glVertex3f(-2000.0, 0.0, 2000.0);
@@ -183,19 +174,17 @@ void renderScene(void) {
 
 	glLoadIdentity();
 	
-
+	// se a camara estiver para o objecto - first person
 	if(cam_local) gluLookAt(cam_pos[0],cam_pos[1],cam_pos[2],
 							cam_pos[0]+cam_vd[0],cam_pos[1]+cam_vd[1],cam_pos[2]+cam_vd[2],
 							0,1,0);
-	
+
+	// se a camara estiver para o mundo - third person
 	else gluLookAt(camX,camY,camZ,
 					0,0,0,
 					0,1,0);
 	scene();
 	
-	//Load_img("relva1.jpg");
-	//Load_img("123.jpg");
-	//drawAxis();
 	glutSwapBuffers();
 }
 
@@ -319,7 +308,6 @@ void processMouseMotion(int xx, int yy)
    deltaY = yy - startY;
 
    if (tracking == 1) {
-
 
       alphaAux = alpha + deltaX;
       betaAux = beta + deltaY;

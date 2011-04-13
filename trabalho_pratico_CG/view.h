@@ -31,7 +31,6 @@ void keybord_special(int key, int x, int y);
 void processMouseButtons(int button, int state, int xx, int yy);
 void processMouseMotion(int xx, int yy);
 
-
 void renderScene(void); // colcoar no mapa todos os objectos
 
 //void cria_menu();		// cria um menu
