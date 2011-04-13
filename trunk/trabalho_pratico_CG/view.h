@@ -39,7 +39,7 @@ void drawPlane();		// desenhar o terreno
 void scene();			// desenhar todos os objectos
 void renderScene(void); // colcoar no mapa todos os objectos
 
-void cria_menu();
+void cria_menu();		// cria um menu
 
 
 
