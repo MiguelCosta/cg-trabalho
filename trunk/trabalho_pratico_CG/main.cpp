@@ -63,14 +63,16 @@ int main(int argc, char **argv) {
 	glutInitWindowPosition(100,100);
 	glutInitWindowSize(1024,1024);
 	glutCreateWindow("Trabalho CG");
+	
 	glutDisplayFunc(renderScene);
 	glutIdleFunc(renderScene);
 	glutReshapeFunc(changeSize);
+	
 	glutKeyboardFunc(keyboard);
 	glutSpecialFunc(keybord_special);
-	//glutMouseFunc(mouse);
+
 	glutMouseFunc(processMouseButtons);
-    glutMotionFunc(processMouseMotion);
+    glutMotionFunc(processMouseMotion2);
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
