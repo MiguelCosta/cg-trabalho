@@ -3,8 +3,10 @@
 
 // local camera position
 GLdouble cam_pos[]={0.0, 1.2,20};
+
 // local camera view direction
 GLdouble cam_vd[]={0.0, 0.0, -1.0};
+
 // camera orientation angle
 int startX, startY, tracking = 0;
 int alpha = 0, beta = 0, r = 5;
@@ -17,6 +19,7 @@ bool cam_local=true; // switch between camera local to agent and high camera
 unsigned int texID;
 unsigned int largura, altura, format, il_img[20];
 unsigned char *il_imgData;
+
 
 void keyboard(unsigned char key, int x, int y){
 	switch(key) {
