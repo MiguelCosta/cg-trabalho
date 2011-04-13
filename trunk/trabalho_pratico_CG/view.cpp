@@ -314,28 +314,28 @@ void processMouseMotion(int xx, int yy)
    int alphaAux, betaAux;	// alpha e beta auxiliares
    int rAux= r;				// raio auxiliar
 
-   int meioEcraX = glutGet(GLUT_WINDOW_WIDTH);
-   int meioEcraY = glutGet(GLUT_WINDOW_HEIGHT);
+   int meioEcraX = glutGet(GLUT_WINDOW_WIDTH)/2;
+   int meioEcraY = glutGet(GLUT_WINDOW_HEIGHT)/2;
 
-   /*
+
    if (!tracking)
       return;
-	  */
+
    deltaX = xx - startX;
    deltaY = yy - startY;
 
    /* quando não está nenuma tecla activa */
-   if (tracking == 0) {
+   if (tracking == 1) {
 
       alphaAux = alpha + deltaX;
       betaAux = beta + deltaY;
 
-      if (betaAux > 85.0)	// limite superior da camara
-         betaAux = 85.0;
-      if (betaAux < -85.0)	// limite inferior da camara
-         betaAux = -85.0;
+      if (betaAux > 85.0) betaAux = 85.0;	// limite superior da camara
+      if (betaAux < -85.0) betaAux = -85.0;	// limite inferior da camara
+
 	  glutWarpPointer(meioEcraX, meioEcraY);
-      rAux = r;				// raio da camara
+	  glutSetCursor(GLUT_CURSOR_NONE);
+      rAux = r;								// raio da camara
    }
    
    /* quando está o botão direito do rato activo */
