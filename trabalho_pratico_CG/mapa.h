@@ -3,7 +3,6 @@
 #ifndef __MAPA
 #define __MAPA
 
-#define NUM_ARVORES 2000
 
 #include <iostream>
 #include <list>
@@ -11,7 +10,15 @@
 
 using namespace std;
 
-//class list;
+//Terreno
+#define NUM_ARVORES	1000
+#define NUM_PEDRAS	100
+//Missao
+#define NUM_CHAVES	3
+#define NUM_TORRES	8
+
+
+
 
 class mapa	{
 	public:
@@ -26,7 +33,7 @@ class mapa	{
 		list<posicao> pedras;
 
 		//Missao
-		posicao chaves[3];
+		list<posicao> chaves;
 		list<posicao> torres;
 		posicao inicial;
 		posicao edificio;
