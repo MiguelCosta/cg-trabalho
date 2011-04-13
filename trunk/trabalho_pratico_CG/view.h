@@ -20,6 +20,9 @@
 #define YY 1
 #define ZZ 2
 
+// velocidade de movimento da camara
+#define VELOCIDADE_CAM 1
+
 // numero de árvores no mapa
 #define ARVORES 5000
 
