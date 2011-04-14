@@ -2,11 +2,15 @@
 
 #include <GL/glut.h>
 #include <IL/il.h>
+#include "mapa.h"
+#include "main.h"
 
 // Tipos de vista
 #define PRIMEIRA_PESSOA	1
 #define TERCEIRA_PESSOA	2
 #define	MODO_DEUS		3
+
+
 
 // Eixos cartesianos
 #define	XX	0
@@ -15,8 +19,9 @@
 
 class Camera	{
 public:
-	GLdouble direcao[3];
-	int tipoDeVista[3];
+	GLdouble cam_pos[3];
+	GLdouble cam_vd[3];
+	int tipoDeVista;
 
 	void mostracena();
 
