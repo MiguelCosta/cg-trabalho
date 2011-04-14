@@ -1,5 +1,6 @@
-#include "Camera.h"
 
+#include "Camera.h"
+#include "mapa.h"
 
 void scene(){
 	_mapa->desenhar();

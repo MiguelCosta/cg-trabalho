@@ -1,4 +1,8 @@
 
+//#include <GL/glut.h>
+#include <IL/il.h>
+#include <math.h>
+
 #include "Chave.h"
 
 Chave::Chave(void){

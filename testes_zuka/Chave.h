@@ -3,8 +3,6 @@
 #define __CHAVE
 
 #include <GL/glut.h>
-#include <IL/il.h>
-#include <math.h>
 #include "glm.h"
 
 class Chave	{
