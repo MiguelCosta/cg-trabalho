@@ -9,11 +9,10 @@ class Chave	{
 
 public:
 	GLdouble posicao[3];
+	
 	Chave(void);
 	Chave(GLdouble x, GLdouble z);
-	
 	~Chave(void);
-	
 	void desenhar(void);
 	
 	

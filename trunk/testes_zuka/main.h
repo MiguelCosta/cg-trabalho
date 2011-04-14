@@ -3,6 +3,9 @@
 #include <iostream>
 #include <GL/glut.h>
 
+#include "textura.h"
+#include "Teclado.h"
+#include "Rato.h"
 #include "mapa.h"
 #include "Agente.h"
 #include "Camera.h"
@@ -11,8 +14,8 @@
 #include "Chave.h"
 
 Mapa	*_mapa;
-Camera	*camera;
-Agente	*agente;
+Camera	*_camera;
+Agente	*_agente;
 
 
 

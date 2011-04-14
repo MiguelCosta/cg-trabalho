@@ -1,6 +1,21 @@
 
 #include "main.h"
 
+
+void renderScene(void)	{
+	
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	glLoadIdentity();
+
+	_camera->desenhar();
+	_agente->desenhar();
+	_mapa->desenhar();
+	
+	glutSwapBuffers();
+}
+
+
 //Redimensionar a janela
 void changeSize(int w, int h) {
 
@@ -33,6 +48,8 @@ int main(int argc, char **argv) {
 	
 	// Codigo do programa
 	_mapa = new Mapa();
+	_camera = new Camera();
+
 	
 	// OpenGL
 	glutInit(&argc, argv);
@@ -48,15 +65,12 @@ int main(int argc, char **argv) {
 	glutKeyboardFunc(recebeTeclado);
 	//glutSpecialFunc(keybord_special);
 
-	glutPassiveMotionFunc();
+	glutPassiveMotionFunc(Rato::mover);
 	//glutMouseFunc(processMouseButtons);
 	//glutMotionFunc(processMouseMotion);
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
-	
-	//	codigo...
-	//posicao[XX] = _mapa.
 
 	//criarTextura();
 	glutMainLoop();

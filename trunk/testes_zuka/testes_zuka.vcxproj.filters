@@ -45,6 +45,12 @@
     <ClCompile Include="textura.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Rato.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Teclado.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mapa.h">
@@ -75,6 +81,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rato.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Teclado.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
