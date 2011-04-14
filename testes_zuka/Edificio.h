@@ -1,5 +1,6 @@
 
-
+#ifndef __EDIFICIO
+#define __EDIFICIO
 
 #include <stdlib.h>
 #include <GL/glut.h>
@@ -19,3 +20,4 @@ private:
 	GLdouble altura;
 };
 
+#endif

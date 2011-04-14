@@ -1,6 +1,7 @@
 
 
-
+#ifndef __AGENTE
+#define __AGENTE
 
 #include <GL/glut.h>
 
@@ -14,3 +15,4 @@ public:
 	~Agente(void);
 };
 
+#endif

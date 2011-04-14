@@ -1,4 +1,6 @@
 
+#ifndef __CAMERA
+#define __CAMERA
 
 #include "main.h"
 
@@ -27,3 +29,4 @@ public:
 	~Camera(void);
 };
 
+#endif
