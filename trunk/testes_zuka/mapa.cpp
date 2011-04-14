@@ -9,8 +9,6 @@
 
 /* Cria aleatoriamente um mapa */
 Mapa::Mapa(void)	{
-	GLdouble x;
-	GLdouble y;
 
 	//carregarTextura();
 

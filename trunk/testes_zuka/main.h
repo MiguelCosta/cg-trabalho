@@ -1,4 +1,7 @@
 
+#pragma once
+
+
 #include <stdlib.h>
 #include <iostream>
 #include <GL/glut.h>
@@ -16,6 +19,6 @@
 Mapa	*_mapa;
 Agente	*_agente;
 Camera	*_camera;
-
+bool teclas[4];
 
 
