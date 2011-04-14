@@ -1,6 +1,6 @@
-#include <stdlib.h>
-#include <GL/glut.h>
 
+
+#include "main.h"
 
 void mover(int x, int y);
 

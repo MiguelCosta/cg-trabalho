@@ -1,6 +1,7 @@
 
-#pragma once
 
+#ifndef __MAIN
+#define __MAIN
 
 #include <stdlib.h>
 #include <iostream>
@@ -21,4 +22,4 @@ Agente	*_agente;
 Camera	*_camera;
 bool teclas[4];
 
-
+#endif

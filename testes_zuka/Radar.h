@@ -1,6 +1,7 @@
-#pragma once
 
-#include <stdlib.h>
+
+
+
 class Radar
 {
 public:

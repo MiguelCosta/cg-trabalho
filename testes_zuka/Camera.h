@@ -1,9 +1,6 @@
-#pragma once
 
-#include <stdlib.h>
-#include <GL/glut.h>
-#include <IL/il.h>
-#include "mapa.h"
+
+#include "main.h"
 
 // Tipos de vista
 #define PRIMEIRA_PESSOA	1
@@ -15,8 +12,8 @@
 #define	YY	1
 #define	ZZ	2
 
-extern Mapa		*_mapa;
-extern Agente	*_agente;
+//extern Mapa		*_mapa;
+//extern Agente	*_agente;
 
 class Camera	{
 public:
