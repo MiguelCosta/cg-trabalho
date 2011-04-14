@@ -93,6 +93,7 @@
     <ClInclude Include="Chave.h" />
     <ClInclude Include="Edificio.h" />
     <ClInclude Include="glm.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="mapa.h" />
     <ClInclude Include="Radar.h" />
     <ClInclude Include="textura.h" />
