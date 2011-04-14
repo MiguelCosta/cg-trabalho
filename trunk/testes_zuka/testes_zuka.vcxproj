@@ -85,6 +85,7 @@
     <ClCompile Include="mapa.cpp" />
     <ClCompile Include="Radar.cpp" />
     <ClCompile Include="show.cpp" />
+    <ClCompile Include="textura.cpp" />
     <ClCompile Include="Torre.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +97,7 @@
     <ClInclude Include="mapa.h" />
     <ClInclude Include="Radar.h" />
     <ClInclude Include="show.h" />
+    <ClInclude Include="textura.h" />
     <ClInclude Include="Torre.h" />
   </ItemGroup>
   <ItemGroup>
