@@ -1,5 +1,6 @@
 
-
+#ifndef __TECLADO
+#define __TECLADO
 
 #include "main.h"
 
@@ -11,4 +12,4 @@ void recebeTeclado(unsigned char key, int x, int y);
 
 
 
-
+#endif
