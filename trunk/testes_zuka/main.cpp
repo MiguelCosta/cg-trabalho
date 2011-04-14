@@ -2,6 +2,12 @@
 #include "main.h"
 
 
+Mapa	*_mapa;
+Agente	*_agente;
+Camera	*_camera;
+bool teclas[4];
+
+
 void renderScene(void)	{
 	
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

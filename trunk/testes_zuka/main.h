@@ -3,7 +3,7 @@
 #ifndef __MAIN
 #define __MAIN
 
-#include <stdlib.h>
+
 #include <iostream>
 #include <GL/glut.h>
 
@@ -17,9 +17,9 @@
 #include "Torre.h"
 #include "Chave.h"
 
-Mapa	*_mapa;
-Agente	*_agente;
-Camera	*_camera;
-bool teclas[4];
+//extern Mapa	*_mapa;
+//extern Agente	*_agente;
+//extern Camera	*_camera;
+//extern bool teclas[4];
 
 #endif

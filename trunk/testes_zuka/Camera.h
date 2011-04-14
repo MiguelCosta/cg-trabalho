@@ -2,6 +2,7 @@
 #ifndef __CAMERA
 #define __CAMERA
 
+#include <GL/glut.h>
 #include "main.h"
 
 // Tipos de vista
@@ -14,8 +15,8 @@
 #define	YY	1
 #define	ZZ	2
 
-//extern Mapa		*_mapa;
-//extern Agente	*_agente;
+extern Mapa		*_mapa;
+extern Agente	*_agente;
 
 class Camera	{
 public:

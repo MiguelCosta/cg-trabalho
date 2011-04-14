@@ -1,11 +1,16 @@
 
-
+#include <iostream>
+#include <list>
 #include <GL/glut.h>
 
+
+
+
 #include "mapa.h"
-#include "textura.h"
 
+using namespace std;
 
+//extern 
 
 /* Cria aleatoriamente um mapa */
 Mapa::Mapa(void)	{
