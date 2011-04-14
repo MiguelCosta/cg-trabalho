@@ -80,7 +80,6 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Chave.cpp" />
     <ClCompile Include="Edificio.cpp" />
-    <ClCompile Include="glm.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mapa.cpp" />
     <ClCompile Include="Radar.cpp" />
@@ -94,7 +93,6 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Chave.h" />
     <ClInclude Include="Edificio.h" />
-    <ClInclude Include="glm.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="mapa.h" />
     <ClInclude Include="Radar.h" />

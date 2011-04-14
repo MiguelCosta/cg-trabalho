@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "trabalho_pratico_CG", "trabalho_pratico_CG\trabalho_pratico_CG.vcxproj", "{15052070-3BAA-4EF5-AF3D-81F58E6E5C22}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testes_zuka", "testes_zuka\testes_zuka.vcxproj", "{0C8639C5-588B-404F-9E8C-31A620F76E1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +15,10 @@ Global
 		{15052070-3BAA-4EF5-AF3D-81F58E6E5C22}.Debug|Win32.Build.0 = Debug|Win32
 		{15052070-3BAA-4EF5-AF3D-81F58E6E5C22}.Release|Win32.ActiveCfg = Release|Win32
 		{15052070-3BAA-4EF5-AF3D-81F58E6E5C22}.Release|Win32.Build.0 = Release|Win32
+		{0C8639C5-588B-404F-9E8C-31A620F76E1E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0C8639C5-588B-404F-9E8C-31A620F76E1E}.Debug|Win32.Build.0 = Debug|Win32
+		{0C8639C5-588B-404F-9E8C-31A620F76E1E}.Release|Win32.ActiveCfg = Release|Win32
+		{0C8639C5-588B-404F-9E8C-31A620F76E1E}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

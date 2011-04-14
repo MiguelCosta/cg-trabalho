@@ -39,9 +39,6 @@
     <ClCompile Include="Edificio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="glm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="textura.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -72,9 +69,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Edificio.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="glm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="textura.h">
