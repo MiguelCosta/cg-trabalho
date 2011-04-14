@@ -1,6 +1,7 @@
 
-#include <stdlib.h>
-#include <GL/glut.h>
+
+
+#include "main.h"
 
 
 unsigned int carregaTextura(char * nomeFicheiro);

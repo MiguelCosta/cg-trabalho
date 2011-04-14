@@ -1,6 +1,7 @@
-#pragma once
 
-#include <stdlib.h>
+
+
+
 #include <GL/glut.h>
 
 class Agente	{
