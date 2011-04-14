@@ -45,6 +45,9 @@
     <ClCompile Include="glm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="textura.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mapa.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="glm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="textura.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
