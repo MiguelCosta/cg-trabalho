@@ -1,50 +1,47 @@
 #include "Teclado.h"
 
-#define char ANDARFRENTE;
+#define ANDAR_FREN	0
+#define ANDAR_TRAS	1
+#define ANDAR_DIR	2
+#define ANDAR_ESQ	3
 
 
-Teclado::Teclado(void)
-{
-}
 
-
-Teclado::~Teclado(void)
-{
-}
-
-void Teclado::recebeTeclado(unsigned char key, int x, int y){
+void recebeTeclado(unsigned char key, int x, int y){
 	switch(key) {
 		case 27:   // ESCape, fechar a janela
-			exit (0);
+			//exit (0);
 			break;
 
 		// alterar o modo da camara
-		case '1': 
-				break;
+		case '1':
+			_camera->tipoDeVista = PRIMEIRA_PESSOA;
+			break;
+		// alterar o modo da camara
+		case '2':
+			_camera->tipoDeVista = TERCEIRA_PESSOA;
+			break;
+		// alterar o modo da camara
+		case '3':
+			_camera->tipoDeVista = MODO_DEUS;
+			break;
 
-		// alterar a posição da camara
-		case 'w': 
+		// Andar
 		case 'W':
-
+		case 'w':
+			teclas[ANDAR_FREN] = true;
 			break;
-
-
-		case 's': 
 		case 'S':
-
+		case 's':
+			teclas[ANDAR_TRAS] = true;
 			break;
-
-		case 'd':
 		case 'D':
-
+		case 'd':
+			teclas[ANDAR_DIR] = true;
 		    break;
-
+		case 'A':
 		case 'a':
-		case 'A' 
-
-			break;
-
-		default: 
+			teclas[ANDAR_ESQ] = true;
 			break;
 	}
 	glutPostRedisplay();
