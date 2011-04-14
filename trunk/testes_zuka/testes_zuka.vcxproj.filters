@@ -42,6 +42,9 @@
     <ClCompile Include="Edificio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="glm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mapa.h">
@@ -68,5 +71,18 @@
     <ClInclude Include="Edificio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="glm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Modelos\Texturas\chave.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="Modelos\Modelos\chave.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
   </ItemGroup>
 </Project>
