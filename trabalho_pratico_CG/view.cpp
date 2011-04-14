@@ -327,7 +327,7 @@ void ratoPassivo(int x, int y)	{
 	static int lastX = x, lastY = y;
 
 	cam_vd[XX] += x - lastX;
-	cam_vd[
+	cam_vd[YY] += y - lastY;
 }
 
 
