@@ -1,19 +1,23 @@
 #include "Chave.h"
 
 Chave::Chave(void){
-   glEnable(GL_DEPTH_TEST);
-   glEnable(GL_CULL_FACE);
-   glEnable(GL_LIGHTING);
-   glEnable(GL_LIGHT0);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
 
-   chave = glmReadOBJ("chave.obj");
-   glmUnitize(chave);
-   glmFacetNormals(chave);
-   glmVertexNormals(chave,90);
+	aplicaTextura();
 
-   posicao[0]=0.0;
-   posicao[1]=0.0;
-   posicao[2]=0.0;
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, texID);
+
+	carregaModeloObj("chave.obj");
+
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	posicao[0]=0.0;
+	posicao[1]=0.0;
+	posicao[2]=0.0;
 }
 
 Chave::Chave(GLdouble posX, GLdouble posZ){
