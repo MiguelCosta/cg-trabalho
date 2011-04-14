@@ -76,13 +76,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Agente.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Chave.cpp" />
+    <ClCompile Include="Edificio.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mapa.cpp" />
+    <ClCompile Include="Radar.cpp" />
     <ClCompile Include="show.cpp" />
+    <ClCompile Include="Torre.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Agente.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Chave.h" />
+    <ClInclude Include="Edificio.h" />
     <ClInclude Include="mapa.h" />
+    <ClInclude Include="Radar.h" />
     <ClInclude Include="show.h" />
+    <ClInclude Include="Torre.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
