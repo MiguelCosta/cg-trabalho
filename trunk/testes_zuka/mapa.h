@@ -9,6 +9,7 @@
 #include "Chave.h"
 #include "Torre.h"
 #include "Edificio.h"
+#include "Agente.h"
 
 using namespace std;
 
@@ -24,26 +25,27 @@ class Mapa	{
 	public:
 
 		// Terreno
-		void desenhar(void);
 		//list<posicao> arvores;
 		//list<posicao> pedras;
 
 		//Missao
-		list<Chave> *chaves;
-		list<Torre> *torres;
+		list<Chave *> *chaves;
+		list<Torre *> *torres;
 		Edificio *edificio;
-		GLdouble posicaoInicial[3];
+		Agente *agente;
 
 
-		/* Cria aleatoriamente um mapa */
+		/* Cria um mapa com posicoes aleatorias */
 		Mapa(void);
 		/* Cria um mapa com base num ficheiro de configuração */
 		//Mapa(char *filename);
-
-		//---
-
+		// Desenha o mapa e tudo que ele contem 
+		void desenhar(void);
 		/* Destroi o mapa */
 		~Mapa(void);
+
+	private:
+		unsigned int texID;
 };
 
 #endif
