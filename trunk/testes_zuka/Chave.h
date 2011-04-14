@@ -1,5 +1,6 @@
 
-
+#ifndef __CHAVE
+#define __CHAVE
 
 #include <GL/glut.h>
 #include <IL/il.h>
@@ -27,3 +28,4 @@ private:
 
 };
 
+#endif
