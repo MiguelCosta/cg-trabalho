@@ -39,8 +39,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\toolkits\includes;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\toolkits\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\toolkits\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\toolkits\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -80,6 +80,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Chave.cpp" />
     <ClCompile Include="Edificio.cpp" />
+    <ClCompile Include="glm.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mapa.cpp" />
     <ClCompile Include="Radar.cpp" />
@@ -91,10 +92,17 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Chave.h" />
     <ClInclude Include="Edificio.h" />
+    <ClInclude Include="glm.h" />
     <ClInclude Include="mapa.h" />
     <ClInclude Include="Radar.h" />
     <ClInclude Include="show.h" />
     <ClInclude Include="Torre.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Modelos\Texturas\chave.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="Modelos\Modelos\chave.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
