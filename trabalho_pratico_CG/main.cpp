@@ -75,6 +75,7 @@ int main(int argc, char **argv) {
 	glutKeyboardFunc(keyboard);
 	glutSpecialFunc(keybord_special);
 
+	glutPassiveMotionFunc(ratoPassivo);
 	glutMouseFunc(processMouseButtons);
 	glutMotionFunc(processMouseMotion);
 	//glutPassiveMotionFunc(funcaoRato);

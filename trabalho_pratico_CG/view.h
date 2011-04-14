@@ -10,11 +10,10 @@
 #include <IL/il.h>
 
 /* Tipos de camera */
-#define FIST_PERSON		1
-#define THIRD_PERSON	2
-#define GOD_MODE		3
-#define _ANTERIOR		4
-#define _ANTERIOR_		5
+#define PRIMEIRA_PESSOA			1
+#define TERCEIRA_PESSOA			2
+#define GOD_MODE				3
+#define PRIMEIRA_PESSOA_NOVO	4
 
 #define XX 0
 #define YY 1
@@ -33,6 +32,7 @@ void keybord_special(int key, int x, int y);
 // funções do rato
 void processMouseButtons(int button, int state, int xx, int yy);
 void processMouseMotion(int xx, int yy);
+void ratoPassivo(int x, int y);
 
 void renderScene(void); // colcoar no mapa todos os objectos
 
