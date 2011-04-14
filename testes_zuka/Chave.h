@@ -5,8 +5,8 @@
 #include <math.h>
 #include "glm.h"
 
-class Chave
-{
+class Chave	{
+
 public:
 	GLdouble posicao[3];
 	Chave(void);
