@@ -1,7 +1,10 @@
 
 
+#include <GL/glut.h>
+
 #include "mapa.h"
-#include 
+#include "textura.h"
+
 
 
 /* Cria aleatoriamente um mapa */
@@ -9,7 +12,7 @@ Mapa::Mapa(void)	{
 	GLdouble x;
 	GLdouble y;
 
-	carregarTextura(
+	//carregarTextura();
 
 	/* Colocar Chaves */
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
@@ -39,8 +42,8 @@ void Mapa::desenhar(void)	{
 	//Desenhar as dependencias
 	
 
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, texID);
+	//glEnable(GL_TEXTURE_2D);
+	//glBindTexture(GL_TEXTURE_2D, texID);
 
 	glPushMatrix();
 
@@ -53,7 +56,7 @@ void Mapa::desenhar(void)	{
 	
 	glPopMatrix();
 
-	glBindTexture(GL_TEXTURE_2D, 0);
+	//glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 /* Destroi o mapa */
