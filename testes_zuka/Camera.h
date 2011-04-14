@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdlib.h>
 #include <GL/glut.h>
 #include <IL/il.h>
 #include "mapa.h"
@@ -14,12 +15,13 @@
 #define	YY	1
 #define	ZZ	2
 
-extern Mapa * _mapa;
+extern Mapa		*_mapa;
+extern Agente	*_agente;
 
 class Camera	{
 public:
-	GLdouble cam_pos[3];
-	GLdouble cam_vd[3];
+	//GLdouble cam_pos[3];
+	GLdouble direcao[3];
 	int tipoDeVista;
 
 	void desenhar();

@@ -1,5 +1,5 @@
 #pragma once
-
+#include <stdlib.h>
 class Teclado	{
 public:
 	bool teclas[4];

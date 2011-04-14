@@ -1,5 +1,5 @@
 #pragma once
-
+#include <stdlib.h>
 #include <GL/glut.h>
 #include <IL/il.h>
 #include <math.h>

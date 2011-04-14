@@ -62,10 +62,10 @@ int main(int argc, char **argv) {
 	glutIdleFunc(renderScene);
 	glutReshapeFunc(changeSize);
 	
-	glutKeyboardFunc(recebeTeclado);
+//	glutKeyboardFunc(Teclado::recebeTeclado);
 	//glutSpecialFunc(keybord_special);
 
-	glutPassiveMotionFunc(Rato::mover);
+	glutPassiveMotionFunc(mover);
 	//glutMouseFunc(processMouseButtons);
 	//glutMotionFunc(processMouseMotion);
 

@@ -1,11 +1,9 @@
+
 #include "Rato.h"
 
 
-Rato::Rato(void)
-{
-}
+void mover(int x, int y)	{
 
 
-Rato::~Rato(void)
-{
 }
+

@@ -22,7 +22,7 @@ Chave::Chave(void){
 }
 
 Chave::Chave(GLdouble posX, GLdouble posZ){
-	glEnable(GL_DEPTH_TEST);
+/*	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
@@ -33,7 +33,7 @@ Chave::Chave(GLdouble posX, GLdouble posZ){
 	carregaModeloObj("chave.obj");
 
 	glBindTexture(GL_TEXTURE_2D, 0);
-
+	*/
 	posicao[0]=posX;
 	posicao[1]=altura;
 	posicao[2]=posZ;

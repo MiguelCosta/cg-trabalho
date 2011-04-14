@@ -9,7 +9,7 @@ Agente::Agente(GLdouble x, GLdouble y)	{
 
 }
 
-Agente::desenhar()	{
+void Agente::desenhar()	{
 
 }
 

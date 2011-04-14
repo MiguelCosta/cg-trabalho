@@ -2,6 +2,7 @@
 #ifndef __MAPA
 #define __MAPA
 
+#include <stdlib.h>
 #include <iostream>
 #include <list>
 #include <GL/glut.h>

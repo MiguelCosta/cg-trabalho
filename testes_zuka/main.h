@@ -1,5 +1,5 @@
 
-
+#include <stdlib.h>
 #include <iostream>
 #include <GL/glut.h>
 
@@ -14,8 +14,8 @@
 #include "Chave.h"
 
 Mapa	*_mapa;
-Camera	*_camera;
 Agente	*_agente;
+Camera	*_camera;
 
 
 
