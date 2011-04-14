@@ -4,17 +4,22 @@
 ;
 
 /* Cria aleatoriamente um mapa */
-Mapa::Mapa(void)	{
+Mapa::Mapa(void)	
+				chaves = new list<Chave>();
+{
 	//srand (time(NULL));
-	posicao p;
+	GLdouble x;
+	GLdouble y;
+	
+	chaves.push_back();
 
-	/* Colocar arvores */
+	/* Colocar arvores * /
 	for( int i=0 ; i < NUM_ARVORES ; i++)	{
 		p.x = rand() * 2000 / RAND_MAX;
 		p.y = rand() * 2000 / RAND_MAX;
 		arvores.push_front(* new posicao(p));
 	}
-	/* Colocar pedras */
+	/* Colocar pedras * /
 	for( int i=0 ; i < NUM_PEDRAS ; i++)	{
 		p.x = rand() * 2000 / RAND_MAX;
 		p.y = rand() * 2000 / RAND_MAX;
@@ -28,7 +33,7 @@ Mapa::Mapa(void)	{
 	inicial.x = rand() *2000 / RAND_MAX;
 	inicial.y = rand() *2000 / RAND_MAX;
 	edificio.x = rand() *2000 / RAND_MAX;
-	edificio.y = rand() *2000 / RAND_MAX;
+	edificio.y = rand() *2000 / RAND_MAX; */
 }
 
 /* Cria um mapa com base num ficheiro de configuração * /

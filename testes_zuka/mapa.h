@@ -4,6 +4,11 @@
 
 #include <iostream>
 #include <list>
+#include <GL/glut.h>
+
+#include "Chave.h"
+#include "Torre.h"
+#include "Edificio.h"
 
 using namespace std;
 
@@ -15,24 +20,19 @@ using namespace std;
 #define NUM_TORRES	8
 
 
-typedef struct _posicao	{
-	int x;
-	int y;
-}posicao;
-
-
 class Mapa	{
 	public:
 
 		// Terreno
-		list<posicao> arvores;
-		list<posicao> pedras;
+		void desenhar(void);
+		//list<posicao> arvores;
+		//list<posicao> pedras;
 
 		//Missao
-		list<posicao> chaves;
-		list<posicao> torres;
-		posicao inicial;
-		posicao edificio;
+		list<Chave> *chaves;
+		list<Torre> *torres;
+		Edificio *edificio;
+		GLdouble posicaoInicial[3];
 
 
 		/* Cria aleatoriamente um mapa */
