@@ -1,3 +1,4 @@
+
 #include "Chave.h"
 
 Chave::Chave(void){
@@ -6,7 +7,7 @@ Chave::Chave(void){
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 
-	aplicaTextura();
+	//aplicaTextura();
 
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, texID);
@@ -27,7 +28,7 @@ Chave::Chave(GLdouble posX, GLdouble posZ){
 	glEnable(GL_LIGHT0);
 
 	glEnable(GL_TEXTURE_2D);
-	aplicaTextura("chave.jpg");
+	texID = aplicaTextura("chave.jpg", texID);
 
 	carregaModeloObj("chave.obj");
 
@@ -49,25 +50,6 @@ void Chave::carregaModeloObj(char* nome){
 	glmUnitize(chave);
 	glmFacetNormals(chave);
 	glmVertexNormals(chave,90);
-}
-
-void Chave::aplicaTextura(char *nome){
-	unsigned int t, tw, th;
-	unsigned char *texData;
-	ilGenImages(1,&t);
-	ilBindImage(t);
-	ilLoadImage((ILstring)nome);
-	tw = ilGetInteger(IL_IMAGE_WIDTH);
-	th = ilGetInteger(IL_IMAGE_HEIGHT);
-	ilConvertImage(IL_RGBA, IL_UNSIGNED_BYTE);
-	texData = ilGetData();
-	glGenTextures(1,&texID);
-	glBindTexture(GL_TEXTURE_2D,texID);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, tw, th, 0, GL_RGBA, GL_UNSIGNED_BYTE, texData);
 }
 
 Chave::~Chave(void)

@@ -22,7 +22,7 @@ public:
 	GLdouble cam_vd[3];
 	int tipoDeVista;
 
-	void mostracena();
+	void desenhar();
 
 	Camera(void);
 	~Camera(void);

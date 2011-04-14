@@ -84,6 +84,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mapa.cpp" />
     <ClCompile Include="Radar.cpp" />
+    <ClCompile Include="Rato.cpp" />
+    <ClCompile Include="Teclado.cpp" />
     <ClCompile Include="textura.cpp" />
     <ClCompile Include="Torre.cpp" />
   </ItemGroup>
@@ -96,6 +98,8 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="mapa.h" />
     <ClInclude Include="Radar.h" />
+    <ClInclude Include="Rato.h" />
+    <ClInclude Include="Teclado.h" />
     <ClInclude Include="textura.h" />
     <ClInclude Include="Torre.h" />
   </ItemGroup>

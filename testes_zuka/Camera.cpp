@@ -1,7 +1,6 @@
 #include "Camera.h"
 
 
-
 void scene(){
 	_mapa->desenhar();
 }
@@ -10,11 +9,7 @@ void scene(){
  * Desenha a cena
  */
 //renderScene
-void Camera::mostracena(void) {
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	glLoadIdentity();
+void Camera::desenhar(void) {
 	
 	/* se a camara estiver para o objecto - first person */
 	if(tipoDeVista == PRIMEIRA_PESSOA){
@@ -35,10 +30,6 @@ void Camera::mostracena(void) {
 				  0,			1,				0);
 	}
 
-
-	scene();
-	
-	glutSwapBuffers();
 }
 
 Camera::Camera(void)

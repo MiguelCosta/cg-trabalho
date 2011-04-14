@@ -9,6 +9,10 @@ Agente::Agente(GLdouble x, GLdouble y)	{
 
 }
 
+Agente::desenhar()	{
+
+}
+
 Agente::~Agente(void)	{
 
 }
