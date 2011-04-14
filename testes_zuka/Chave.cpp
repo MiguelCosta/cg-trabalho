@@ -26,10 +26,8 @@ Chave::Chave(GLdouble posX, GLdouble posZ){
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 
-	aplicaTextura("chave.jpg");
-
 	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, texID);
+	aplicaTextura("chave.jpg");
 
 	carregaModeloObj("chave.obj");
 
