@@ -6,8 +6,8 @@
 // Eixos cartezianos
 #define XX	0
 #define YY	1
-#define ZZ 2
-// Tipos de camera
+#define ZZ	2
+// Tipos de vista
 #define PRIMEIRA_PESSOA	1
 #define TERCEIRA_PESSOA	2
 #define	MODO_DEUS		3
@@ -127,6 +127,9 @@ void startShow(int argc, char **argv)	{
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 	
+	//	codigo...
+	posicao[XX] = _mapa.
+
 	//criarTextura();
 	glutMainLoop();
 
