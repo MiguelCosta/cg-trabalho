@@ -1,6 +1,8 @@
 #include "view.h"
 #include <math.h>
 
+int tipo_de_camera = PRIMEIRA_PESSOA;
+
 // local camera position
 GLdouble cam_pos[]={0.0, 1.2,20};
 
@@ -34,10 +36,15 @@ void keyboard(unsigned char key, int x, int y){
 
 		// alterar o modo da camara
 		case '1': 
-				cam_local = false;		// vista de third person
+				cam_local = false;	// vista de third person
+				tipo_de_camera = TERCEIRA_PESSOA;	// vista de third person
 				break;
 		case '2': 
 				cam_local = true;		// vista de first person
+				tipo_de_camera = PRIMEIRA_PESSOA;		// vista de first person
+				break;
+		case '3':
+				tipo_de_camera = PRIMEIRA_PESSOA_NOVO;
 				break;
 
 		// alterar a posição da camara
@@ -188,9 +195,10 @@ void renderScene(void) {
 	glLoadIdentity();
 	
 	// se a camara estiver para o objecto - first person
-	if(cam_local) gluLookAt(cam_pos[0],cam_pos[1],cam_pos[2],
-							cam_pos[0]+cam_vd[0],cam_pos[1]+cam_vd[1],cam_pos[2]+cam_vd[2],
-							0,1,0);
+	if(tipo_de_camera == PRIMEIRA_PESSOA || tipo_de_camera == PRIMEIRA_PESSOA_NOVO)
+		gluLookAt(	cam_pos[XX],			cam_pos[YY],			cam_pos[ZZ],
+					cam_pos[XX]+cam_vd[XX],	cam_pos[YY]+cam_vd[YY],	cam_pos[ZZ]+cam_vd[ZZ],
+					0,						1,						0);
 
 	// se a camara estiver para o mundo - third person
 	else gluLookAt(camX,camY,camZ,
@@ -315,7 +323,12 @@ void processMouseButtons(int button, int state, int xx, int yy)
 
 
 
+void ratoPassivo(int x, int y)	{
+	static int lastX = x, lastY = y;
 
+	cam_vd[XX] += x - lastX;
+	cam_vd[
+}
 
 
 //Movimento passivo (sem botão premido) ou activo
