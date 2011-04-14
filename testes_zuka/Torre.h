@@ -1,5 +1,6 @@
 
-
+#ifndef __TORRE
+#define __TORRE
 
 
 class Torre
@@ -9,3 +10,4 @@ public:
 	~Torre(void);
 };
 
+#endif

@@ -29,4 +29,5 @@ public:
 	~Camera(void);
 };
 
+
 #endif
