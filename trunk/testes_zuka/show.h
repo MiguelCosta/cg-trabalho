@@ -2,9 +2,6 @@
 
 #pragma once
 
-#include <GL/glut.h>
-#include "mapa.h"
-
 /** Defines publicos */
 // Codigos das teclas
 #define WW	0
