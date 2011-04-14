@@ -39,8 +39,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\toolkits\includes;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\toolkits\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\toolkits\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\toolkits\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -84,7 +84,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mapa.cpp" />
     <ClCompile Include="Radar.cpp" />
-    <ClCompile Include="show.cpp" />
     <ClCompile Include="textura.cpp" />
     <ClCompile Include="Torre.cpp" />
   </ItemGroup>
@@ -96,7 +95,6 @@
     <ClInclude Include="glm.h" />
     <ClInclude Include="mapa.h" />
     <ClInclude Include="Radar.h" />
-    <ClInclude Include="show.h" />
     <ClInclude Include="textura.h" />
     <ClInclude Include="Torre.h" />
   </ItemGroup>
