@@ -2,31 +2,40 @@
 
 
 
-void scene()	{
-
-
+void scene(){
+	_mapa->desenhar();
 }
 
 /**
  * Desenha a cena
  */
-void renderScene(void) {
+//renderScene
+void Camera::mostracena(void) {
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glLoadIdentity();
 	
-	/* se a camara estiver para o objecto - first person
-	if(tipo_de_camera == PRIMEIRA_PESSOA || tipo_de_camera == PRIMEIRA_PESSOA_NOVO)
+	/* se a camara estiver para o objecto - first person */
+	if(tipoDeVista == PRIMEIRA_PESSOA){
 		gluLookAt(	cam_pos[XX],			cam_pos[YY],			cam_pos[ZZ],
 					cam_pos[XX]+cam_vd[XX],	cam_pos[YY]+cam_vd[YY],	cam_pos[ZZ]+cam_vd[ZZ],
 					0,						1,						0);
-
+		}
 	// se a camara estiver para o mundo - third person
-	else gluLookAt(camX,camY,camZ,
-					0,0,0,
-					0,1,0);
-	*/
+	else if(tipoDeVista == TERCEIRA_PESSOA){
+		gluLookAt(cam_pos[XX],	cam_pos[YY],	cam_pos[ZZ],
+				  0,			0,				0,
+				  0,			1,				0);
+	}
+	// se a camara estiver em modo deus
+	else if(tipoDeVista == MODO_DEUS){
+		gluLookAt(cam_pos[XX],	cam_pos[YY],	cam_pos[ZZ],
+				  0,			0,				0,
+				  0,			1,				0);
+	}
+
+
 	scene();
 	
 	glutSwapBuffers();
@@ -34,6 +43,8 @@ void renderScene(void) {
 
 Camera::Camera(void)
 {
+	tipoDeVista = MODO_DEUS;
+	mostracena();
 }
 
 
