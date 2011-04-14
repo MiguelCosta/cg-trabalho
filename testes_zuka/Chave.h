@@ -22,8 +22,8 @@ private:
 	 GLMmodel *chave;
 	 GLdouble altura;
 	 unsigned int texID;
-	 void aplicaTextura(void);
-	 void carregaModeloObj(char *nome);
+	 void aplicaTextura(char *nomeFich);
+	 void carregaModeloObj(char *nomeFich);
 
 };
 

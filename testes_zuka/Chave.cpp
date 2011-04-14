@@ -26,7 +26,7 @@ Chave::Chave(GLdouble posX, GLdouble posZ){
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 
-	aplicaTextura();
+	aplicaTextura("chave.jpg");
 
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, texID);
@@ -53,12 +53,12 @@ void Chave::carregaModeloObj(char* nome){
 	glmVertexNormals(chave,90);
 }
 
-void Chave::aplicaTextura(void){
+void Chave::aplicaTextura(char *nome){
 	unsigned int t, tw, th;
 	unsigned char *texData;
 	ilGenImages(1,&t);
 	ilBindImage(t);
-	ilLoadImage((ILstring)"chave.jpg");
+	ilLoadImage((ILstring)nome);
 	tw = ilGetInteger(IL_IMAGE_WIDTH);
 	th = ilGetInteger(IL_IMAGE_HEIGHT);
 	ilConvertImage(IL_RGBA, IL_UNSIGNED_BYTE);
