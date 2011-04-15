@@ -1,3 +1,5 @@
+
+#include <GL/glut.h>
 #include "view.h"
 #include <math.h>
 
