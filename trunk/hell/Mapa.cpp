@@ -10,7 +10,7 @@ Mapa::Mapa(void)	{
 	//carregarTextura();
 
 	agente = new Agente(0, 0);
-
+	chave = new Chave();
 	/* Colocar Chaves * /
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
 
@@ -33,6 +33,7 @@ void Mapa::desenhar(void)	{
 	glPolygonMode(GL_BACK, GL_LINE);
 	//Desenhar as dependencias
 	agente->desenhar();
+	chave->desenhar();
 	
 	glPushMatrix();
 	float color2[] = {0.0, 0.9, 0.0, 1.0};
