@@ -27,23 +27,47 @@ Mapa::Mapa(void)	{
 	}
 	/*
 	agente = new Agente(
-		rand() *2000 / RAND_MAX,
-		rand() *2000 / RAND_MAX);
+	rand() *2000 / RAND_MAX,
+	rand() *2000 / RAND_MAX);
 
 	edificio = new Edificio(
-		rand() *2000 / RAND_MAX,
-		rand() *2000 / RAND_MAX); */
+	rand() *2000 / RAND_MAX,
+	rand() *2000 / RAND_MAX); */
+}
+
+
+void Mapa::terreno(void){
+	
+
+	float color[] = {1.0,1.0,1.0,1.0};
+	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
+	int x = 0, z = 0;
+	
+	glPushMatrix();
+
+	glColor3f(1.0,1.0,1.0);
+	for(x = -MAPA_TAM; x < MAPA_TAM; x++) {
+		glBegin(GL_TRIANGLE_STRIP);
+		for(z = -MAPA_TAM; z < MAPA_TAM; z++) {
+			glVertex3f(x+1,0,z);
+			glVertex3f(x,0,z);
+		}
+		glEnd();
+	}
+
+	glPopMatrix();
+
 }
 
 /* Desenha o mapa e tudo que esta nele */
 void Mapa::desenhar(void)	{
 
 	//glPolygonMode(GL_BACK, GL_LINE);
-	
+
 	//Desenhar as dependencias
 	agente->desenhar();
 	edificio->desenhar();
-	
+	terreno();
 	// desenhar as chaves
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
 		chaves[i]->desenha();
@@ -52,22 +76,9 @@ void Mapa::desenhar(void)	{
 	//list<Chave *>::iterator it;
 	/* Colocar Chaves */
 	/*for( it = chaves->begin() ; it != chaves->end() ; it++)	{
-		(*it)->desenhar();
+	(*it)->desenhar();
 	}
 	*/
-	glPushMatrix();
-	float color2[] = {0.0, 0.9, 0.0, 1.0};
-	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color2);
-	
-	glBegin(GL_QUADS);
-		glColor3f(0.0,0.6, 0.0);
-				
-		glVertex3f(-MAPA_TAM, 0.0, -MAPA_TAM);
-		glVertex3f(-MAPA_TAM, 0.0,  MAPA_TAM);
-		glVertex3f( MAPA_TAM, 0.0,  MAPA_TAM);
-		glVertex3f( MAPA_TAM, 0.0, -MAPA_TAM);
-	glEnd();
-	glPopMatrix();
 }
 
 Mapa::~Mapa(void)	{
