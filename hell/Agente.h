@@ -19,6 +19,7 @@ public:
 	~Agente(void);
 
 private:
-	//int velX;
+	GLfloat ang;
+	GLfloat velocidade;
 };
 

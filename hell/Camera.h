@@ -5,10 +5,6 @@
 #define TERCEIRA_PESSOA	2
 #define	MODO_DEUS		3
 
-// Eixos cartesianos
-#define	XX	0
-#define	YY	1
-#define	ZZ	2
 
 class Camera	{
 public:

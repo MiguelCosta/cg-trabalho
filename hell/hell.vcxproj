@@ -86,6 +86,7 @@
   <ItemGroup>
     <ClInclude Include="Agente.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="defines.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Mapa.h" />
   </ItemGroup>
