@@ -9,3 +9,5 @@
 #define MAPA_TAM	150
 #define NUM_CHAVES	3
 
+// Radar
+#define RADAR_ALCALCE 500
