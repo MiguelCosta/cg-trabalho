@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <GL/glut.h>
 #include "Mapa.h"
+#include "defines.h"
 
 
 /* Cria aleatoriamente um mapa */
@@ -10,17 +11,13 @@ Mapa::Mapa(void)	{
 	//carregarTextura();
 
 	agente = new Agente(0, 0);
-	chave = new Chave();
 	edificio = new Edificio();
 
-	/* Colocar Chaves * /
+	/* Colocar Chaves */
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
-
-		chaves->push_front(
-			new Chave(
-				rand() * 2000 / RAND_MAX,
-				rand() * 2000 / RAND_MAX));
+		chaves[i] = new Chave(rand() * MAPA_TAM / RAND_MAX,	rand() * MAPA_TAM / RAND_MAX);
 	}
+	/*
 	agente = new Agente(
 		rand() *2000 / RAND_MAX,
 		rand() *2000 / RAND_MAX);
@@ -35,9 +32,19 @@ void Mapa::desenhar(void)	{
 	glPolygonMode(GL_BACK, GL_LINE);
 	//Desenhar as dependencias
 	agente->desenhar();
-	chave->desenhar();
 	edificio->desenhar();
 	
+	// desenhar as chaves
+	for( int i=0 ; i < NUM_CHAVES ; i++)	{
+		chaves[i]->desenha();
+	}
+
+	//list<Chave *>::iterator it;
+	/* Colocar Chaves */
+	/*for( it = chaves->begin() ; it != chaves->end() ; it++)	{
+		(*it)->desenhar();
+	}
+	*/
 	glPushMatrix();
 	float color2[] = {0.0, 0.9, 0.0, 1.0};
 	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color2);

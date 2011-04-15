@@ -7,4 +7,5 @@
 
 // Tamanho do Mapa
 #define MAPA_TAM	150
+#define NUM_CHAVES	3
 

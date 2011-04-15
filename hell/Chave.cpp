@@ -14,7 +14,7 @@ Chave::Chave(GLdouble posicaoInicialX, GLdouble posicaoInicialZ){
 	posicao[ZZ] = posicaoInicialZ;
 }
 
-void Chave::desenhar(void)	{
+void Chave::desenha(void)	{
 	float color[] = {1.0,0.0,0.0,1.0};
 	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
 	
