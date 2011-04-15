@@ -1,4 +1,7 @@
 
+
+#include <GL/glut.h>
+
 #include "Teclado.h"
 #include "Camera.h"
 
@@ -6,8 +9,6 @@
 #define ANDAR_TRAS	1
 #define ANDAR_DIR	2
 #define ANDAR_ESQ	3
-
-#include <GL/glut.h>
 
 extern Camera *_camera;
 extern bool teclas[4];

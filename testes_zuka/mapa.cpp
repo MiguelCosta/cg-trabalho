@@ -4,8 +4,6 @@
 #include <GL/glut.h>
 
 
-
-
 #include "mapa.h"
 
 using namespace std;
