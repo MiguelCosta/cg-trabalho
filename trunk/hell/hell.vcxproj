@@ -40,8 +40,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\toolkits\includes;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\toolkits\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\toolkits\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\toolkits\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -67,7 +67,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;GLUT_BUILDING_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -79,6 +79,8 @@
   <ItemGroup>
     <ClCompile Include="Agente.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Chave.cpp" />
+    <ClCompile Include="Edificio.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mapa.cpp" />
@@ -86,7 +88,9 @@
   <ItemGroup>
     <ClInclude Include="Agente.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Chave.h" />
     <ClInclude Include="defines.h" />
+    <ClInclude Include="Edificio.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Mapa.h" />
   </ItemGroup>

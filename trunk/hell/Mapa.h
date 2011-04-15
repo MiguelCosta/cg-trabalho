@@ -3,6 +3,7 @@
 #include "Agente.h"
 #include "Chave.h"
 #include "Edificio.h"
+#include "defines.h"
 
 class Mapa	{
 public:
@@ -10,9 +11,9 @@ public:
 	//Terreno
 
 	//Missao
-	Agente		*agente;
-	Chave		*chave;
-	Edificio	*edificio;
+	Agente				*agente;
+	Chave				*chaves[NUM_CHAVES];
+	Edificio			*edificio;
 
 	Mapa(void);
 	void desenhar(void);

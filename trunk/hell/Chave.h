@@ -14,7 +14,7 @@ public:
 	Chave(GLdouble posicaoInicialX, GLdouble posicaoInicialZ);
 
 	/** Desenha a chave */
-	void desenhar(void);
+	void desenha(void);
 
 	/** Destrutor */
 	~Chave(void);
