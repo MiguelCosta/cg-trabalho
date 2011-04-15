@@ -22,7 +22,7 @@ int radar(float &dist)	{
 
 		act = distancia3d(x1,y1,z1,x2,y2,z2);
 		if(act < min) min = act;
-	while(i < NUM_CHAVES);
+	}while(i < NUM_CHAVES);
 
 	if(min <= RADAR_ALCALCE)	{
 		dist = min;
@@ -32,4 +32,6 @@ int radar(float &dist)	{
 	dist = 0;
 	return 1;
 }
+
+
 
