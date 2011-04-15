@@ -7,6 +7,7 @@ extern bool teclas[4];
 class Agente	{
 public:
 	GLdouble posicao[3];
+	GLfloat ang;
 
 	/** Construtores */
 	Agente(void);
@@ -19,7 +20,6 @@ public:
 	~Agente(void);
 
 private:
-	GLfloat ang;
 	GLfloat velocidade;
 };
 

@@ -1,6 +1,9 @@
 
 #include <stdlib.h>
 #include <GL/glut.h>
+#include <time.h>
+
+
 #include "Mapa.h"
 #include "defines.h"
 
@@ -13,9 +16,14 @@ Mapa::Mapa(void)	{
 	agente = new Agente(0, 0);
 	edificio = new Edificio();
 
+	//inicializa o gerador de numeros aleatorios
+	srand(time(NULL));
+
 	/* Colocar Chaves */
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
-		chaves[i] = new Chave(rand() * MAPA_TAM / RAND_MAX,	rand() * MAPA_TAM / RAND_MAX);
+		chaves[i] = new Chave(
+			rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM,
+			rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM);
 	}
 	/*
 	agente = new Agente(
@@ -29,7 +37,9 @@ Mapa::Mapa(void)	{
 
 /* Desenha o mapa e tudo que esta nele */
 void Mapa::desenhar(void)	{
-	glPolygonMode(GL_BACK, GL_LINE);
+
+	//glPolygonMode(GL_BACK, GL_LINE);
+	
 	//Desenhar as dependencias
 	agente->desenhar();
 	edificio->desenhar();
@@ -52,10 +62,10 @@ void Mapa::desenhar(void)	{
 	glBegin(GL_QUADS);
 		glColor3f(0.0,0.6, 0.0);
 				
-		glVertex3f(-150, 0.0, -150);
-		glVertex3f(-150, 0.0,  150);
-		glVertex3f( 150, 0.0,  150);
-		glVertex3f( 150, 0.0, -150);
+		glVertex3f(-MAPA_TAM, 0.0, -MAPA_TAM);
+		glVertex3f(-MAPA_TAM, 0.0,  MAPA_TAM);
+		glVertex3f( MAPA_TAM, 0.0,  MAPA_TAM);
+		glVertex3f( MAPA_TAM, 0.0, -MAPA_TAM);
 	glEnd();
 	glPopMatrix();
 }

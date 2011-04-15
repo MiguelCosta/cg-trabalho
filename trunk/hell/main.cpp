@@ -1,6 +1,8 @@
 
+#include <stdlib.h>
 #include <GL/glut.h>
 #include <math.h>
+#include <time.h>
 
 #include "Mapa.h"
 #include "Camera.h"
@@ -60,7 +62,6 @@ int main(int argc, char **argv) {
 	_mapa = new Mapa();
 	_camera = new Camera();
 
-	
 	// Inicializacao
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
@@ -85,6 +86,7 @@ int main(int argc, char **argv) {
 	// Definicoes do OpenGL
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
+	glutFullScreen();
 
 	//criarTextura();
 	glutMainLoop();

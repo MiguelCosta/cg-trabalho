@@ -64,6 +64,7 @@ void Agente::andar(void)	{
 	if(posicao[ZZ] <= -MAPA_TAM)
 		posicao[ZZ] = -MAPA_TAM;
 }
+
 Agente::~Agente(void)	{
 
 }
