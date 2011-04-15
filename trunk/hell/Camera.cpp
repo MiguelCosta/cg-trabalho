@@ -2,6 +2,7 @@
 #include <GL/glut.h>
 #include "Camera.h"
 #include "Mapa.h"
+#include "defines.h"
 
 extern Mapa * _mapa;
 

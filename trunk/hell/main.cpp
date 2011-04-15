@@ -9,7 +9,7 @@
 Mapa	*_mapa;
 //Agente	*_agente;
 Camera	*_camera;
-bool teclas[4];
+bool teclas[NUM_TECLAS];
 
 
 void renderScene(void)	{
@@ -73,8 +73,10 @@ int main(int argc, char **argv) {
 	glutIdleFunc(renderScene);
 	glutReshapeFunc(changeSize);
 	
-//	glutKeyboardFunc(Teclado::recebeTeclado);
-	//glutSpecialFunc(keybord_special);
+	glutKeyboardFunc(processarTecladoDown);
+	glutKeyboardUpFunc(processarTecladoUp);
+	glutSpecialFunc(processarTecladoEspecialDown);
+	glutSpecialUpFunc(processarTecladoEspecialUp);
 
 //	glutPassiveMotionFunc(mover);
 	glutMouseFunc(processMouseButtons);

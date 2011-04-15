@@ -1,9 +1,23 @@
 
+typedef enum e_teclas {
+	ANDAR_FREN,
+	ANDAR_TRAS,
+	ANDAR_DIR,
+	ANDAR_ESQ,
 
+	NUM_TECLAS,
+} COD_TECLAS;
 
+/** Funcoes */
+void processarTecladoEspecialDown(int key, int x, int y);
 
+void processarTecladoEspecialUp(int key, int x, int y);
 
-void processMouseButtons(int button, int state, int xx, int yy);
+void processarTecladoDown	(unsigned char key, int x, int y);
 
-void processMouseMotion(int xx, int yy);
+void processarTecladoUp		(unsigned char key, int x, int y);
+
+void processMouseButtons	(int button, int state, int xx, int yy);
+
+void processMouseMotion		(int xx, int yy);
 

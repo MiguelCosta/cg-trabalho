@@ -9,7 +9,7 @@ Mapa::Mapa(void)	{
 
 	//carregarTextura();
 
-	agente = new Agente(rand() * 2000 / RAND_MAX,rand() * 2000 / RAND_MAX);
+	agente = new Agente(0, 0);
 
 	/* Colocar Chaves * /
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
@@ -30,7 +30,7 @@ Mapa::Mapa(void)	{
 
 /* Desenha o mapa e tudo que esta nele */
 void Mapa::desenhar(void)	{
-
+	glPolygonMode(GL_BACK, GL_LINE);
 	//Desenhar as dependencias
 	agente->desenhar();
 	
