@@ -11,6 +11,8 @@ Mapa::Mapa(void)	{
 
 	agente = new Agente(0, 0);
 	chave = new Chave();
+	edificio = new Edificio();
+
 	/* Colocar Chaves * /
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
 
@@ -34,6 +36,7 @@ void Mapa::desenhar(void)	{
 	//Desenhar as dependencias
 	agente->desenhar();
 	chave->desenhar();
+	edificio->desenhar();
 	
 	glPushMatrix();
 	float color2[] = {0.0, 0.9, 0.0, 1.0};
