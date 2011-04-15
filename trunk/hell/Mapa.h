@@ -4,6 +4,9 @@
 #include "Chave.h"
 #include "Edificio.h"
 #include "defines.h"
+#include <IL/il.h>
+
+
 
 class Mapa	{
 public:
@@ -16,10 +19,20 @@ public:
 	Edificio			*edificio;
 
 	Mapa(void);
+	/** desenha o terreno */
+	void terreno(void);
+	/** textura para o terreno */
+	void initTextura(ILstring nomeTextura);
 
-	void  terreno(void);
+	/**desenha tudo no mapa */
 	void desenhar(void);
 	~Mapa(void);
+
+private:
+	// imagem de textura
+	unsigned int id_textura;
+	int textura_w, textura_h;
+	unsigned char *textura_data;
 
 };
 
