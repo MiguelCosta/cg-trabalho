@@ -16,7 +16,10 @@ public:
 	Edificio			*edificio;
 
 	Mapa(void);
+
+	void  terreno(void);
 	void desenhar(void);
 	~Mapa(void);
+
 };
 
