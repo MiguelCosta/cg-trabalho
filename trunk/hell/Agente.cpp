@@ -15,8 +15,14 @@ Agente::Agente(GLdouble posicaoInicialX, GLdouble posicaoInicialZ)	{
 }
 
 void Agente::desenhar(void)	{
-	glColor3f(0.98, 0.01, 0.3);
-	glutSolidTeapot(50);
+	float color[] = {1.0,0.0,0.0,1.0};
+	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
+	
+		
+	glPushMatrix();
+		glutSolidTeapot(1);
+	glPopMatrix();
+	
 }
 
 void Agente::andar(void)	{

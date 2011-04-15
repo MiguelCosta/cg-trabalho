@@ -33,33 +33,21 @@ void Mapa::desenhar(void)	{
 
 	//Desenhar as dependencias
 	agente->desenhar();
-
-	//glEnable(GL_TEXTURE_2D);
-	//glBindTexture(GL_TEXTURE_2D, texID);
-
-	glPushMatrix();
-
-	glBegin(GL_QUADS);
-		glColor3f(0.1f, 0.98f, 0.2f);
-
-		//glTexCoord2f(-2000,2000);
-		glVertex3f(-2000.0, 0.0, 2000.0);
-		
-		//glTexCoord2f(2000,2000);
-		glVertex3f( 2000.0, 0.0, 2000.0);
-		
-		//glTexCoord2f(2000,-2000);
-		glVertex3f( 2000.0, 0.0,-2000.0);
-		
-		//glTexCoord2f(-2000,-2000);
-		glVertex3f(-2000.0, 0.0,-2000.0);
-	glEnd();
 	
+	glPushMatrix();
+	float color2[] = {0.0, 0.9, 0.0, 1.0};
+	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color2);
+	
+	glBegin(GL_QUADS);
+		glColor3f(0.0,0.6, 0.0);
+				
+		glVertex3f(-150, 0.0, -150);
+		glVertex3f(-150, 0.0,  150);
+		glVertex3f( 150, 0.0,  150);
+		glVertex3f( 150, 0.0, -150);
+	glEnd();
 	glPopMatrix();
-
-	//glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-Mapa::~Mapa(void)
-{
+Mapa::~Mapa(void)	{
 }
