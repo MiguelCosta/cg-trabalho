@@ -19,7 +19,6 @@ void processarTecladoEspecialDown(int key, int x, int y)	{
 	switch (key)	{
 		case GLUT_KEY_LEFT:
 			teclas[ANDAR_ESQ] = true;
-			printf("cenas"); 
 			break;
 		case GLUT_KEY_RIGHT:
 			teclas[ANDAR_DIR] = true;

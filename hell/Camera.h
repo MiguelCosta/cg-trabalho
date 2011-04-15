@@ -9,7 +9,7 @@
 class Camera	{
 public:
 	int tipoDeVista;
-	GLdouble direcao[3];
+	//GLdouble direcao[3];
 
 	GLdouble camPosOnGodMode[3];
 
