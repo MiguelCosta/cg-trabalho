@@ -26,17 +26,17 @@ void Camera::desenhar(void) {
 	if(tipoDeVista == PRIMEIRA_PESSOA){
 		//printf("X: %lf\tY: %lf\tZ: %lf\n",_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY],	_mapa->agente->posicao[ZZ]);
 		gluLookAt(	
-			_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY]+0.8,	(_mapa->agente->posicao[ZZ]+1.5),
 			_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY],	_mapa->agente->posicao[ZZ],
-			//_mapa->agente->posicao[XX] + cos(_mapa->agente->ang),	_mapa->agente->posicao[YY] -0.5,	_mapa->agente->posicao[XX] + sin(_mapa->agente->ang),
+			_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY]+0.1,	_mapa->agente->posicao[ZZ]-1,
 			0,	1,	0);
 		}
 	// se a camara estiver para o mundo - third person
 	else if(tipoDeVista == TERCEIRA_PESSOA){
-		/*gluLookAt(cam_pos[XX],	cam_pos[YY],	cam_pos[ZZ],
-				  0,			0,				0,
-				  0,			1,				0);
-	*/}
+		gluLookAt(	
+			_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY],	(_mapa->agente->posicao[ZZ]+1.5),
+			_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY]+0.1,	_mapa->agente->posicao[ZZ],
+			0,	1,	0);
+	}
 	// se a camara estiver em modo deus
 	else if(tipoDeVista == MODO_DEUS){
 		//printf("X: %lf\tY: %lf\tZ: %lf\n",_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY],	_mapa->agente->posicao[ZZ]);
