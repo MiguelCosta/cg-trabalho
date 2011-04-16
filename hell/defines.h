@@ -6,7 +6,7 @@
 #define	ZZ	2
 
 // Tamanho do Mapa
-#define MAPA_TAM	200
+#define MAPA_TAM	50
 
 // numero de chaves
 #define NUM_CHAVES	3
