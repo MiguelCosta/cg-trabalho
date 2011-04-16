@@ -28,12 +28,12 @@ Mapa::Mapa(void)	{
 	}
 
 	/* Colocar as Torres num array */
+	
 	for( int i=0 ; i < NUM_TORRES ; i++)	{
 		torres[i] = new Torre(
 			rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM,
 			rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM);
 	}
-	
 	/*
 	agente = new Agente(
 	rand() *2000 / RAND_MAX,
@@ -127,7 +127,6 @@ void Mapa::desenhar(void)	{
 	for( int i=0 ; i < NUM_TORRES ; i++)	{
 		torres[i]->desenha();
 	}
-
 
 	//list<Chave *>::iterator it;
 	/* Colocar Chaves */

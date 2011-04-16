@@ -99,7 +99,7 @@ void Torre::desenha(void)	{
 	glPushMatrix();
 		glColor3f(0.5, 0.5, 0);
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
-
+		glRotatef(ang,0,posicao[YY],0);
 		glutSolidCube(3);
 	glPopMatrix();
 	
