@@ -44,22 +44,18 @@ void Agente::desenhar(void)	{
 
 void Agente::andar(void)	{
 	if (teclas[ANDAR_ESQ]) {
-		std::cout << "anda";
 		posicao[XX] -= velocidade * cos(angAlpha);
 		posicao[ZZ] += velocidade * sin(angAlpha);
 	}
 	if (teclas[ANDAR_DIR]) {
-		std::cout << "anda";
 		posicao[XX] += velocidade * cos(angAlpha);
 		posicao[ZZ] -= velocidade * sin(angAlpha);
 	}
 	if (teclas[ANDAR_FREN]) {
-		std::cout << "anda";
 		posicao[XX] -= velocidade * sin(angAlpha);
 		posicao[ZZ] -= velocidade * cos(angAlpha);
 	}
 	if (teclas[ANDAR_TRAS]) {
-		std::cout << "anda";
 		posicao[XX] += velocidade * sin(angAlpha);
 		posicao[ZZ] += velocidade * cos(angAlpha);
 	}
