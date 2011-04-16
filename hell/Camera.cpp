@@ -26,7 +26,7 @@ void Camera::desenhar(void) {
 	if(tipoDeVista == PRIMEIRA_PESSOA){
 		printf("X: %lf\tY: %lf\tZ: %lf\n",_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY],	_mapa->agente->posicao[ZZ]);
 		gluLookAt(	
-			_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY],	_mapa->agente->posicao[ZZ]+10,
+			_mapa->agente->posicao[XX]+cos(_mapa->agente->ang),	_mapa->agente->posicao[YY],	(_mapa->agente->posicao[ZZ]+10)+sin(_mapa->agente->ang),
 			_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY],	_mapa->agente->posicao[ZZ],
 			//_mapa->agente->posicao[XX] + cos(_mapa->agente->ang),	_mapa->agente->posicao[YY] -0.5,	_mapa->agente->posicao[XX] + sin(_mapa->agente->ang),
 			0,	1,	0);
