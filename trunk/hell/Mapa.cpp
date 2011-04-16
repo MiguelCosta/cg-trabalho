@@ -37,12 +37,12 @@ Mapa::Mapa(void)	{
 
 
 /* Textura para o terreno */
-void Mapa::initTextura(ILstring nomeTextura){
+void Mapa::initTextura(char * nome_textura){
 	ilInit();
 
-	ilGenImages(1, &id_textura);
-	ilBindImage(id_textura);
-	ilLoadImage(nomeTextura);
+	ilGenImages(1,&img_textura);
+	ilBindImage(img_textura);
+	ilLoadImage((ILstring)nome_textura);
 	ilConvertImage(IL_RGBA, IL_UNSIGNED_BYTE);
 
 	textura_w = ilGetInteger(IL_IMAGE_WIDTH);
@@ -50,36 +50,48 @@ void Mapa::initTextura(ILstring nomeTextura){
 
 	textura_data = ilGetData();
 
-	glGenTextures(1,&id_textura);
-	glBindTexture(GL_TEXTURE_2D,id_textura);
+	glGenTextures(1,&textura_solo);
+	glBindTexture(GL_TEXTURE_2D,textura_solo);
 	glTexParameteri(GL_TEXTURE_2D,               GL_TEXTURE_WRAP_S,        GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D,               GL_TEXTURE_WRAP_T,        GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D,               GL_TEXTURE_MAG_FILTER,    GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D,               GL_TEXTURE_MIN_FILTER,    GL_LINEAR);
 
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, textura_w, textura_h, 0, GL_RGBA, GL_UNSIGNED_BYTE, textura_data);
+
+	//Configurações para o OpenGL
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
+
+	//inicialização da iluminação
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+	glEnable(GL_LIGHT1);
 }
 
 /** desenha uma grelha para o terreno */
 void Mapa::terreno(void){
 
+	glPushMatrix();
+	
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, textura_solo);
+	int x = 0, z = 0;	
+
+	glBegin(GL_TRIANGLE_STRIP);
 	float color[] = {1.0,1.0,1.0,1.0};
 	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
-	int x = 0, z = 0;
-
-	glPushMatrix();
-
-	glBindTexture(GL_TEXTURE_2D, id_textura);
-
-	glColor3f(1.0,1.0,1.0);
-	for(x = -MAPA_TAM; x < MAPA_TAM; x++) {
-		glBegin(GL_TRIANGLE_STRIP);
-		for(z = -MAPA_TAM; z < MAPA_TAM; z++) {
-			glTexCoord2f(z, 0); glVertex3f(x+1,0,z);
-			glTexCoord2f(z, 1); glVertex3f(x,0,z);
+	
+	for(z = -MAPA_TAM; z < MAPA_TAM; z++) {
+		
+		for(x = -MAPA_TAM; x < MAPA_TAM; x++) {
+			glTexCoord2f(x, z); glVertex3f(x,0,z);
+			glTexCoord2f(x, z+1); glVertex3f(x,0,z+1);
 		}
-		glEnd();
+		
 	}
+	glEnd();
+
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glPopMatrix();
 
