@@ -86,7 +86,7 @@ int main(int argc, char **argv) {
 	// Definicoes do OpenGL
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
-	glutFullScreen();
+	//glutFullScreen();
 
 	//criarTextura();
 	glutMainLoop();
