@@ -21,7 +21,7 @@ Agente::Agente(GLdouble posicaoInicialX, GLdouble posicaoInicialZ) {
 	posicao[YY] = 1.2f;
 	posicao[ZZ] = posicaoInicialZ;
 	ang = 0;
-	velocidade = 1.5;
+	velocidade = AGENTE_VELOCIDADE_INICIAL;
 }
 
 void Agente::desenhar(void)	{
