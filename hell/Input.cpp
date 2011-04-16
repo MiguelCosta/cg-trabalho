@@ -3,14 +3,17 @@
 #include <GL/glut.h>
 #include <math.h>
 
-#include "Camera.h"
 #include "Input.h"
 #include "defines.h"
+#include "Camera.h"
 
+//NOVO
+int mouse_left_clicked = GLUT_UP;
+float camX = 0.0f, camY = 0.0f, camZ = 7.0f;
 
 /* Cenas para o rato! */
-int startX, startY, tracking = 0;
-int alpha = 0, beta = 45, r = 50;
+float startX, startY, tracking = 0;
+int alpha = 0, beta = 0, r = 5.0;
 
 extern Camera * _camera;
 extern bool teclas[];
@@ -111,6 +114,7 @@ void processarTecladoUp		(unsigned char key, int x, int y)	{
 	}
 }
 
+
 void processMouseButtons(int button, int state, int xx, int yy)		{
 	if (state == GLUT_DOWN)  {
 		startX = xx;
@@ -173,10 +177,11 @@ void processMouseMotion(int xx, int yy)	{
 		if (rAux < 3)
 			rAux = 3;
 	}
+	
 	_camera->camPosOnGodMode[XX] = rAux * sin(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0);
-	_camera->camPosOnGodMode[YY] = rAux * cos(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0);
-	_camera->camPosOnGodMode[ZZ] = rAux * 							     sin(betaAux * 3.14 / 180.0);
-
+	_camera->camPosOnGodMode[ZZ] = rAux * cos(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0);
+	_camera->camPosOnGodMode[YY] = rAux * 							     sin(betaAux * 3.14 / 180.0);
 
 }
+
 
