@@ -89,6 +89,7 @@ int main(int argc, char **argv) {
 	//glutFullScreen();
 
 	//criarTextura();
+	_mapa->initTextura("relva1.jpg");
 	glutMainLoop();
 	return 0;
 }
