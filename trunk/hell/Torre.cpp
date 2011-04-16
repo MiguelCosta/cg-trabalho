@@ -90,8 +90,9 @@ void Torre::distanciaAgente(void){
 void Torre::desenha(void)	{
 	
 	// alterar o angulo
-	girar();
 	distanciaAgente();
+	if(dist < DISTANCIA_TORRE_AGENTE)  girar();
+	
 
 	float color[] = {1.0,0.0,0.0,1.0};
 	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
@@ -99,7 +100,7 @@ void Torre::desenha(void)	{
 	glPushMatrix();
 		glColor3f(0.5, 0.5, 0);
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
-		if(dist < DISTANCIA_TORRE_AGENTE) glRotatef(ang,0,posicao[YY],0);
+		glRotatef(ang,0,posicao[YY],0);
 		glutSolidCube(3);
 	glPopMatrix();
 	
