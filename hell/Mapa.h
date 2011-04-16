@@ -22,7 +22,7 @@ public:
 	/** desenha o terreno */
 	void terreno(void);
 	/** textura para o terreno */
-	void initTextura(ILstring nomeTextura);
+	void initTextura(char * nome_textura);
 
 	/**desenha tudo no mapa */
 	void desenhar(void);
@@ -30,7 +30,7 @@ public:
 
 private:
 	// imagem de textura
-	unsigned int id_textura;
+	unsigned int textura_solo, img_textura;
 	int textura_w, textura_h;
 	unsigned char *textura_data;
 
