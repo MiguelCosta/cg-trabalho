@@ -67,7 +67,7 @@ void Torre::desenha(void)	{
 		glColor3f(0.5, 0.5, 0);
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
 		printf("angulo2: %lf\n",ang);
-		glRotatef(ang,0,1,0);
+		glRotatef(ang,0,posicao[YY],0);
 		glutSolidCube(3);
 	glPopMatrix();
 	
