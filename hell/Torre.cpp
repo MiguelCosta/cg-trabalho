@@ -28,31 +28,46 @@ Torre::Torre(GLdouble posicaoInicialX, GLdouble posicaoInicialZ)
 /** Calcula o angulo que as torres tem de girar */
 void Torre::girar(void){
 	/**PRODUTO ESCALAR -> para saber o angulo que a torre tem de girar */
-	// a = coordenadas agente
-	// t = coordenadas torre
-	GLfloat ax, tx, ay, ty, az, tz;	// coordenadas
-	GLfloat normaA, normaT;			// normas
-	GLfloat h;						// cos(ang) = h ==> ang = 1/cos(h)
+	// ca = coordenadas agente
+	// ct = coordenadas torre
+	GLfloat cax, ctx, cay, cty, caz, ctz;	// coordenadas
+	GLfloat normaA, normaB;					// normas
+	GLfloat h;								// cos(ang) = h ==> ang = 1/cos(h)
 
-	ax = _mapa->agente->posicao[XX];
-	ay = _mapa->agente->posicao[YY];
-	az = _mapa->agente->posicao[ZZ];
+	/* vector ca - ct*/
+	GLfloat vectorAx;
+	GLfloat vectorAy;
+	GLfloat vectorAz;
 
-	tx = posicao[XX];
-	ty = posicao[YY];
-	tz = posicao[ZZ];
+	// vector unitário (1,0,0)
+	GLfloat vectorBx;
+	//vectorBx = 1;
 
-	normaA = sqrt(pow(ax,2)+pow(ay,2)+pow(az,2));
-	normaT = sqrt(pow(tx,2)+pow(ty,2)+pow(tz,2));
+	/* coordenadas do agente */
+	cax = _mapa->agente->posicao[XX];
+	cay = _mapa->agente->posicao[YY];
+	caz = _mapa->agente->posicao[ZZ];
 
-	h = ((ax*tx)+(ay*ty)+(az*tz))/(normaA*normaT);
+	/*coordenadas da torre*/
+	ctx = posicao[XX];
+	cty = posicao[YY];
+	ctz = posicao[ZZ];
+
+	vectorAx = cax-ctx;
+	vectorAy = cay-cty;
+	vectorAz = caz-ctz;
+
+	normaA = sqrt(pow(vectorAx,2)+pow(vectorAy,2)+pow(vectorAz,2));
+
+	h = (vectorAx)/(normaA);
 
 	ang = acos(h);							// angulo que a torre vai girar
 
 	// passar o angulo de radianos para graus
 	ang = (ang*180)/_pi;
 
-	//printf("angulo: %lf\n",ang);
+	/**/
+	if(posicao[ZZ] <= _mapa->agente->posicao[ZZ]) ang = -ang;
 }
 
 void Torre::desenha(void)	{
@@ -66,8 +81,7 @@ void Torre::desenha(void)	{
 	glPushMatrix();
 		glColor3f(0.5, 0.5, 0);
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
-		printf("angulo2: %lf\n",ang);
-		glRotatef(ang,0,posicao[YY],0);
+		glRotatef(ang,0,1,0);
 		glutSolidCube(3);
 	glPopMatrix();
 	
