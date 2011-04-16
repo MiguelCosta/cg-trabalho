@@ -64,6 +64,9 @@ void resetPerspectiveProjection() {
 
 void Radar::desenha(GLuint x, GLuint y) {
    
+	// calcula a distancia
+	distancia();
+
     glPushMatrix();
     glLoadIdentity();
   
