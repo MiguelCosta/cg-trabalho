@@ -34,7 +34,7 @@ void Agente::desenhar(void)	{
 		glColor3f(1, 0, 0);
 		glRotatef(ang,0,posicao[YY],0);
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
-		glutSolidTeapot(1);
+		glutSolidTeapot(0.2);
 	glPopMatrix();
 	
 }
