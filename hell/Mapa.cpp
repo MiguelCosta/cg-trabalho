@@ -11,20 +11,29 @@
 /* Cria aleatoriamente um mapa */
 Mapa::Mapa(void)	{
 
-	//carregarTextura();
-
-	agente = new Agente(0, 0);
-	edificio = new Edificio();
-
+	
 	//inicializa o gerador de numeros aleatorios
 	srand(time(NULL));
 
-	/* Colocar Chaves */
+	/***** Criar os objectos *****/
+	/* Cria um agente */
+	agente = new Agente(0, 0);
+
+	/* Cria um Edificio */
+	edificio = new Edificio();
+
+	/* Colocar as Chaves num array */
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
-		chaves[i] = new Chave(
+		chaves[i] = new Chave( rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM, rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM);
+	}
+
+	/* Colocar as Torres num array */
+	for( int i=0 ; i < NUM_TORRES ; i++)	{
+		torres[i] = new Torre(
 			rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM,
 			rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM);
 	}
+
 	/*
 	agente = new Agente(
 	rand() *2000 / RAND_MAX,
@@ -64,9 +73,10 @@ void Mapa::initTextura(char * nome_textura){
 	glEnable(GL_CULL_FACE);
 
 	//inicialização da iluminação
-	glEnable(GL_LIGHTING);
-	glEnable(GL_LIGHT0);
-	glEnable(GL_LIGHT1);
+	//glEnable(GL_LIGHTING);
+	//glEnable(GL_LIGHT0);
+	//glEnable(GL_LIGHT1);
+
 }
 
 /** desenha uma grelha para o terreno */
@@ -99,21 +109,24 @@ void Mapa::terreno(void){
 
 /* Desenha o mapa e tudo que esta nele */
 void Mapa::desenhar(void)	{
-
+		
 	//glPolygonMode(GL_BACK, GL_LINE);
 
-	//Desenhar as dependencias
+	/***** DESENHAR OS OBJECTOS *****/
+	terreno();
 	agente->desenhar();
 	edificio->desenhar();
-	
-	/** desenhar o terreno */
-	terreno();
-	
 	
 	// desenhar as chaves
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
 		chaves[i]->desenha();
 	}
+	
+	// desenhar as torres
+	for( int i=0 ; i < NUM_TORRES ; i++)	{
+		torres[i]->desenha();
+	}
+	
 
 	//list<Chave *>::iterator it;
 	/* Colocar Chaves */
