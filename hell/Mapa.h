@@ -17,8 +17,8 @@ public:
 	//Missao
 	Agente				*agente;
 	Chave				*chaves[NUM_CHAVES];
-	Torre				*torres[NUM_TORRES];
 	Edificio			*edificio;
+	Torre				*torres[3];
 
 	Mapa(void);
 	/** desenha o terreno */

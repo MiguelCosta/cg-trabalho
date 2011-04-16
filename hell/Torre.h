@@ -3,7 +3,7 @@
 #include <GL/glut.h>
 #include <math.h>
 #include "defines.h"
-#include "Mapa.h"
+
 
 class Torre
 {
