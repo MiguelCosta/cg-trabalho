@@ -1,4 +1,7 @@
 
+
+#include <iostream>
+
 #include "Agente.h"
 #include "Input.h"
 #include "defines.h"
@@ -31,8 +34,8 @@ void Agente::desenhar(void)	{
 
 	glPushMatrix();
 		glColor3f(1, 0, 0);
-		glRotatef(angAlpha,0,posicao[YY],0);
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
+		glRotatef(angAlpha,0,posicao[YY],0);
 		glutSolidTeapot(0.2);
 	glPopMatrix();
 	
@@ -41,20 +44,24 @@ void Agente::desenhar(void)	{
 
 void Agente::andar(void)	{
 	if (teclas[ANDAR_ESQ]) {
+		std::cout << "anda";
 		posicao[XX] -= velocidade * cos(angAlpha);
 		posicao[ZZ] += velocidade * sin(angAlpha);
 	}
 	if (teclas[ANDAR_DIR]) {
+		std::cout << "anda";
 		posicao[XX] += velocidade * cos(angAlpha);
 		posicao[ZZ] -= velocidade * sin(angAlpha);
 	}
 	if (teclas[ANDAR_FREN]) {
+		std::cout << "anda";
 		posicao[XX] -= velocidade * sin(angAlpha);
 		posicao[ZZ] -= velocidade * cos(angAlpha);
 	}
 	if (teclas[ANDAR_TRAS]) {
+		std::cout << "anda";
 		posicao[XX] += velocidade * sin(angAlpha);
-		posicao[ZZ] += velocidade *cos(angAlpha);
+		posicao[ZZ] += velocidade * cos(angAlpha);
 	}
 	if(posicao[XX] >= MAPA_TAM)
 		posicao[XX] = MAPA_TAM;
