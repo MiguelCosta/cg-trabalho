@@ -13,6 +13,7 @@
 
 // numero de torres
 #define NUM_TORRES	3
+#define DISTANCIA_TORRE_AGENTE 50
 
 // velocidade do agente
 #define AGENTE_VELOCIDADE_INICIAL 0.2
