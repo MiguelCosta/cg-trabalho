@@ -19,4 +19,4 @@
 #define AGENTE_VELOCIDADE_INICIAL 0.2
 
 // Radar
-#define RADAR_ALCALCE 15
+#define RADAR_ALCALCE 20
