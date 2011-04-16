@@ -132,7 +132,6 @@ void Mapa::desenhar(void)	{
 	}
 
 	// radar
-	radar->distancia();
 	radar->desenha(7,7);
 
 	//list<Chave *>::iterator it;

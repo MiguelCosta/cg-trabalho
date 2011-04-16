@@ -31,7 +31,7 @@ void Torre::girar(void){
 	// ca = coordenadas agente
 	// ct = coordenadas torre
 	GLfloat cax, ctx, cay, cty, caz, ctz;	// coordenadas
-	GLfloat normaA, normaB;					// normas
+	GLfloat normaA;							// normas
 	GLfloat h;								// cos(ang) = h ==> ang = 1/cos(h)
 
 	/* vector ca - ct*/
@@ -40,7 +40,7 @@ void Torre::girar(void){
 	GLfloat vectorAz;
 
 	// vector unitário (1,0,0)
-	GLfloat vectorBx;
+	//GLfloat vectorBx;
 	//vectorBx = 1;
 
 	/* coordenadas do agente */
@@ -61,12 +61,10 @@ void Torre::girar(void){
 
 	h = (vectorAx)/(normaA);
 
-	ang = acos(h);							// angulo que a torre vai girar
+	ang = acos(h);							// angulo que a torre vai girar em graus
+	ang = (ang*180)/_pi;					// passar o angulo de radianos para graus
 
-	// passar o angulo de radianos para graus
-	ang = (ang*180)/_pi;
-
-	/**/
+	/* caso necessário quando o agente está numa posição ZZ superior à torre */
 	if(posicao[ZZ] <= _mapa->agente->posicao[ZZ]) ang = -ang;
 }
 
