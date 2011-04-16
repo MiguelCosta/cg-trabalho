@@ -8,6 +8,7 @@ class Torre
 {
 public:
 	GLdouble posicao[3];
+	// angulo para se girar relativamente à posição do utilizador
 	GLfloat ang;
 
 	/** Contrutores **/
