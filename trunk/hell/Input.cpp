@@ -157,9 +157,14 @@ void processMouseMotion(int xx, int yy)	{
 
 	if (!tracking)
 		return;
-
-	deltaX = xx - startX;
-	deltaY = yy - startY;
+	if(_camera->tipoDeVista == PRIMEIRA_PESSOA) {
+		deltaX = startX - xx;
+		deltaY = startY - yy;
+	}
+	else {
+		deltaX = xx - startX;
+		deltaY = yy - startY;
+	}
 
 	if (tracking == 1) {
 
@@ -187,9 +192,9 @@ void processMouseMotion(int xx, int yy)	{
 	_camera->camPosOnGodMode[ZZ] = rAux * cos(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0);
 	_camera->camPosOnGodMode[YY] = rAux * 							     sin(betaAux * 3.14 / 180.0);
 
-	_camera->camPosPrimeiraPessoa[XX] = (rAux * sin(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0))- _mapa->agente->posicao[XX];
-	_camera->camPosPrimeiraPessoa[ZZ] = (rAux * cos(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0))- _mapa->agente->posicao[ZZ];
-	_camera->camPosPrimeiraPessoa[YY] = (rAux * 							     sin(betaAux * 3.14 / 180.0))- _mapa->agente->posicao[YY];
+	_camera->camPosPrimeiraPessoa[XX] = (rAux * sin(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0))+ _mapa->agente->posicao[XX];
+	_camera->camPosPrimeiraPessoa[ZZ] = (rAux * cos(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0))+ _mapa->agente->posicao[ZZ];
+	_camera->camPosPrimeiraPessoa[YY] = (rAux * 							     sin(betaAux * 3.14 / 180.0))+ _mapa->agente->posicao[YY];
 
 }
 
