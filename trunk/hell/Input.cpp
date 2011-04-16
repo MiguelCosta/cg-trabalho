@@ -6,6 +6,11 @@
 #include "Input.h"
 #include "defines.h"
 #include "Camera.h"
+#include "Mapa.h"
+
+
+extern Mapa * _mapa;
+
 
 //NOVO
 int mouse_left_clicked = GLUT_UP;
@@ -181,6 +186,10 @@ void processMouseMotion(int xx, int yy)	{
 	_camera->camPosOnGodMode[XX] = rAux * sin(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0);
 	_camera->camPosOnGodMode[ZZ] = rAux * cos(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0);
 	_camera->camPosOnGodMode[YY] = rAux * 							     sin(betaAux * 3.14 / 180.0);
+
+	_camera->camPosPrimeiraPessoa[XX] = (rAux * sin(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0))- _mapa->agente->posicao[XX];
+	_camera->camPosPrimeiraPessoa[ZZ] = (rAux * cos(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0))- _mapa->agente->posicao[ZZ];
+	_camera->camPosPrimeiraPessoa[YY] = (rAux * 							     sin(betaAux * 3.14 / 180.0))- _mapa->agente->posicao[YY];
 
 }
 

@@ -14,6 +14,10 @@ Camera::Camera(void)	{
 	camPosOnGodMode[XX] =  0.0;
 	camPosOnGodMode[YY] = 30.0;
 	camPosOnGodMode[ZZ] = 40.0;
+
+	camPosPrimeiraPessoa[XX]= 0.0;
+	camPosPrimeiraPessoa[YY]= 0.0;
+	camPosPrimeiraPessoa[ZZ]= 0.0;
 }
 
 /**
@@ -27,7 +31,7 @@ void Camera::desenhar(void) {
 		//printf("X: %lf\tY: %lf\tZ: %lf\n",_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY],	_mapa->agente->posicao[ZZ]);
 		gluLookAt(	
 			_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY],	_mapa->agente->posicao[ZZ],
-			_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY]+0.1,	_mapa->agente->posicao[ZZ]-1,
+			camPosPrimeiraPessoa[XX], camPosPrimeiraPessoa[YY]	, camPosPrimeiraPessoa[ZZ],
 			0,	1,	0);
 		}
 	// se a camara estiver para o mundo - third person
