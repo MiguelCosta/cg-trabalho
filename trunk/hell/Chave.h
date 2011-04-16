@@ -2,6 +2,7 @@
 
 #include <GL/glut.h>
 #include <math.h>
+#include "defines.h"
 
 class Chave
 {

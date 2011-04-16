@@ -5,7 +5,7 @@
 #include "defines.h"
 
 extern Mapa * _mapa;
-
+/*
 int radar(float &dist)	{
 	float x1,y1,z1,x2,y2,z2;
 	float act,min = 1e+10;
@@ -33,4 +33,4 @@ int radar(float &dist)	{
 	return 1;
 }
 
-
+*/

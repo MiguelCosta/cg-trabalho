@@ -3,6 +3,7 @@
 #include "Agente.h"
 #include "Chave.h"
 #include "Edificio.h"
+#include "Torre.h"
 #include "defines.h"
 #include <IL/il.h>
 
@@ -16,6 +17,7 @@ public:
 	//Missao
 	Agente				*agente;
 	Chave				*chaves[NUM_CHAVES];
+	Torre				*torres[NUM_TORRES];
 	Edificio			*edificio;
 
 	Mapa(void);

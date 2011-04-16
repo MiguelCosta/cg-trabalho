@@ -7,7 +7,14 @@
 
 // Tamanho do Mapa
 #define MAPA_TAM	200
+
+// numero de chaves
 #define NUM_CHAVES	3
+
+// numero de torres
+#define NUM_TORRES	3
+
+// velocidade do agente
 #define AGENTE_VELOCIDADE_INICIAL 1
 
 // Radar
