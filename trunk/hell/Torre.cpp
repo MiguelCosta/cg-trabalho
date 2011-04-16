@@ -70,10 +70,28 @@ void Torre::girar(void){
 	if(posicao[ZZ] <= _mapa->agente->posicao[ZZ]) ang = -ang;
 }
 
+void Torre::distanciaAgente(void){
+	// coordenadas do agente
+	GLfloat ax, az;
+
+	// coordenadas da torre
+	GLfloat tx, tz;
+	
+	ax = _mapa->agente->posicao[XX];
+	az = _mapa->agente->posicao[ZZ];
+
+	tx = posicao[XX];
+	tz = posicao[ZZ];
+
+	dist = sqrt(pow(ax-tx,2)+pow(az-tz,2));
+
+}
+
 void Torre::desenha(void)	{
 	
 	// alterar o angulo
 	girar();
+	//distanciaAgente();
 
 	float color[] = {1.0,0.0,0.0,1.0};
 	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
@@ -81,7 +99,7 @@ void Torre::desenha(void)	{
 	glPushMatrix();
 		glColor3f(0.5, 0.5, 0);
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
-		glRotatef(ang,0,1,0);
+
 		glutSolidCube(3);
 	glPopMatrix();
 	
