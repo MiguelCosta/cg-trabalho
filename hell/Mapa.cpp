@@ -34,6 +34,10 @@ Mapa::Mapa(void)	{
 			rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM,
 			rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM);
 	}
+
+	/* Radar */
+	radar = new Radar();
+
 	/*
 	agente = new Agente(
 	rand() *2000 / RAND_MAX,
@@ -123,10 +127,13 @@ void Mapa::desenhar(void)	{
 	}
 	
 	// desenhar as torres
-	
 	for( int i=0 ; i < NUM_TORRES ; i++)	{
 		torres[i]->desenha();
 	}
+
+	// radar
+	radar->distancia();
+	radar->desenha(7,7);
 
 	//list<Chave *>::iterator it;
 	/* Colocar Chaves */

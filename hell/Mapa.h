@@ -4,6 +4,7 @@
 #include "Chave.h"
 #include "Edificio.h"
 #include "Torre.h"
+#include "Radar.h"
 #include "defines.h"
 #include <IL/il.h>
 
@@ -19,6 +20,7 @@ public:
 	Chave				*chaves[NUM_CHAVES];
 	Edificio			*edificio;
 	Torre				*torres[3];
+	Radar				*radar;
 
 	Mapa(void);
 	/** desenha o terreno */
