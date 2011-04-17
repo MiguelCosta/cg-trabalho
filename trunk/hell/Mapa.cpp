@@ -37,15 +37,6 @@ Mapa::Mapa(void)	{
 
 	/* Radar */
 	radar = new Radar();
-
-	/*
-	agente = new Agente(
-	rand() *2000 / RAND_MAX,
-	rand() *2000 / RAND_MAX);
-
-	edificio = new Edificio(
-	rand() *2000 / RAND_MAX,
-	rand() *2000 / RAND_MAX); */
 }
 
 
