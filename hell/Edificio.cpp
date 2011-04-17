@@ -4,14 +4,14 @@
 Edificio::Edificio(void)
 {
 	posicao[XX] = 0;
-	posicao[YY] = 10.0f;
+	posicao[YY] = 2.0f;
 	posicao[ZZ] = -(MAPA_TAM);
 }
 
 Edificio::Edificio(GLdouble posicaoInicialX, GLdouble posicaoInicialZ){
-	posicao[XX] = 10.0f;
-	posicao[YY] = 10.0f;
-	posicao[ZZ] = 10.0f;
+	posicao[XX] = posicaoInicialX;
+	posicao[YY] = 2.0f;
+	posicao[ZZ] = posicaoInicialZ;
 
 }
 
