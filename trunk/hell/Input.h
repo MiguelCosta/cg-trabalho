@@ -1,5 +1,8 @@
 
 
+
+
+
 typedef enum e_teclas {
 		ANDAR_FREN,
 		ANDAR_TRAS,
@@ -23,3 +26,4 @@ typedef enum e_teclas {
 	
 	void processMouseMotion		(int xx, int yy);
 
+	void processarMovimentoRato(int x, int y);

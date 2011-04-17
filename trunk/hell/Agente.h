@@ -17,6 +17,8 @@ public:
 	void desenhar(void);
 	/** Mover o agente */
 	void andar();
+	/** Calcula a direcao que o agente esta a olhar */
+	float direcao(int EIXO);
 	/** Destrutor */
 	~Agente(void);
 

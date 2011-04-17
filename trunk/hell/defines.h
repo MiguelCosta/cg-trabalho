@@ -20,3 +20,11 @@
 
 // Radar
 #define RADAR_ALCALCE 20
+
+// Velocidade do rato
+#define VELOCIDADE_RATO_ALPHA	0.1
+#define VELOCIDADE_RATO_BETA	0.001
+
+// Pi!
+#define PI						3.14159265
+

@@ -1,5 +1,4 @@
 
-#include <stdio.h>
 #include <GL/glut.h>
 #include <math.h>
 
@@ -11,10 +10,6 @@
 
 extern Mapa * _mapa;
 
-
-//NOVO
-int mouse_left_clicked = GLUT_UP;
-float camX = 0.0f, camY = 0.0f, camZ = 7.0f;
 
 /* Cenas para o rato! */
 float startX, startY, tracking = 0;
@@ -187,15 +182,44 @@ void processMouseMotion(int xx, int yy)	{
 		if (rAux < 3)
 			rAux = 3;
 	}
+	else if (tracking == 0)	{
+		
+		alphaAux = alpha - deltaX;
+		betaAux = beta - deltaY;
+
+		if (betaAux > 85.0)
+			betaAux = 85.0;
+		else if (betaAux < -85.0)
+			betaAux = -85.0;
+
+		rAux = r;
+	}
 	
 	_camera->camPosOnGodMode[XX] = rAux * sin(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0);
 	_camera->camPosOnGodMode[ZZ] = rAux * cos(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0);
 	_camera->camPosOnGodMode[YY] = rAux * 							     sin(betaAux * 3.14 / 180.0);
 
-	_camera->camPosPrimeiraPessoa[XX] = (rAux * sin(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0))+ _mapa->agente->posicao[XX];
+	/*_camera->camPosPrimeiraPessoa[XX] = (rAux * sin(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0))+ _mapa->agente->posicao[XX];
 	_camera->camPosPrimeiraPessoa[ZZ] = (rAux * cos(alphaAux * 3.14 / 180.0) * cos(betaAux * 3.14 / 180.0))+ _mapa->agente->posicao[ZZ];
-	_camera->camPosPrimeiraPessoa[YY] = (rAux * 							     sin(betaAux * 3.14 / 180.0))+ _mapa->agente->posicao[YY];
+	_camera->camPosPrimeiraPessoa[YY] = (rAux * 							   sin(betaAux * 3.14 / 180.0))+ _mapa->agente->posicao[YY];*/
 
 }
 
+void processarMovimentoRato(int x, int y)	{
+
+	//static int lastX = x;
+	//static int lastY = y;
+
+	static bool from_user = false;
+
+	if(!from_user)	{
+		_mapa->agente->angAlpha	+= (((glutGet(GLUT_WINDOW_WIDTH)/2-x) * 2 * PI) / glutGet(GLUT_WINDOW_WIDTH)) * VELOCIDADE_RATO_ALPHA ;
+		//atan(((float)(lastX-x))/VELOCIDADE_RATO_ALPHA);
+		//_mapa->agente->angBeta	+= atan(((float)(lastY-y))/VELOCIDADE_RATO_BETA);
+
+
+		glutWarpPointer(glutGet(GLUT_WINDOW_WIDTH)/2, glutGet(GLUT_WINDOW_HEIGHT)/2);
+	}
+	from_user = !from_user;
+}
 
