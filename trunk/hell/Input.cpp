@@ -152,14 +152,6 @@ void processMouseMotion(int xx, int yy)	{
 
 	if (!tracking)
 		return;
-	/*if(_camera->tipoDeVista == PRIMEIRA_PESSOA) {
-		deltaX = startX - xx;
-		deltaY = startY - yy;
-	}
-	else {
-		deltaX = xx - startX;
-		deltaY = yy - startY;
-	}*/
 
 	if (tracking == 1) {
 

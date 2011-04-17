@@ -7,17 +7,11 @@
 extern Mapa * _mapa;
 
 Camera::Camera(void)	{
-	tipoDeVista = MODO_DEUS;
-	/*direcao[XX] = 0.0f;
-	direcao[YY] = -1.0f;
-	direcao[ZZ] = 0.0f;*/
+	tipoDeVista = TERCEIRA_PESSOA;
+	
 	camPosOnGodMode[XX] =  0.0;
 	camPosOnGodMode[YY] = 30.0;
 	camPosOnGodMode[ZZ] = 40.0;
-
-	camPosPrimeiraPessoa[XX]= 0.0;
-	camPosPrimeiraPessoa[YY]= 0.0;
-	camPosPrimeiraPessoa[ZZ]= 0.0;
 }
 
 /**
@@ -36,7 +30,7 @@ void Camera::desenhar(void) {
 
 	/* se a camara estiver para o objecto - first person */
 	if(tipoDeVista == PRIMEIRA_PESSOA){
-		//printf("X: %lf\tY: %lf\tZ: %lf\n",_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY],	_mapa->agente->posicao[ZZ]);
+		
 		gluLookAt(	
 			posicao[XX],				posicao[YY],				posicao[ZZ],
 			posicao[XX]+direcao[XX],	posicao[YY]-0.2,	posicao[ZZ]+direcao[ZZ],
@@ -52,7 +46,6 @@ void Camera::desenhar(void) {
 	}
 	// se a camara estiver em modo deus
 	else if(tipoDeVista == MODO_DEUS){
-		//printf("X: %lf\tY: %lf\tZ: %lf\n",_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY],	_mapa->agente->posicao[ZZ]);
 		gluLookAt(	camPosOnGodMode[XX],camPosOnGodMode[YY],camPosOnGodMode[ZZ],
 					0.0,				0.0,				0.0,
 					0.0f,				1.0f,				0.0f);
