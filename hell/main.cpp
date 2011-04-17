@@ -96,7 +96,7 @@ int main(int argc, char **argv) {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 	glutSetCursor(GLUT_CURSOR_NONE);
-	glutFullScreen();
+	//glutFullScreen();
 
 	//inicialização da luz
 	glEnable(GL_LIGHTING);

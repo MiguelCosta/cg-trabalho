@@ -73,7 +73,7 @@ float Agente::direcao(int EIXO)	{
 			return (cos(angBeta)*sin(angAlpha));
 			break;
 		case YY:
-			return (cos(angBeta));
+			return (sin(angBeta));
 			break;
 		case ZZ:
 			return(cos(angBeta)*cos(angAlpha));
