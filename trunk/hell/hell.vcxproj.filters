@@ -25,6 +25,15 @@
     <Filter Include="Resource Files\MD2 Loader\include\GL">
       <UniqueIdentifier>{033560c5-b475-4da0-b559-89b9544e85ac}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Modelos">
+      <UniqueIdentifier>{947d3844-08fd-4680-aee6-2b27259060d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Modelos\Torre">
+      <UniqueIdentifier>{35f34d49-b8f5-4053-a637-c41b9ac68383}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\My MD2 Loader">
+      <UniqueIdentifier>{7f529c03-e92b-4375-a41e-6239c4027fae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
