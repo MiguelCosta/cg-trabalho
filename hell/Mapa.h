@@ -13,8 +13,6 @@
 class Mapa	{
 public:
 
-	//Terreno
-
 	//Missao
 	Agente				*agente;
 	Chave				*chaves[NUM_CHAVES];
@@ -22,14 +20,17 @@ public:
 	Torre				*torres[3];
 	Radar				*radar;
 
-	// conta quantas chaves já foram apanhadas
-	int chaves_apanhadas;
+	// variavel que diz quantas chaves foram apanhadas
+	int num_chaves_apanhadas;
 
 	Mapa(void);
 	/** desenha o terreno */
 	void terreno(void);
 	/** textura para o terreno */
 	void initTextura(char * nome_textura);
+
+	// conta quantas chaves já foram apanhadas
+	int chaves_apanhadas(void);
 
 	/**desenha tudo no mapa */
 	void desenhar(void);

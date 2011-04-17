@@ -37,6 +37,9 @@ Mapa::Mapa(void)	{
 
 	/* Radar */
 	radar = new Radar();
+
+	/* numero de chaves apanhadas */
+	num_chaves_apanhadas = 0;
 }
 
 
@@ -126,12 +129,26 @@ void Mapa::desenhar(void)	{
 	// radar
 	radar->desenha(7,7);
 
+	num_chaves_apanhadas = chaves_apanhadas();
+
+	/* este print é para tirar daqui depois*/
+	printf("Numero de chaves apanhadas. %d\n",num_chaves_apanhadas);
+
 	//list<Chave *>::iterator it;
 	/* Colocar Chaves */
 	/*for( it = chaves->begin() ; it != chaves->end() ; it++)	{
 	(*it)->desenhar();
 	}
 	*/
+}
+
+int Mapa::chaves_apanhadas(void){
+	int count = 0;
+	for( int i=0 ; i < NUM_CHAVES ; i++)	{
+		if (chaves[i]->encontrada == 1) count++;
+	}
+
+	return count;
 }
 
 Mapa::~Mapa(void)	{

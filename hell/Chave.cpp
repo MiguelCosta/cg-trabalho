@@ -35,7 +35,7 @@ void Chave::encontra(void){
 
 	distAgenteChave = sqrt(pow(ax-cx,2)+pow(az-cz,2));
 
-	if(distAgenteChave <= APANHA_CHAVE) encontrada = 1;
+	if(distAgenteChave <= APANHA_CHAVE)	encontrada = 1;
 
 }
 
