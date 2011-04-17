@@ -92,5 +92,23 @@
     <ClInclude Include="MyMd2Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="md2loader\Md2Player.h">
+      <Filter>Resource Files\My MD2 Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="md2loader\TextureManager.h">
+      <Filter>Resource Files\My MD2 Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="md2loader\Md2Model.h">
+      <Filter>Resource Files\My MD2 Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="md2loader\DataManager.h">
+      <Filter>Resource Files\My MD2 Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="md2loader\Texture.h">
+      <Filter>Resource Files\My MD2 Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="md2loader\Image.h">
+      <Filter>Resource Files\My MD2 Loader</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
