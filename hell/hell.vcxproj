@@ -97,6 +97,12 @@
     <ClInclude Include="Edificio.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Mapa.h" />
+    <ClInclude Include="md2loader\DataManager.h" />
+    <ClInclude Include="md2loader\Image.h" />
+    <ClInclude Include="md2loader\Md2Model.h" />
+    <ClInclude Include="md2loader\Md2Player.h" />
+    <ClInclude Include="md2loader\Texture.h" />
+    <ClInclude Include="md2loader\TextureManager.h" />
     <ClInclude Include="MyMd2Player.h" />
     <ClInclude Include="Radar.h" />
     <ClInclude Include="Torre.h" />
