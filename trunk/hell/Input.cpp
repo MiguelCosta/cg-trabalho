@@ -19,6 +19,7 @@ extern Camera * _camera;
 extern bool teclas[];
 
 void processarTecladoEspecialDown(int key, int x, int y)	{
+	static bool fullScreenActiva = true;
 	switch (key)	{
 		case GLUT_KEY_LEFT:
 			teclas[ANDAR_ESQ] = true;
@@ -31,6 +32,14 @@ void processarTecladoEspecialDown(int key, int x, int y)	{
 			break;
 		case GLUT_KEY_DOWN:
 			teclas[ANDAR_TRAS] = true;
+			break;
+		case GLUT_KEY_F11:
+			if(fullScreenActiva)	{
+				glutPositionWindow(100,100);
+				glutReshapeWindow(1024,1024);
+			}
+			else glutFullScreen();
+			fullScreenActiva = !fullScreenActiva;
 			break;
 	}
 }

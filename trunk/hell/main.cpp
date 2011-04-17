@@ -89,13 +89,14 @@ int main(int argc, char **argv) {
 	glutSpecialUpFunc(processarTecladoEspecialUp);
 
 	glutPassiveMotionFunc(processarMovimentoRato);
-	glutMouseFunc(processMouseButtons);
-	glutMotionFunc(processMouseMotion);
+	//glutMouseFunc(processMouseButtons);
+	//glutMotionFunc(processMouseMotion);
 
 	// Definicoes do OpenGL
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
-	//glutFullScreen();
+	glutSetCursor(GLUT_CURSOR_NONE);
+	glutFullScreen();
 
 	//inicialização da luz
 	glEnable(GL_LIGHTING);
