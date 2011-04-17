@@ -201,7 +201,7 @@ void processarMovimentoRato(int x, int y)	{
 
 	if(!from_user)	{
 		_mapa->agente->angAlpha	+= (((glutGet(GLUT_WINDOW_WIDTH )/2-x) * 2 * PI) / glutGet(GLUT_WINDOW_WIDTH )) * VELOCIDADE_RATO_ALPHA ;
-		_mapa->agente->angBeta	+= (((glutGet(GLUT_WINDOW_HEIGHT)/2-y) * 2 * PI) / glutGet(GLUT_WINDOW_HEIGHT)) * VELOCIDADE_RATO_BETA ;
+		//_mapa->agente->angBeta	+= (((glutGet(GLUT_WINDOW_HEIGHT)/2-y) * 2 * PI) / glutGet(GLUT_WINDOW_HEIGHT)) * VELOCIDADE_RATO_BETA ;
 
 		std::cout << _mapa->agente->angBeta;
 		std::cout << "\n";

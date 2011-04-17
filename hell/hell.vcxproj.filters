@@ -57,18 +57,6 @@
     <ClCompile Include="Modelo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="md2loader\Image.cpp">
-      <Filter>Resource Files\My MD2 Loader</Filter>
-    </ClCompile>
-    <ClCompile Include="md2loader\Md2Model.cpp">
-      <Filter>Resource Files\My MD2 Loader</Filter>
-    </ClCompile>
-    <ClCompile Include="md2loader\Md2Player.cpp">
-      <Filter>Resource Files\My MD2 Loader</Filter>
-    </ClCompile>
-    <ClCompile Include="md2loader\Texture.cpp">
-      <Filter>Resource Files\My MD2 Loader</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Mapa.h">
@@ -125,10 +113,5 @@
     <ClInclude Include="md2loader\Anorms.h">
       <Filter>Resource Files\My MD2 Loader</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="md2loader\DataManager.inl">
-      <Filter>Resource Files\My MD2 Loader</Filter>
-    </None>
   </ItemGroup>
 </Project>

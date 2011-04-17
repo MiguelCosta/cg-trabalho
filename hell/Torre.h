@@ -3,7 +3,7 @@
 #include <GL/glut.h>
 #include <math.h>
 #include "defines.h"
-#include "Modelo.h"
+//#include "Modelo.h"
 
 class Torre
 {
@@ -16,7 +16,7 @@ public:
 	GLfloat dist;
 	
 	// Modelo MD2
-	Modelo * modelo;
+	//Modelo * modelo;
 
 	/** Contrutores **/
 	Torre(void);
