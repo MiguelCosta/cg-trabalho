@@ -1,4 +1,5 @@
 
+#include <iostream>
 #include <GL/glut.h>
 #include <math.h>
 
@@ -16,7 +17,7 @@ float startX, startY, tracking = 0;
 int alpha = 0, beta = 0, r = 5.0;
 
 extern Camera * _camera;
-//extern bool teclas[NUM_TECLAS];
+extern bool teclas[NUM_TECLAS];
 
 void processarTecladoEspecialDown(int key, int x, int y)	{
 	static bool fullScreenActiva = true;
@@ -129,7 +130,6 @@ void processarTecladoUp		(unsigned char key, int x, int y)	{
 	}
 }
 
-
 void processMouseButtons(int button, int state, int xx, int yy)		{
 	if (state == GLUT_DOWN)  {
 		startX = xx;
@@ -157,7 +157,6 @@ void processMouseButtons(int button, int state, int xx, int yy)		{
 
 	
 }
-
 
 void processMouseMotion(int xx, int yy)	{
 
@@ -198,16 +197,17 @@ void processMouseMotion(int xx, int yy)	{
 
 void processarMovimentoRato(int x, int y)	{
 
-	//static int lastX = x;
-	//static int lastY = y;
-
 	static bool from_user = false;
 
 	if(!from_user)	{
-		_mapa->agente->angAlpha	+= (((glutGet(GLUT_WINDOW_WIDTH)/2-x) * 2 * PI) / glutGet(GLUT_WINDOW_WIDTH)) * VELOCIDADE_RATO_ALPHA ;
-		//atan(((float)(lastX-x))/VELOCIDADE_RATO_ALPHA);
-		//_mapa->agente->angBeta	+= atan(((float)(lastY-y))/VELOCIDADE_RATO_BETA);
+		_mapa->agente->angAlpha	+= (((glutGet(GLUT_WINDOW_WIDTH )/2-x) * 2 * PI) / glutGet(GLUT_WINDOW_WIDTH )) * VELOCIDADE_RATO_ALPHA ;
+		//_mapa->agente->angBeta	+= (((glutGet(GLUT_WINDOW_HEIGHT)/2-y) * 2 * PI) / glutGet(GLUT_WINDOW_HEIGHT)) * VELOCIDADE_RATO_BETA ;
 
+		std::cout << _mapa->agente->angBeta,"\n";
+		if(_mapa->agente->angBeta > 90)
+			_mapa->agente->angBeta = 90;
+		if(_mapa->agente->angBeta < -90)
+			_mapa->agente->angBeta = -90;
 
 		glutWarpPointer(glutGet(GLUT_WINDOW_WIDTH)/2, glutGet(GLUT_WINDOW_HEIGHT)/2);
 	}
