@@ -98,8 +98,8 @@ int main(int argc, char **argv) {
 	//glutFullScreen();
 
 	//inicialização da luz
-	//glEnable(GL_LIGHTING);
-	//glEnable(GL_LIGHT0);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
 
 	//criarTextura();
 	_mapa->initTextura("relva1.jpg");

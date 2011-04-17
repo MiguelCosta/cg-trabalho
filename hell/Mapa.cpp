@@ -77,24 +77,25 @@ void Mapa::initTextura(char * nome_textura){
 /** desenha uma grelha para o terreno */
 void Mapa::terreno(void){
 
-	glPushMatrix();
+	
 	
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, textura_solo);
 	int x = 0, z = 0;	
 
-	glBegin(GL_TRIANGLE_STRIP);
 	float color[] = {1.0,1.0,1.0,1.0};
 	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
+
+
+	glBegin(GL_TRIANGLE_STRIP);
 	
 	for(z = -MAPA_TAM; z < MAPA_TAM; z++) {
-		
 		for(x = -MAPA_TAM; x < MAPA_TAM; x++) {
 			glTexCoord2f(x, z); glVertex3f(x,0,z);
 			glTexCoord2f(x, z+1); glVertex3f(x,0,z+1);
 		}
-		
 	}
+
 	glEnd();
 
 	glBindTexture(GL_TEXTURE_2D, 0);
