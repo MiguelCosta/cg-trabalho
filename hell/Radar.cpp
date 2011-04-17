@@ -26,6 +26,7 @@ void Radar::distancia(void){
 	GLfloat distTemp2 = 0;
 	
 	for(int i = 0; i < NUM_CHAVES; i++){
+		if(_mapa->chaves[i]->encontrada == 0){
 		// coordenadas temporarias da chave
 		cxt = _mapa->chaves[i]->posicao[XX];
 		czt = _mapa->chaves[i]->posicao[ZZ];
@@ -33,6 +34,7 @@ void Radar::distancia(void){
 		// calcula a distancia à chave i
 		distTemp2 = sqrt(pow(ax-cxt,2)+pow(az-czt,2));
 		if(distTemp2 < distTemp) distTemp = distTemp2;
+		}
 	}
 
 	// se a chave i estiver mais próxima actualiza a dist

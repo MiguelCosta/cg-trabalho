@@ -22,6 +22,9 @@ public:
 	Torre				*torres[3];
 	Radar				*radar;
 
+	// conta quantas chaves já foram apanhadas
+	int chaves_apanhadas;
+
 	Mapa(void);
 	/** desenha o terreno */
 	void terreno(void);
