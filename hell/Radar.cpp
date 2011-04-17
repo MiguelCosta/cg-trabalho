@@ -68,6 +68,10 @@ void Radar::desenha(GLuint x, GLuint y) {
 	// calcula a distancia
 	distancia();
 
+	//cor do texto
+	float color[] = {1.0,1.0,1.0};
+	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
+	
     glPushMatrix();
     glLoadIdentity();
   
