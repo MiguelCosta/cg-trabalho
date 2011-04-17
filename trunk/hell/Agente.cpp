@@ -33,7 +33,6 @@ void Agente::desenhar(void)	{
 	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
 
 	glPushMatrix();
-		glColor3f(1, 0, 0);
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
 		glRotatef(angAlpha * 180 / PI,0,posicao[YY],0);
 		glutSolidTeapot(0.2);

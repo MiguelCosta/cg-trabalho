@@ -20,7 +20,6 @@ void Edificio::desenhar(void)	{
 	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
 	
 	glPushMatrix();
-		glColor3fv(color);
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
 		glutSolidTeapot(10);
 	glPopMatrix();

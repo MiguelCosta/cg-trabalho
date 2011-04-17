@@ -14,11 +14,10 @@ Chave::Chave(GLdouble posicaoInicialX, GLdouble posicaoInicialZ){
 }
 
 void Chave::desenha(void)	{
-	float color[] = {1.0,0.0,0.0,1.0};
+	float color[] = {0.0,1.0,0.0,1.0};
 	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
 	
 	glPushMatrix();
-		glColor3f(1, 0, 0);
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
 		glutSolidTorus(1,5,10,10);
 	glPopMatrix();
