@@ -2,17 +2,6 @@
 
 
 
-
-typedef enum e_teclas {
-		ANDAR_FREN,
-		ANDAR_TRAS,
-		ANDAR_DIR,
-		ANDAR_ESQ,
-
-		NUM_TECLAS,
-	} COD_TECLAS;
-
-
 	/** Funcoes */
 	void processarTecladoEspecialDown(int key, int x, int y);
 

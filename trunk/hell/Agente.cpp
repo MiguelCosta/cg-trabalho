@@ -12,11 +12,6 @@ extern bool teclas[];
 
 Agente::Agente(void)	{
 	Agente(0, 0);
-	//posicao[0] = 0.0f;
-	//posicao[1] = 1.2f;
-	//posicao[2] = 0.0f;
-	//ang = 0;
-	//svelocidade = 1.5;
 }
 
 Agente::Agente(GLdouble posicaoInicialX, GLdouble posicaoInicialZ) {
@@ -42,21 +37,25 @@ void Agente::desenhar(void)	{
 }
 
 void Agente::andar(void)	{
+	float vel = velocidade;
+	if (teclas[CORRER])	{
+		vel *= 2;
+	}
 	if (teclas[ANDAR_ESQ]) {
-		posicao[XX] += velocidade * cos(angAlpha);
-		posicao[ZZ] -= velocidade * sin(angAlpha);
+		posicao[XX] += vel * cos(angAlpha);
+		posicao[ZZ] -= vel * sin(angAlpha);
 	}
 	if (teclas[ANDAR_DIR]) {
-		posicao[XX] -= velocidade * cos(angAlpha);
-		posicao[ZZ] += velocidade * sin(angAlpha);
+		posicao[XX] -= vel * cos(angAlpha);
+		posicao[ZZ] += vel * sin(angAlpha);
 	}
 	if (teclas[ANDAR_FREN]) {
-		posicao[XX] += velocidade * sin(angAlpha);
-		posicao[ZZ] += velocidade * cos(angAlpha);
+		posicao[XX] += vel * sin(angAlpha);
+		posicao[ZZ] += vel * cos(angAlpha);
 	}
 	if (teclas[ANDAR_TRAS]) {
-		posicao[XX] -= velocidade * sin(angAlpha);
-		posicao[ZZ] -= velocidade * cos(angAlpha);
+		posicao[XX] -= vel * sin(angAlpha);
+		posicao[ZZ] -= vel * cos(angAlpha);
 	}
 	if(posicao[XX] >= MAPA_TAM)
 		posicao[XX] = MAPA_TAM;
@@ -80,6 +79,7 @@ float Agente::direcao(int EIXO)	{
 			return(cos(angBeta)*cos(angAlpha));
 			break;
 	}
+	return -1;
 
 }
 

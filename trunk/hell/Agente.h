@@ -23,6 +23,6 @@ public:
 	~Agente(void);
 
 private:
-	GLfloat velocidade;
+	float velocidade;
 };
 
