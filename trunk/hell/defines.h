@@ -35,8 +35,8 @@ typedef enum e_teclas {
 #define RADAR_ALCALCE 20
 
 // Velocidade do rato
-#define VELOCIDADE_RATO_ALPHA	0.1
-#define VELOCIDADE_RATO_BETA	0.001
+#define VELOCIDADE_RATO_ALPHA	0.2
+#define VELOCIDADE_RATO_BETA	0.5
 
 // Pi!
 #define PI						3.14159265

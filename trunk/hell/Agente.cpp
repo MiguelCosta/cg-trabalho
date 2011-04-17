@@ -1,6 +1,6 @@
 
 
-#include <iostream>
+//#include <iostream>
 
 #include "Agente.h"
 #include "Input.h"

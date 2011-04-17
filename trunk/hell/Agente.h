@@ -2,8 +2,6 @@
 
 #include <GL/glut.h>
 
-extern bool teclas[4];
-
 class Agente	{
 public:
 	GLdouble posicao[3];
