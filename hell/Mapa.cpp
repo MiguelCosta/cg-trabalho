@@ -5,7 +5,7 @@
 
 #include "Mapa.h"
 #include "defines.h"
-
+#include <string.h>
 
 /* Cria aleatoriamente um mapa */
 Mapa::Mapa(void)	{
@@ -105,6 +105,51 @@ void Mapa::terreno(void){
 
 }
 
+
+
+
+void setOrthographicProjection2(){
+  glMatrixMode(GL_PROJECTION);
+  glPushMatrix();
+  glLoadIdentity();
+  gluOrtho2D(0, 200, 0, 200);
+  glScalef(1, -1, 1);
+  glTranslatef(0, -200, 0);
+  glMatrixMode(GL_MODELVIEW);
+}
+
+void resetPerspectiveProjection2() {
+  glMatrixMode(GL_PROJECTION);
+  glPopMatrix();
+  glMatrixMode(GL_MODELVIEW);
+}
+
+// coloca no ecrão a informação de quantas chaves já apanhou ou se já apanhou todas
+void Mapa::desenhaEstadoJogo(GLuint x, GLuint y){
+
+    glPushMatrix();
+    glLoadIdentity();
+  
+    setOrthographicProjection2();
+
+    glRasterPos2i(x, y);
+	char *string = new char[50];
+
+	/** Mensagens que aparem do jogo, verifica se já apanhou as chaves todas ou nao*/
+	if(num_chaves_apanhadas == NUM_CHAVES)
+		sprintf(string, "PARABENS! Ja apanhou as %d chaves, va para o edificio final!", num_chaves_apanhadas);
+	else sprintf(string, "Chaves apanhadas: %d de %d", num_chaves_apanhadas, NUM_CHAVES);
+
+	int len, i;
+	len = (int) strlen(string);
+
+	for (i = 0; i < len; i++) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, string[i]);
+    }
+    resetPerspectiveProjection2();
+    glPopMatrix();
+}
+
 /* Desenha o mapa e tudo que esta nele */
 void Mapa::desenhar(void)	{
 		
@@ -127,8 +172,12 @@ void Mapa::desenhar(void)	{
 
 	// radar
 	radar->desenha(7,7);
-
+	
+	// actualiza a variàvel de chaves actualizadas
 	num_chaves_apanhadas = chaves_apanhadas();
+
+	// coloca no ecrã o estado actual do jogo, quantas chaves foram apanhadas e se já tem de ir para o edificio
+	desenhaEstadoJogo(7,15);
 
 	//list<Chave *>::iterator it;
 	/* Colocar Chaves */
