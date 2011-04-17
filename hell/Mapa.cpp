@@ -131,9 +131,6 @@ void Mapa::desenhar(void)	{
 
 	num_chaves_apanhadas = chaves_apanhadas();
 
-	/* este print é para tirar daqui depois*/
-	printf("Numero de chaves apanhadas. %d\n",num_chaves_apanhadas);
-
 	//list<Chave *>::iterator it;
 	/* Colocar Chaves */
 	/*for( it = chaves->begin() ; it != chaves->end() ; it++)	{

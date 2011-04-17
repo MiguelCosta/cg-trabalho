@@ -43,7 +43,6 @@ void Radar::distancia(void){
 	// se a distancia for -1 é porque não está ao alcance do radar
 	if(dist > RADAR_ALCALCE) dist = -1;
 
-	//printf("Distancia: %lf\n",dist);
 }
 
 
