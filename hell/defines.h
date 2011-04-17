@@ -28,6 +28,9 @@ typedef enum e_teclas {
 #define NUM_TORRES	3
 #define DISTANCIA_TORRE_AGENTE 50
 
+// edificio
+#define DISTANCIA_AGENTE_NO_EDIFICIO 10
+
 // velocidade do agente
 #define AGENTE_VELOCIDADE_INICIAL 0.2
 

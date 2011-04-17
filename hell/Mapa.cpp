@@ -10,7 +10,7 @@
 /* Cria aleatoriamente um mapa */
 Mapa::Mapa(void)	{
 
-	
+
 	//inicializa o gerador de numeros aleatorios
 	srand(time(NULL));
 
@@ -27,7 +27,7 @@ Mapa::Mapa(void)	{
 	}
 
 	/* Colocar as Torres num array */
-	
+
 	for( int i=0 ; i < NUM_TORRES ; i++)	{
 		torres[i] = new Torre(
 			rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM,
@@ -39,6 +39,8 @@ Mapa::Mapa(void)	{
 
 	/* numero de chaves apanhadas */
 	num_chaves_apanhadas = 0;
+
+	flagJogoCompleto = false;
 }
 
 
@@ -79,8 +81,6 @@ void Mapa::initTextura(char * nome_textura){
 /** desenha uma grelha para o terreno */
 void Mapa::terreno(void){
 
-	
-	
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, textura_solo);
 	int x = 0, z = 0;	
@@ -90,7 +90,7 @@ void Mapa::terreno(void){
 
 
 	glBegin(GL_TRIANGLE_STRIP);
-	
+
 	for(z = -MAPA_TAM; z < MAPA_TAM; z++) {
 		for(x = -MAPA_TAM; x < MAPA_TAM; x++) {
 			glTexCoord2f(x, z); glVertex3f(x,0,z);
@@ -105,66 +105,93 @@ void Mapa::terreno(void){
 
 }
 
+void Mapa::verificaEstadoJogo(void){
 
+	// flag que indica se as chaves estão todas apanhadas
+	bool todasAsChavesApanhadas = false;
+	if (num_chaves_apanhadas == NUM_CHAVES) todasAsChavesApanhadas = true;
 
+	// se todas as chaves foram apanhadas e está à beira do edificio o jogo está completo
+	if(todasAsChavesApanhadas){
+		// distancia entre agente e o edificio
+		GLfloat distAgenteEdificio;
+
+		// coordenadas do agente
+		GLfloat ax, az;
+		ax = agente->posicao[XX];
+		az = agente->posicao[ZZ];
+
+		// coordenadas do edificio
+		GLfloat ex, ez;
+		ex = edificio->posicao[XX];
+		ez = edificio->posicao[ZZ];
+
+		// calcula a distancia entre o agente e o edificio
+		distAgenteEdificio = sqrt(pow(ax-ex,2)+pow(az-ez,2));
+
+		// aqui já tem as chaves apanhadas, por isso se estiver perto do edificio o jogo está completo
+		if(distAgenteEdificio <= DISTANCIA_AGENTE_NO_EDIFICIO) flagJogoCompleto = true;
+	}
+}
 
 void setOrthographicProjection2(){
-  glMatrixMode(GL_PROJECTION);
-  glPushMatrix();
-  glLoadIdentity();
-  gluOrtho2D(0, 200, 0, 200);
-  glScalef(1, -1, 1);
-  glTranslatef(0, -200, 0);
-  glMatrixMode(GL_MODELVIEW);
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	gluOrtho2D(0, 200, 0, 200);
+	glScalef(1, -1, 1);
+	glTranslatef(0, -200, 0);
+	glMatrixMode(GL_MODELVIEW);
 }
 
 void resetPerspectiveProjection2() {
-  glMatrixMode(GL_PROJECTION);
-  glPopMatrix();
-  glMatrixMode(GL_MODELVIEW);
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glMatrixMode(GL_MODELVIEW);
 }
 
 // coloca no ecrão a informação de quantas chaves já apanhou ou se já apanhou todas
 void Mapa::desenhaEstadoJogo(GLuint x, GLuint y){
 
-    glPushMatrix();
-    glLoadIdentity();
-  
-    setOrthographicProjection2();
+	glPushMatrix();
+	glLoadIdentity();
 
-    glRasterPos2i(x, y);
+	setOrthographicProjection2();
+
+	glRasterPos2i(x, y);
 	char *string = new char[50];
 
 	/** Mensagens que aparem do jogo, verifica se já apanhou as chaves todas ou nao*/
-	if(num_chaves_apanhadas == NUM_CHAVES)
-		sprintf(string, "PARABENS! Ja apanhou as %d chaves, va para o edificio final!", num_chaves_apanhadas);
-	else sprintf(string, "Chaves apanhadas: %d de %d", num_chaves_apanhadas, NUM_CHAVES);
+	if (flagJogoCompleto)
+		sprintf(string, "JOGO TERMINADO :)");
+	else 
+		if(num_chaves_apanhadas == NUM_CHAVES)
+			sprintf(string, "PARABENS! Ja apanhou as %d chaves, va para o edificio final!", num_chaves_apanhadas);
+		else sprintf(string, "Chaves apanhadas: %d de %d", num_chaves_apanhadas, NUM_CHAVES);
 
-	int len, i;
-	len = (int) strlen(string);
+		int len, i;
+		len = (int) strlen(string);
 
-	for (i = 0; i < len; i++) {
-        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, string[i]);
-    }
-    resetPerspectiveProjection2();
-    glPopMatrix();
+		for (i = 0; i < len; i++) {
+			glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, string[i]);
+		}
+		resetPerspectiveProjection2();
+		glPopMatrix();
 }
 
 /* Desenha o mapa e tudo que esta nele */
 void Mapa::desenhar(void)	{
-		
-	//glPolygonMode(GL_BACK, GL_LINE);
 
 	/***** DESENHAR OS OBJECTOS *****/
 	terreno();
 	agente->desenhar();
 	edificio->desenhar();
-	
+
 	// desenhar as chaves
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
 		chaves[i]->desenha();
 	}
-	
+
 	// desenhar as torres
 	for( int i=0 ; i < NUM_TORRES ; i++)	{
 		torres[i]->desenha();
@@ -172,9 +199,12 @@ void Mapa::desenhar(void)	{
 
 	// radar
 	radar->desenha(7,7);
-	
-	// actualiza a variàvel de chaves actualizadas
+
+	// actualiza a variàvel de chaves apanhadas
 	num_chaves_apanhadas = chaves_apanhadas();
+
+	// verifica as se as chaves estão todas apanhadas e se está no edificio
+	verificaEstadoJogo();
 
 	// coloca no ecrã o estado actual do jogo, quantas chaves foram apanhadas e se já tem de ir para o edificio
 	desenhaEstadoJogo(7,15);
