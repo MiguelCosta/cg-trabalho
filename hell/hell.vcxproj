@@ -81,38 +81,30 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Chave.cpp" />
     <ClCompile Include="Edificio.cpp" />
-    <ClCompile Include="Image.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mapa.cpp" />
-    <ClCompile Include="Md2Model.cpp" />
-    <ClCompile Include="Md2Player.cpp" />
     <ClCompile Include="Radar.cpp" />
-    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Torre.cpp" />
     <ClCompile Include="util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agente.h" />
-    <ClInclude Include="Anorms.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Chave.h" />
-    <ClInclude Include="DataManager.h" />
     <ClInclude Include="defines.h" />
     <ClInclude Include="Edificio.h" />
-    <ClInclude Include="Image.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Mapa.h" />
-    <ClInclude Include="Md2Model.h" />
-    <ClInclude Include="Md2Player.h" />
+    <ClInclude Include="md2loader\DataManager.h" />
+    <ClInclude Include="md2loader\Image.h" />
+    <ClInclude Include="md2loader\Md2Model.h" />
+    <ClInclude Include="md2loader\Md2Player.h" />
+    <ClInclude Include="md2loader\Texture.h" />
+    <ClInclude Include="md2loader\TextureManager.h" />
     <ClInclude Include="Radar.h" />
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Torre.h" />
     <ClInclude Include="util.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="DataManager.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
