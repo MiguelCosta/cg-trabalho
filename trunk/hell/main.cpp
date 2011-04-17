@@ -13,14 +13,24 @@ Mapa	*_mapa;
 Camera	*_camera;
 bool teclas[NUM_TECLAS];
 
-
 void renderScene(void)	{
 	
+	float pos[4]={10.0,1.0,-1.0,0.0};
+	GLfloat amb[3]={0.5,0.5,0.5};
+	GLfloat diff[3]={1.0,1.0,1.0};
+
+	glClearColor(0,0,0,0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glLoadIdentity();
-
 	_camera->desenhar();
+
+	//instruções de posicionamento da luz
+	glLightfv(GL_LIGHT0, GL_POSITION, pos);
+	glLightfv(GL_LIGHT0, GL_AMBIENT, amb);
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, diff);
+
+
 	//_agente->desenhar();
 	_mapa->desenhar();
 	
@@ -61,7 +71,6 @@ int main(int argc, char **argv) {
 	// Codigo do programa
 	_mapa = new Mapa();
 	_camera = new Camera();
-
 	// Inicializacao
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
@@ -87,6 +96,10 @@ int main(int argc, char **argv) {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 	//glutFullScreen();
+
+	//inicialização da luz
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
 
 	//criarTextura();
 	_mapa->initTextura("relva1.jpg");
