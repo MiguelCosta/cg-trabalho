@@ -39,7 +39,7 @@ void Camera::desenhar(void) {
 		//printf("X: %lf\tY: %lf\tZ: %lf\n",_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY],	_mapa->agente->posicao[ZZ]);
 		gluLookAt(	
 			posicao[XX],				posicao[YY],				posicao[ZZ],
-			posicao[XX]+direcao[XX],	posicao[YY]+0.3,	posicao[ZZ]+direcao[ZZ],
+			posicao[XX]+direcao[XX],	posicao[YY]-0.2,	posicao[ZZ]+direcao[ZZ],
 			0,	1,	0);
 		}
 	// se a camara estiver para o mundo - third person
