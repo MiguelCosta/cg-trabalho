@@ -13,18 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Resource Files\MD2 Loader">
-      <UniqueIdentifier>{dfc57d4e-315e-4831-bc31-5c4d1e8db738}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\MD2 Loader\lib">
-      <UniqueIdentifier>{992ebfea-38e3-46e1-9c7c-63f86fe1b10c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\MD2 Loader\include">
-      <UniqueIdentifier>{4b8fb979-a6d6-4f80-8182-ebce16a88e56}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\MD2 Loader\include\GL">
-      <UniqueIdentifier>{033560c5-b475-4da0-b559-89b9544e85ac}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource Files\Modelos">
       <UniqueIdentifier>{947d3844-08fd-4680-aee6-2b27259060d3}</UniqueIdentifier>
     </Filter>
@@ -66,20 +54,8 @@
     <ClCompile Include="Torre.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="md2loader\Image.cpp">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </ClCompile>
-    <ClCompile Include="md2loader\Main.cpp">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </ClCompile>
-    <ClCompile Include="md2loader\Md2Model.cpp">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </ClCompile>
-    <ClCompile Include="md2loader\Md2Player.cpp">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </ClCompile>
-    <ClCompile Include="md2loader\Texture.cpp">
-      <Filter>Resource Files\MD2 Loader</Filter>
+    <ClCompile Include="MyMd2Player.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -113,85 +89,8 @@
     <ClInclude Include="Torre.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="md2loader\Anorms.h">
-      <Filter>Resource Files\MD2 Loader</Filter>
+    <ClInclude Include="MyMd2Player.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="md2loader\DataManager.h">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="md2loader\Image.h">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="md2loader\Md2Model.h">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="md2loader\Md2Player.h">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="md2loader\Texture.h">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="md2loader\TextureManager.h">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="md2loader\include\GL\glew.h">
-      <Filter>Resource Files\MD2 Loader\include\GL</Filter>
-    </ClInclude>
-    <ClInclude Include="md2loader\include\GL\glut.h">
-      <Filter>Resource Files\MD2 Loader\include\GL</Filter>
-    </ClInclude>
-    <ClInclude Include="md2loader\include\GL\glxew.h">
-      <Filter>Resource Files\MD2 Loader\include\GL</Filter>
-    </ClInclude>
-    <ClInclude Include="md2loader\include\GL\wglew.h">
-      <Filter>Resource Files\MD2 Loader\include\GL</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="md2loader\config.guess">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </None>
-    <None Include="md2loader\DataManager.inl">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </None>
-    <None Include="md2loader\glut32.dll">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </None>
-    <None Include="md2loader\LICENSE">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </None>
-    <None Include="md2loader\Makefile">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </None>
-    <None Include="md2loader\Makefile.linux">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </None>
-    <None Include="md2loader\Makefile.linux-mingw">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </None>
-    <None Include="md2loader\Makefile.mingw">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </None>
-    <None Include="md2loader\OpenGLMD2Loader">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </None>
-    <None Include="md2loader\OpenGLMD2Loader.exe">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </None>
-    <None Include="md2loader\README">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </None>
-    <None Include="md2loader\README-glut-win32.txt">
-      <Filter>Resource Files\MD2 Loader</Filter>
-    </None>
-    <None Include="md2loader\lib\libglew32.dll.a">
-      <Filter>Resource Files\MD2 Loader\lib</Filter>
-    </None>
-    <None Include="md2loader\lib\libglut32.a">
-      <Filter>Resource Files\MD2 Loader\lib</Filter>
-    </None>
-    <None Include="md2loader\lib\mingw.txt">
-      <Filter>Resource Files\MD2 Loader\lib</Filter>
-    </None>
   </ItemGroup>
 </Project>

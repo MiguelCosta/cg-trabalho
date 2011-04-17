@@ -84,11 +84,7 @@
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mapa.cpp" />
-    <ClCompile Include="md2loader\Image.cpp" />
-    <ClCompile Include="md2loader\Main.cpp" />
-    <ClCompile Include="md2loader\Md2Model.cpp" />
-    <ClCompile Include="md2loader\Md2Player.cpp" />
-    <ClCompile Include="md2loader\Texture.cpp" />
+    <ClCompile Include="MyMd2Player.cpp" />
     <ClCompile Include="Radar.cpp" />
     <ClCompile Include="Torre.cpp" />
     <ClCompile Include="util.cpp" />
@@ -101,37 +97,10 @@
     <ClInclude Include="Edificio.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Mapa.h" />
-    <ClInclude Include="md2loader\Anorms.h" />
-    <ClInclude Include="md2loader\DataManager.h" />
-    <ClInclude Include="md2loader\Image.h" />
-    <ClInclude Include="md2loader\include\GL\glew.h" />
-    <ClInclude Include="md2loader\include\GL\glut.h" />
-    <ClInclude Include="md2loader\include\GL\glxew.h" />
-    <ClInclude Include="md2loader\include\GL\wglew.h" />
-    <ClInclude Include="md2loader\Md2Model.h" />
-    <ClInclude Include="md2loader\Md2Player.h" />
-    <ClInclude Include="md2loader\Texture.h" />
-    <ClInclude Include="md2loader\TextureManager.h" />
+    <ClInclude Include="MyMd2Player.h" />
     <ClInclude Include="Radar.h" />
     <ClInclude Include="Torre.h" />
     <ClInclude Include="util.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="md2loader\config.guess" />
-    <None Include="md2loader\DataManager.inl" />
-    <None Include="md2loader\glut32.dll" />
-    <None Include="md2loader\lib\libglew32.dll.a" />
-    <None Include="md2loader\lib\libglut32.a" />
-    <None Include="md2loader\lib\mingw.txt" />
-    <None Include="md2loader\LICENSE" />
-    <None Include="md2loader\Makefile" />
-    <None Include="md2loader\Makefile.linux" />
-    <None Include="md2loader\Makefile.linux-mingw" />
-    <None Include="md2loader\Makefile.mingw" />
-    <None Include="md2loader\OpenGLMD2Loader" />
-    <None Include="md2loader\OpenGLMD2Loader.exe" />
-    <None Include="md2loader\README" />
-    <None Include="md2loader\README-glut-win32.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
