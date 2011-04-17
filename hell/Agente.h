@@ -4,7 +4,7 @@
 
 class Agente	{
 public:
-	GLdouble posicao[3];
+		
 	GLfloat angAlpha;
 	GLfloat angBeta;
 
