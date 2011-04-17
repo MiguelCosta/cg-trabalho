@@ -1,5 +1,5 @@
 
-#include "md2loader\Md2Player.h"
+/*#include "md2loader\Md2Player.h"
 
 class Modelo	{
 public:
@@ -12,5 +12,5 @@ public:
 
 	Modelo(const string &pasta);
 	~Modelo(void);
-};
+};*/
 

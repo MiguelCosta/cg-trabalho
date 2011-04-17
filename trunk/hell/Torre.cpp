@@ -24,7 +24,7 @@ Torre::Torre(GLdouble posicaoInicialX, GLdouble posicaoInicialZ)
 	posicao[ZZ] = posicaoInicialZ;
 	ang = 0;
 
-	modelo = new Modelo("catapull");
+	//modelo = new Modelo("catapull");
 }
 
 /** Calcula o angulo que as torres tem de girar */
@@ -101,9 +101,9 @@ void Torre::desenha(void)	{
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
 		glRotatef(ang,0,posicao[YY],0);
 		
-		//glutSolidCube(3);
+		glutSolidCube(3);
 		
-		modelo->modeloMD2->drawPlayerItp(false,(Md2Object::Md2RenderMode) modelo->modoVista);
+		//modelo->modeloMD2->drawPlayerItp(false,(Md2Object::Md2RenderMode) modelo->modoVista);
 
 	glPopMatrix();
 	

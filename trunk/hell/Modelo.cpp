@@ -1,5 +1,5 @@
 
-
+/*
 
 #include "Modelo.h"
 
@@ -29,3 +29,4 @@ Modelo::Modelo(const string &pasta)	{
 Modelo::~Modelo(void)	{
 
 }
+*/

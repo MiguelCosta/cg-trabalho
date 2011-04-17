@@ -86,10 +86,6 @@
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mapa.cpp" />
-    <ClCompile Include="md2loader\Image.cpp" />
-    <ClCompile Include="md2loader\Md2Model.cpp" />
-    <ClCompile Include="md2loader\Md2Player.cpp" />
-    <ClCompile Include="md2loader\Texture.cpp" />
     <ClCompile Include="Modelo.cpp" />
     <ClCompile Include="Radar.cpp" />
     <ClCompile Include="Torre.cpp" />
@@ -114,9 +110,6 @@
     <ClInclude Include="Radar.h" />
     <ClInclude Include="Torre.h" />
     <ClInclude Include="util.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="md2loader\DataManager.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
