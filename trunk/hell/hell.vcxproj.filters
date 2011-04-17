@@ -54,18 +54,6 @@
     <ClCompile Include="Torre.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Md2Player.cpp">
-      <Filter>Resource Files\My MD2 Loader</Filter>
-    </ClCompile>
-    <ClCompile Include="Image.cpp">
-      <Filter>Resource Files\My MD2 Loader</Filter>
-    </ClCompile>
-    <ClCompile Include="Md2Model.cpp">
-      <Filter>Resource Files\My MD2 Loader</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Resource Files\My MD2 Loader</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Mapa.h">
@@ -98,31 +86,23 @@
     <ClInclude Include="Torre.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Md2Player.h">
+    <ClInclude Include="md2loader\Md2Player.h">
       <Filter>Resource Files\My MD2 Loader</Filter>
     </ClInclude>
-    <ClInclude Include="Anorms.h">
+    <ClInclude Include="md2loader\TextureManager.h">
       <Filter>Resource Files\My MD2 Loader</Filter>
     </ClInclude>
-    <ClInclude Include="DataManager.h">
+    <ClInclude Include="md2loader\Md2Model.h">
       <Filter>Resource Files\My MD2 Loader</Filter>
     </ClInclude>
-    <ClInclude Include="Image.h">
+    <ClInclude Include="md2loader\DataManager.h">
       <Filter>Resource Files\My MD2 Loader</Filter>
     </ClInclude>
-    <ClInclude Include="Md2Model.h">
+    <ClInclude Include="md2loader\Texture.h">
       <Filter>Resource Files\My MD2 Loader</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
+    <ClInclude Include="md2loader\Image.h">
       <Filter>Resource Files\My MD2 Loader</Filter>
     </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Resource Files\My MD2 Loader</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="DataManager.inl">
-      <Filter>Resource Files\My MD2 Loader</Filter>
-    </None>
   </ItemGroup>
 </Project>
