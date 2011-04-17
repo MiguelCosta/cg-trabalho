@@ -54,8 +54,17 @@
     <ClCompile Include="Torre.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MyMd2Player.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Md2Player.cpp">
+      <Filter>Resource Files\My MD2 Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Resource Files\My MD2 Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="Md2Model.cpp">
+      <Filter>Resource Files\My MD2 Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Resource Files\My MD2 Loader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,26 +98,31 @@
     <ClInclude Include="Torre.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MyMd2Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="md2loader\Md2Player.h">
+    <ClInclude Include="Md2Player.h">
       <Filter>Resource Files\My MD2 Loader</Filter>
     </ClInclude>
-    <ClInclude Include="md2loader\TextureManager.h">
+    <ClInclude Include="Anorms.h">
       <Filter>Resource Files\My MD2 Loader</Filter>
     </ClInclude>
-    <ClInclude Include="md2loader\Md2Model.h">
+    <ClInclude Include="DataManager.h">
       <Filter>Resource Files\My MD2 Loader</Filter>
     </ClInclude>
-    <ClInclude Include="md2loader\DataManager.h">
+    <ClInclude Include="Image.h">
       <Filter>Resource Files\My MD2 Loader</Filter>
     </ClInclude>
-    <ClInclude Include="md2loader\Texture.h">
+    <ClInclude Include="Md2Model.h">
       <Filter>Resource Files\My MD2 Loader</Filter>
     </ClInclude>
-    <ClInclude Include="md2loader\Image.h">
+    <ClInclude Include="Texture.h">
       <Filter>Resource Files\My MD2 Loader</Filter>
     </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Resource Files\My MD2 Loader</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataManager.inl">
+      <Filter>Resource Files\My MD2 Loader</Filter>
+    </None>
   </ItemGroup>
 </Project>
