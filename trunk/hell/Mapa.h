@@ -22,15 +22,22 @@ public:
 
 	// variavel que diz quantas chaves foram apanhadas
 	int num_chaves_apanhadas;
+	
+	// flag que diz se já apanhou as chaves todas e se depois foi até ao edificio
+	bool flagJogoCompleto;
 
 	Mapa(void);
 	/** desenha o terreno */
+
 	void terreno(void);
 	/** textura para o terreno */
 	void initTextura(char * nome_textura);
 
 	// conta quantas chaves já foram apanhadas
 	int chaves_apanhadas(void);
+
+	// verifica se jogo já está completo ou não, se estiver coloca a flagJogoCompleto a true
+	void verificaEstadoJogo(void);
 
 	// coloca no ecra quantas chaves ja foram apanhadas e o que tem de fazer
 	void desenhaEstadoJogo(GLuint x, GLuint y);

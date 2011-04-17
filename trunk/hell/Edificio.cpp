@@ -21,7 +21,7 @@ void Edificio::desenhar(void)	{
 	
 	glPushMatrix();
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
-		glutSolidTeapot(10);
+		glutSolidTeapot(4);
 	glPopMatrix();
 	
 }
