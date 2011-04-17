@@ -35,7 +35,7 @@ typedef enum e_teclas {
 #define AGENTE_VELOCIDADE_INICIAL 0.2
 
 // Radar
-#define RADAR_ALCALCE 20
+#define RADAR_ALCALCE 50
 
 // Velocidade do rato
 #define VELOCIDADE_RATO_ALPHA	0.2
