@@ -1,4 +1,16 @@
 
+#ifndef __DEFINES
+#define __DEFINES
+
+typedef enum e_teclas {
+	ANDAR_FREN,
+	ANDAR_TRAS,
+	ANDAR_DIR,
+	ANDAR_ESQ,
+	CORRER,
+
+	NUM_TECLAS,
+} COD_TECLAS;
 
 // Eixos cartesianos
 #define	XX	0
@@ -29,3 +41,4 @@
 // Pi!
 #define PI						3.14159265
 
+#endif

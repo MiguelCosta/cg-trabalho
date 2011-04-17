@@ -16,7 +16,7 @@ float startX, startY, tracking = 0;
 int alpha = 0, beta = 0, r = 5.0;
 
 extern Camera * _camera;
-extern bool teclas[];
+//extern bool teclas[NUM_TECLAS];
 
 void processarTecladoEspecialDown(int key, int x, int y)	{
 	static bool fullScreenActiva = true;
@@ -98,6 +98,9 @@ void processarTecladoDown	(unsigned char key, int x, int y)	{
 		case 'a':
 			teclas[ANDAR_ESQ] = true;
 			break;
+		case ' ':
+			teclas[CORRER] = true;
+			break;
 	}
 }
 
@@ -119,6 +122,9 @@ void processarTecladoUp		(unsigned char key, int x, int y)	{
 		case 'A':
 		case 'a':
 			teclas[ANDAR_ESQ] = false;
+			break;
+		case ' ':
+			teclas[CORRER] = false;
 			break;
 	}
 }
