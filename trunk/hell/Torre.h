@@ -3,7 +3,7 @@
 #include <GL/glut.h>
 #include <math.h>
 #include "defines.h"
-
+#include "Modelo.h"
 
 class Torre
 {
@@ -15,6 +15,8 @@ public:
 	// distancia da torre ao agente
 	GLfloat dist;
 	
+	// Modelo MD2
+	Modelo * modelo;
 
 	/** Contrutores **/
 	Torre(void);
