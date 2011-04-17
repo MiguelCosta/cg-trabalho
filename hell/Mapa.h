@@ -32,6 +32,9 @@ public:
 	// conta quantas chaves já foram apanhadas
 	int chaves_apanhadas(void);
 
+	// coloca no ecra quantas chaves ja foram apanhadas e o que tem de fazer
+	void desenhaEstadoJogo(GLuint x, GLuint y);
+
 	/**desenha tudo no mapa */
 	void desenhar(void);
 	~Mapa(void);
