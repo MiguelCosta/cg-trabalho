@@ -35,7 +35,7 @@ void Agente::desenhar(void)	{
 	glPushMatrix();
 		glColor3f(1, 0, 0);
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
-		glRotatef(angAlpha,0,posicao[YY],0);
+		glRotatef(angAlpha * 180 / PI,0,posicao[YY],0);
 		glutSolidTeapot(0.2);
 	glPopMatrix();
 	
@@ -44,20 +44,20 @@ void Agente::desenhar(void)	{
 
 void Agente::andar(void)	{
 	if (teclas[ANDAR_ESQ]) {
-		posicao[XX] -= velocidade * cos(angAlpha);
-		posicao[ZZ] += velocidade * sin(angAlpha);
-	}
-	if (teclas[ANDAR_DIR]) {
 		posicao[XX] += velocidade * cos(angAlpha);
 		posicao[ZZ] -= velocidade * sin(angAlpha);
 	}
-	if (teclas[ANDAR_FREN]) {
-		posicao[XX] -= velocidade * sin(angAlpha);
-		posicao[ZZ] -= velocidade * cos(angAlpha);
+	if (teclas[ANDAR_DIR]) {
+		posicao[XX] -= velocidade * cos(angAlpha);
+		posicao[ZZ] += velocidade * sin(angAlpha);
 	}
-	if (teclas[ANDAR_TRAS]) {
+	if (teclas[ANDAR_FREN]) {
 		posicao[XX] += velocidade * sin(angAlpha);
 		posicao[ZZ] += velocidade * cos(angAlpha);
+	}
+	if (teclas[ANDAR_TRAS]) {
+		posicao[XX] -= velocidade * sin(angAlpha);
+		posicao[ZZ] -= velocidade * cos(angAlpha);
 	}
 	if(posicao[XX] >= MAPA_TAM)
 		posicao[XX] = MAPA_TAM;
@@ -69,6 +69,20 @@ void Agente::andar(void)	{
 		posicao[ZZ] = -MAPA_TAM;
 }
 
+float Agente::direcao(int EIXO)	{
+	switch(EIXO)	{
+		case XX:
+			return (cos(angBeta)*sin(angAlpha));
+			break;
+		case YY:
+			return (cos(angBeta));
+			break;
+		case ZZ:
+			return(cos(angBeta)*cos(angAlpha));
+			break;
+	}
+
+}
 
 Agente::~Agente(void)	{
 

@@ -26,19 +26,28 @@ Camera::Camera(void)	{
 //renderScene
 void Camera::desenhar(void) {
 	
+	float posicao[3], direcao[3];
+		posicao[XX] = _mapa->agente->posicao[XX];
+		posicao[YY] = _mapa->agente->posicao[YY];
+		posicao[ZZ] = _mapa->agente->posicao[ZZ];
+		direcao[XX] = _mapa->agente->direcao(XX);
+		direcao[YY] = _mapa->agente->direcao(YY);
+		direcao[ZZ] = _mapa->agente->direcao(ZZ);
+
 	/* se a camara estiver para o objecto - first person */
 	if(tipoDeVista == PRIMEIRA_PESSOA){
 		//printf("X: %lf\tY: %lf\tZ: %lf\n",_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY],	_mapa->agente->posicao[ZZ]);
 		gluLookAt(	
-			_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY],	_mapa->agente->posicao[ZZ],
-			camPosPrimeiraPessoa[XX], camPosPrimeiraPessoa[YY]	, camPosPrimeiraPessoa[ZZ],
+			posicao[XX],				posicao[YY],				posicao[ZZ],
+			posicao[XX]+direcao[XX],	posicao[YY]+0.3,	posicao[ZZ]+direcao[ZZ],
 			0,	1,	0);
 		}
 	// se a camara estiver para o mundo - third person
 	else if(tipoDeVista == TERCEIRA_PESSOA){
+
 		gluLookAt(	
-			_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY],	(_mapa->agente->posicao[ZZ]+1.5),
-			_mapa->agente->posicao[XX],	_mapa->agente->posicao[YY]+0.1,	_mapa->agente->posicao[ZZ],
+			posicao[XX]-1.5*direcao[XX],	posicao[YY]+0.3,	posicao[ZZ]-1.5 * direcao[ZZ],
+			posicao[XX],					posicao[YY],		posicao[ZZ],
 			0,	1,	0);
 	}
 	// se a camara estiver em modo deus
