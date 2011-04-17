@@ -79,7 +79,7 @@ int main(int argc, char **argv) {
 	glutSpecialFunc(processarTecladoEspecialDown);
 	glutSpecialUpFunc(processarTecladoEspecialUp);
 
-//	glutPassiveMotionFunc(mover);
+	glutPassiveMotionFunc(processarMovimentoRato);
 	glutMouseFunc(processMouseButtons);
 	glutMotionFunc(processMouseMotion);
 
