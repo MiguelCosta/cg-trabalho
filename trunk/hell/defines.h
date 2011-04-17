@@ -10,6 +10,7 @@
 
 // numero de chaves
 #define NUM_CHAVES	3
+#define APANHA_CHAVE 5
 
 // numero de torres
 #define NUM_TORRES	3

@@ -7,7 +7,15 @@
 class Chave
 {
 public:
+	/* posicao da chave */
 	GLdouble posicao[3];
+
+	/* estado da chave 
+	* 0 nao encontrada
+	* 1 encontrada
+	* */
+	int encontrada;
+
 	/** Contrutores **/
 	/** Cria a chave*/
 	Chave(void);
@@ -16,6 +24,9 @@ public:
 
 	/** Desenha a chave */
 	void desenha(void);
+
+	/** quando o agente encontra a chave */
+	void encontra(void);
 
 	/** Destrutor */
 	~Chave(void);
