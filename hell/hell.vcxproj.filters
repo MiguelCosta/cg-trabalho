@@ -95,7 +95,7 @@
     <ClInclude Include="md2loader\Image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\2º Semestre\CG\Visual Studio\Fichas_CG\Ficha_3_naps\glm.h">
+    <ClInclude Include="glm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
