@@ -10,6 +10,24 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Anorms.h" />
+    <ClInclude Include="DataManager.h" />
+    <ClInclude Include="Image.h" />
+    <ClInclude Include="Md2Model.h" />
+    <ClInclude Include="Md2Player.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="TextureManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataManager.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Image.cpp" />
+    <ClCompile Include="Md2Model.cpp" />
+    <ClCompile Include="Md2Player.cpp" />
+    <ClCompile Include="Texture.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E0C648AE-1EA6-4F76-927B-FAFD4E046DCC}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -39,6 +57,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\toolkits\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\toolkits\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -49,7 +69,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;GLUT_BUILDING_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -73,20 +93,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\hell\md2loader\Anorms.h" />
-    <ClInclude Include="..\hell\md2loader\DataManager.h" />
-    <ClInclude Include="..\hell\md2loader\Image.h" />
-    <ClInclude Include="..\hell\md2loader\Md2Model.h" />
-    <ClInclude Include="..\hell\md2loader\Md2Player.h" />
-    <ClInclude Include="..\hell\md2loader\Texture.h" />
-    <ClInclude Include="..\hell\md2loader\TextureManager.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\hell\md2loader\Image.cpp" />
-    <ClCompile Include="..\hell\md2loader\Md2Model.cpp" />
-    <ClCompile Include="..\hell\md2loader\Texture.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
