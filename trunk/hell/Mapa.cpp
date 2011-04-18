@@ -81,6 +81,9 @@ void Mapa::initTextura(char * nome_textura){
 /** desenha uma grelha para o terreno */
 void Mapa::terreno(void){
 
+	// carrega a textura
+	initTextura(TEXTURA_TERRENO);
+
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, textura_solo);
 	int x = 0, z = 0;	
@@ -91,8 +94,8 @@ void Mapa::terreno(void){
 
 	glBegin(GL_TRIANGLE_STRIP);
 
-	for(z = -MAPA_TAM; z < MAPA_TAM; z++) {
-		for(x = -MAPA_TAM; x < MAPA_TAM; x++) {
+	for(z = -MAPA_TAM; z <= MAPA_TAM; z++) {
+		for(x = -MAPA_TAM; x <= MAPA_TAM; x++) {
 			glTexCoord2f(x, z); glVertex3f(x,0,z);
 			glTexCoord2f(x, z+1); glVertex3f(x,0,z+1);
 		}
