@@ -19,9 +19,6 @@
     <Filter Include="Resource Files\Modelos\Torre">
       <UniqueIdentifier>{35f34d49-b8f5-4053-a637-c41b9ac68383}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files\My MD2 Loader">
-      <UniqueIdentifier>{7f529c03-e92b-4375-a41e-6239c4027fae}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -89,29 +86,11 @@
     <ClInclude Include="Torre.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="md2loader\Md2Player.h">
-      <Filter>Resource Files\My MD2 Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="md2loader\TextureManager.h">
-      <Filter>Resource Files\My MD2 Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="md2loader\Md2Model.h">
-      <Filter>Resource Files\My MD2 Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="md2loader\DataManager.h">
-      <Filter>Resource Files\My MD2 Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="md2loader\Texture.h">
-      <Filter>Resource Files\My MD2 Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="md2loader\Image.h">
-      <Filter>Resource Files\My MD2 Loader</Filter>
-    </ClInclude>
     <ClInclude Include="Modelo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="md2loader\Anorms.h">
-      <Filter>Resource Files\My MD2 Loader</Filter>
+    <ClInclude Include="md2loader\Image.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
