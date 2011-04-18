@@ -102,7 +102,7 @@ int main(int argc, char **argv) {
 	glEnable(GL_LIGHT0);
 
 	//criarTextura();
-	_mapa->initTextura("relva1.jpg");
+	_mapa->initTextura("texturas/madeira.jpg");
 	glutMainLoop();
 	return 0;
 }
