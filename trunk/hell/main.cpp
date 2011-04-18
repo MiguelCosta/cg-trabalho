@@ -101,8 +101,6 @@ int main(int argc, char **argv) {
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 
-	//criarTextura();
-
 	glutMainLoop();
 	return 0;
 }
