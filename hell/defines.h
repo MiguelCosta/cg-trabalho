@@ -23,6 +23,7 @@ typedef enum e_teclas {
 // numero de chaves
 #define NUM_CHAVES	3
 #define APANHA_CHAVE 5
+#define CHAVE_ANGULO_ROTACAO 1
 
 // numero de torres
 #define NUM_TORRES	3
@@ -33,6 +34,8 @@ typedef enum e_teclas {
 
 // velocidade do agente
 #define AGENTE_VELOCIDADE_INICIAL	0.2
+
+// distancia a que a camara na terceira pessoa está do agente
 #define CAMARA_TERCEIRA_PESSOA		1.5
 
 // Radar

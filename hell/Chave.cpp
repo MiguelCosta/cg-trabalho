@@ -9,6 +9,7 @@ Chave::Chave(void)
 	posicao[YY] = 0.2f;
 	posicao[ZZ] = 10.0f;
 	encontrada = 0;
+	ang = 0;
 }
 
 Chave::Chave(GLdouble posicaoInicialX, GLdouble posicaoInicialZ){
@@ -16,6 +17,7 @@ Chave::Chave(GLdouble posicaoInicialX, GLdouble posicaoInicialZ){
 	posicao[YY] = 0.2f;
 	posicao[ZZ] = posicaoInicialZ;
 	encontrada = 0;
+	ang = 0;
 }
 
 
@@ -39,19 +41,28 @@ void Chave::encontra(void){
 
 }
 
+void Chave::girar(void){
+	ang +=CHAVE_ANGULO_ROTACAO;
+}
 
 void Chave::desenha(void)	{
 
+	// verifica se a chave ja foi encontrada
 	encontra();
 
+	// gira a chave
+	girar();
+
+	// se a chave ainda nao for encontrada vai desenha-la
 	if(encontrada == 0){
-	float color[] = {0.0,1.0,0.0,1.0};
-	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
-	
-	glPushMatrix();
+		float color[] = {0.0,1.0,0.0,1.0};
+		glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
+
+		glPushMatrix();
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
-		glutSolidTorus(1,2,10,10);
-	glPopMatrix();
+		glRotatef(ang,0, posicao[YY],0);
+		glutSolidTorus(0.1,0.3,10,10);
+		glPopMatrix();
 	}
 }
 
