@@ -5,11 +5,7 @@ extern Mapa *_mapa;
 
 Chave::Chave(void)
 {
-	posicao[XX] = 10.0f;
-	posicao[YY] = 0.4f;
-	posicao[ZZ] = 10.0f;
-	encontrada = 0;
-	ang = 0;
+	Chave(0,0);
 }
 
 Chave::Chave(GLdouble posicaoInicialX, GLdouble posicaoInicialZ){
