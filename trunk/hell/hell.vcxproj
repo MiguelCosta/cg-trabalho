@@ -93,12 +93,12 @@
     <ClCompile Include="util.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\2º Semestre\CG\Visual Studio\Fichas_CG\Ficha_3_naps\glm.h" />
     <ClInclude Include="Agente.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Chave.h" />
     <ClInclude Include="defines.h" />
     <ClInclude Include="Edificio.h" />
+    <ClInclude Include="glm.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Mapa.h" />
     <ClInclude Include="md2loader\Image.h" />
