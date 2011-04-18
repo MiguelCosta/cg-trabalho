@@ -40,8 +40,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\toolkits\includes;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\toolkits\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\toolkits\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\toolkits\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -99,13 +99,7 @@
     <ClInclude Include="Edificio.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Mapa.h" />
-    <ClInclude Include="md2loader\Anorms.h" />
-    <ClInclude Include="md2loader\DataManager.h" />
     <ClInclude Include="md2loader\Image.h" />
-    <ClInclude Include="md2loader\Md2Model.h" />
-    <ClInclude Include="md2loader\Md2Player.h" />
-    <ClInclude Include="md2loader\Texture.h" />
-    <ClInclude Include="md2loader\TextureManager.h" />
     <ClInclude Include="Modelo.h" />
     <ClInclude Include="Radar.h" />
     <ClInclude Include="Torre.h" />
