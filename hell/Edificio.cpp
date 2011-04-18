@@ -4,7 +4,7 @@
 Edificio::Edificio(void)
 {
 	posicao[XX] = 0;
-	posicao[YY] = 2.0f;
+	posicao[YY] = 0.1f;
 	posicao[ZZ] = -(MAPA_TAM);
 }
 

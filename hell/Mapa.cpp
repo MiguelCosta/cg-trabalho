@@ -19,7 +19,7 @@ Mapa::Mapa(void)	{
 	agente = new Agente(0, 0);
 
 	/* Cria um Edificio */
-	edificio = new Edificio(2.0,3.0);
+	edificio = new Edificio();
 
 	/* Colocar as Chaves num array */
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
