@@ -89,7 +89,7 @@ void Mapa::terreno(void){
 	int x = 0, z = 0;	
 
 	float color[] = {1.0,1.0,1.0,1.0};
-	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
+	glMaterialfv(GL_FRONT,GL_AMBIENT_AND_DIFFUSE,color);
 
 
 	glBegin(GL_TRIANGLE_STRIP);
