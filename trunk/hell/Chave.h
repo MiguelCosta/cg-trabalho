@@ -3,12 +3,16 @@
 #include <GL/glut.h>
 #include <math.h>
 #include "defines.h"
+#include "glm.h"
 
 class Chave
 {
 public:
 	/* posicao da chave */
 	GLdouble posicao[3];
+	
+	/*variavel para a chave*/
+	GLMmodel * chave;
 
 	/* angulo de rotacao da chave */
 	GLfloat ang;

@@ -51,13 +51,14 @@ void Chave::desenha(void)	{
 
 	// se a chave ainda nao for encontrada vai desenha-la
 	if(encontrada == 0){
-		float color[] = {0.0,1.0,0.0,1.0};
+		float color[] = {0.0,0.0,1.0,1.0};
 		glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
 
 		glPushMatrix();
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
 		glRotatef(ang,0, posicao[YY],0);
-		glutSolidTorus(0.1,0.3,10,10);
+		glmDraw(chave,GLM_SMOOTH);
+		//glutSolidTorus(0.1,0.3,10,10);
 		glPopMatrix();
 	}
 }

@@ -10,7 +10,7 @@ Edificio::Edificio(void)
 
 Edificio::Edificio(GLdouble posicaoInicialX, GLdouble posicaoInicialZ){
 	posicao[XX] = posicaoInicialX;
-	posicao[YY] = 2.0f;
+	posicao[YY] = 1.0f;
 	posicao[ZZ] = posicaoInicialZ;
 
 }
@@ -21,7 +21,8 @@ void Edificio::desenhar(void)	{
 	
 	glPushMatrix();
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
-		glutSolidTeapot(4);
+		//glutSolidTeapot(4);
+		glmDraw(edificio,GLM_SMOOTH|GLM_MATERIAL);
 	glPopMatrix();
 	
 }

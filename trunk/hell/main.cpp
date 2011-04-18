@@ -62,6 +62,25 @@ void changeSize(int w, int h) {
 	glMatrixMode(GL_MODELVIEW);
 }
 
+void carregaTexturas(){
+	_mapa->initTextura("texturas/terreno/relva.png");
+}
+
+void carregaObjectos(){
+	//carregar edificio do tesouro
+			_mapa->edificio->edificio = glmReadOBJ("modelos/edificio/Observatory.obj");
+			glmUnitize(_mapa->edificio->edificio);
+			glmFacetNormals(_mapa->edificio->edificio);
+			glmVertexNormals(_mapa->edificio->edificio,90);
+	//carregar chaves
+			int i;
+			for(i=0;i<NUM_CHAVES;i++){
+				_mapa->chaves[i]->chave = glmReadOBJ("modelos/edificio/chave.obj");
+				glmUnitize(_mapa->chaves[i]->chave);
+				glmFacetNormals(_mapa->chaves[i]->chave);
+				glmVertexNormals(_mapa->chaves[i]->chave,90);
+			}
+}
 
 
 int main(int argc, char **argv) {
@@ -100,6 +119,12 @@ int main(int argc, char **argv) {
 	//inicialização da luz
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
+
+	//carregar texturas
+	carregaTexturas();
+
+	//carregar objectos
+	carregaObjectos();
 
 	glutMainLoop();
 	return 0;
