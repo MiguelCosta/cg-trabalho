@@ -32,7 +32,8 @@ typedef enum e_teclas {
 #define DISTANCIA_AGENTE_NO_EDIFICIO 10
 
 // velocidade do agente
-#define AGENTE_VELOCIDADE_INICIAL 0.2
+#define AGENTE_VELOCIDADE_INICIAL	0.2
+#define CAMARA_TERCEIRA_PESSOA		1.5
 
 // Radar
 #define RADAR_ALCALCE 50
