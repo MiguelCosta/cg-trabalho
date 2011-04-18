@@ -37,7 +37,9 @@ typedef enum e_teclas {
 #define AGENTE_VELOCIDADE_INICIAL	0.2
 
 // distancia a que a camara na terceira pessoa está do agente
-#define CAMARA_TERCEIRA_PESSOA		1.5
+#define CAMARA_TERCEIRA_PESSOA			1.5
+#define CAMARA_3_P_ZZ					3
+#define CAMARA_3_P_YY					1.5
 
 // Radar
 #define RADAR_ALCALCE 50
