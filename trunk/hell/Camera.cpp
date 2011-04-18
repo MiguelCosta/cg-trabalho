@@ -40,7 +40,7 @@ void Camera::desenhar(void) {
 	else if(tipoDeVista == TERCEIRA_PESSOA){
 
 		gluLookAt(	
-			posicao[XX]-CAMARA_TERCEIRA_PESSOA*direcao[XX],		posicao[YY]+0.3,	posicao[ZZ]-CAMARA_TERCEIRA_PESSOA * direcao[ZZ],
+			posicao[XX]-CAMARA_TERCEIRA_PESSOA*direcao[XX],		posicao[YY]+CAMARA_3_P_YY,	posicao[ZZ]-CAMARA_TERCEIRA_PESSOA * direcao[ZZ]-CAMARA_3_P_ZZ,
 			posicao[XX],										posicao[YY],		posicao[ZZ],
 			0,	1,	0);
 	}
