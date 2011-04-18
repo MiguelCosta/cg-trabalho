@@ -10,7 +10,7 @@ Camera::Camera(void)	{
 	tipoDeVista = TERCEIRA_PESSOA;
 	
 	camPosOnGodMode[XX] =  0.0;
-	camPosOnGodMode[YY] = MAPA_TAM*3;
+	camPosOnGodMode[YY] = MAPA_TAM*1.9;
 	camPosOnGodMode[ZZ] = 0.1;
 }
 
