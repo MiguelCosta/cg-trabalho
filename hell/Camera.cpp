@@ -10,8 +10,8 @@ Camera::Camera(void)	{
 	tipoDeVista = TERCEIRA_PESSOA;
 	
 	camPosOnGodMode[XX] =  0.0;
-	camPosOnGodMode[YY] = 30.0;
-	camPosOnGodMode[ZZ] = 40.0;
+	camPosOnGodMode[YY] = MAPA_TAM*3;
+	camPosOnGodMode[ZZ] = 0.1;
 }
 
 /**
@@ -32,7 +32,7 @@ void Camera::desenhar(void) {
 	if(tipoDeVista == PRIMEIRA_PESSOA){
 		
 		gluLookAt(	
-			posicao[XX],				posicao[YY],				posicao[ZZ],
+			posicao[XX],				posicao[YY],		posicao[ZZ],
 			posicao[XX]+direcao[XX],	posicao[YY]-0.2,	posicao[ZZ]+direcao[ZZ],
 			0,	1,	0);
 		}
@@ -40,8 +40,8 @@ void Camera::desenhar(void) {
 	else if(tipoDeVista == TERCEIRA_PESSOA){
 
 		gluLookAt(	
-			posicao[XX]-1.5*direcao[XX],	posicao[YY]+0.3,	posicao[ZZ]-1.5 * direcao[ZZ],
-			posicao[XX],					posicao[YY],		posicao[ZZ],
+			posicao[XX]-CAMARA_TERCEIRA_PESSOA*direcao[XX],		posicao[YY]+0.3,	posicao[ZZ]-CAMARA_TERCEIRA_PESSOA * direcao[ZZ],
+			posicao[XX],										posicao[YY],		posicao[ZZ],
 			0,	1,	0);
 	}
 	// se a camara estiver em modo deus
