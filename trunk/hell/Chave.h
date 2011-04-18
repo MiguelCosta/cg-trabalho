@@ -10,6 +10,9 @@ public:
 	/* posicao da chave */
 	GLdouble posicao[3];
 
+	/* angulo de rotacao da chave */
+	GLfloat ang;
+
 	/* estado da chave 
 	* 0 nao encontrada
 	* 1 encontrada
@@ -24,6 +27,9 @@ public:
 
 	/** Desenha a chave */
 	void desenha(void);
+
+	/** girar, actualiza o angulo para depois girar */
+	void girar(void);
 
 	/** quando o agente encontra a chave */
 	void encontra(void);
