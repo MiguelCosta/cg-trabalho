@@ -93,6 +93,7 @@
     <ClCompile Include="util.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\2º Semestre\CG\Visual Studio\Fichas_CG\Ficha_3_naps\glm.h" />
     <ClInclude Include="Agente.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Chave.h" />
