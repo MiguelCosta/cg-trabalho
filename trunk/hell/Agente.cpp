@@ -24,13 +24,16 @@ Agente::Agente(GLdouble posicaoInicialX, GLdouble posicaoInicialZ) {
 }
 
 void Agente::desenhar(void)	{
-	float color[] = {1.0,0.0,0.0,1.0};
-	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
+	//float color[] = {1.0,0.0,0.0,1.0};
+	//glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
 
 	glPushMatrix();
+		//glTranslatef(-1,0,0);
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
+		
 		glRotatef(angAlpha * 180 / PI,0,posicao[YY],0);
-		glutSolidTeapot(0.2);
+		glmDraw(agente,GLM_SMOOTH|GLM_MATERIAL);
+		//glutSolidTeapot(0.2);
 	glPopMatrix();
 	
 	andar();

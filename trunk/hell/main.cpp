@@ -80,6 +80,11 @@ void carregaObjectos(){
 				glmFacetNormals(_mapa->chaves[i]->chave);
 				glmVertexNormals(_mapa->chaves[i]->chave,90);
 			}
+	//carregar agente
+			_mapa->agente->agente = glmReadOBJ("modelos/agente/al.obj");
+			glmUnitize(_mapa->agente->agente);
+			glmFacetNormals(_mapa->agente->agente);
+			glmVertexNormals(_mapa->agente->agente,90);
 }
 
 
