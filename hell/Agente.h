@@ -1,12 +1,15 @@
 #pragma once
 
 #include <GL/glut.h>
+#include "glm.h"
 
 class Agente	{
 public:
 	GLdouble posicao[3];
 	GLfloat angAlpha;
 	GLfloat angBeta;
+
+	GLMmodel *agente;
 
 	/** Construtores */
 	Agente(void);
