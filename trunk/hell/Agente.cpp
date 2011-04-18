@@ -16,7 +16,7 @@ Agente::Agente(void)	{
 
 Agente::Agente(GLdouble posicaoInicialX, GLdouble posicaoInicialZ) {
 	posicao[XX] = posicaoInicialX;
-	posicao[YY] = 1.2f;
+	posicao[YY] = 0.5f;
 	posicao[ZZ] = posicaoInicialZ;
 	angAlpha = 0;
 	angBeta = 0;
