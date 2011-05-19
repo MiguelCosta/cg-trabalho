@@ -3,6 +3,8 @@
 #include <GL/glut.h>
 #include <math.h>
 #include "defines.h"
+#include "Bala.h"
+
 //#include "Modelo.h"
 
 class Torre
@@ -21,6 +23,9 @@ public:
 	/** Contrutores **/
 	Torre(void);
 	Torre(GLdouble posicaoInicialX, GLdouble posicaoInicialZ);
+
+	/** Dispara Bala */
+	void disparaBala(void);
 
 	/** Desenha a torre */
 	void desenha(void);

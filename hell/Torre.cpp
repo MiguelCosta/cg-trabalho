@@ -87,12 +87,19 @@ void Torre::distanciaAgente(void){
 
 }
 
+void Torre::disparaBala(void){
+	Bala *b = new Bala(posicao[XX], posicao[YY], posicao[ZZ], ang);
+	b->desenha();
+}
+
 void Torre::desenha(void)	{
 	
 	// alterar o angulo
 	distanciaAgente();
-	if(dist < DISTANCIA_TORRE_AGENTE)  girar();
-	
+	if(dist < DISTANCIA_TORRE_AGENTE){
+		girar();
+		disparaBala();
+	}
 
 	float color[] = {1.0,1.0,0.0,1.0};
 	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
