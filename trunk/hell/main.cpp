@@ -64,6 +64,7 @@ void changeSize(int w, int h) {
 
 void carregaTexturas(){
 	_mapa->initTextura("texturas/terreno/relva.png");
+	_mapa->initRelevo("");
 }
 
 void carregaObjectos(){

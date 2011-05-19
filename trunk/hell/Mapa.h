@@ -30,8 +30,18 @@ public:
 	/** desenha o terreno */
 
 	void terreno(void);
+
+	/** altura  */
+	float altura(float x, float z);
+
+	/**   */
+	void heightedVertex(float mult, float x, float z);
+
 	/** textura para o terreno */
 	void initTextura(char * nome_textura);
+
+	/** relevo para o terreno */
+	void initRelevo(char * nome_relevo);
 
 	// conta quantas chaves já foram apanhadas
 	int chaves_apanhadas(void);
@@ -48,9 +58,12 @@ public:
 
 private:
 	// imagem de textura
-	unsigned int textura_solo, img_textura;
+	unsigned int textura_solo, img_textura, img_relevo;
 	int textura_w, textura_h;
 	unsigned char *textura_data;
+	int relevo_w, relevo_h;
+	unsigned char *relevo_data;
+	int grid;
 
 };
 
