@@ -57,9 +57,6 @@ public:
 
 private:
 	// imagem de textura
-	unsigned int textura_solo, img_textura;
-	int textura_w, textura_h;
-	unsigned char *textura_data;
 	unsigned int textura_solo, img_textura, img_relevo;
 	int textura_w, textura_h, relevo_w, relevo_h;
 	unsigned char *textura_data, *relevo_data;
