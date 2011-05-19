@@ -48,7 +48,6 @@ void Mapa::initRelevo(char * nome_relevo){
 	ilInit();
 	
 	ilGenImages(1, &img_relevo);
-	
 	ilBindImage(img_relevo);
 	ilLoadImage((ILstring)nome_relevo);
     ilConvertImage(IL_LUMINANCE,IL_UNSIGNED_BYTE);
@@ -98,10 +97,7 @@ void Mapa::terreno(void){
 
 	// carrega a textura
 	initTextura(TEXTURA_TERRENO);
-
-
-
-
+	
 	glEnable(GL_TEXTURE_2D);
 	int x = 0, z = 0;	
 
@@ -116,7 +112,10 @@ void Mapa::terreno(void){
 
 	for(z = -MAPA_TAM; z <= MAPA_TAM; z++) {
 		for(x = -MAPA_TAM; x <= MAPA_TAM; x++) {
-
+			glTexCoord2f(x, z);    
+			glVertex3f(x, 0, z);
+            glTexCoord2f(x, z+1);
+			glVertex3f(x, 0, z+1);
 
 		}
 	}
