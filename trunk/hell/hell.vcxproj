@@ -80,6 +80,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Agente.cpp" />
+    <ClCompile Include="Bala.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Chave.cpp" />
     <ClCompile Include="Edificio.cpp" />
@@ -94,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agente.h" />
+    <ClInclude Include="Bala.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Chave.h" />
     <ClInclude Include="defines.h" />
