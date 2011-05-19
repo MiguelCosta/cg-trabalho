@@ -111,7 +111,6 @@ void Mapa::terreno(void){
 			glVertex3f(x, 0, z+1);
 		}
 	}
-
 	glEnd();
 
 	glBindTexture(GL_TEXTURE_2D, 0);
