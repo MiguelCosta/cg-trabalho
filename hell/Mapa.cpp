@@ -43,6 +43,29 @@ Mapa::Mapa(void)	{
 	flagJogoCompleto = false;
 }
 
+void Mapa::initRelevo(char* nome_relevo) {
+
+       ilInit();
+
+       ilGenImages(1, &img_relevo);
+
+       ilBindImage(img_relevo);
+       ilLoadImage((ILstring)nome_relevo);
+       ilConvertImage(IL_LUMINANCE,IL_UNSIGNED_BYTE);
+       relevo_w = ilGetInteger(IL_IMAGE_WIDTH);
+       relevo_h = ilGetInteger(IL_IMAGE_HEIGHT);
+       relevo_data = ilGetData();
+
+}
+
+	float Mapa::altura(float x, float z) {
+       return relevo_data[(int) x + (int) z * relevo_w] / 2.0;
+    }
+
+    void Mapa::heightedVertex(float mult, float x, float z) {
+       glVertex3f(mult*x,altura(x, z), mult*z);
+    }
+
 
 /* Textura para o terreno */
 void Mapa::initTextura(char * nome_textura){
@@ -83,21 +106,26 @@ void Mapa::terreno(void){
 
 	// carrega a textura
 	initTextura(TEXTURA_TERRENO);
-
+	grid = relevo_w;
+	float grid_width = 256 / (float) grid;
+	
+	
 	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, textura_solo);
 	int x = 0, z = 0;	
+	
+	glPolygonMode(GL_BACK, GL_LINE);
 
 	float color[] = {1.0,1.0,1.0,1.0};
 	glMaterialfv(GL_FRONT,GL_AMBIENT_AND_DIFFUSE,color);
 
-
+	glPushMatrix();
+	glBindTexture(GL_TEXTURE_2D, textura_solo);
 	glBegin(GL_TRIANGLE_STRIP);
 
 	for(z = -MAPA_TAM; z <= MAPA_TAM; z++) {
 		for(x = -MAPA_TAM; x <= MAPA_TAM; x++) {
-			glTexCoord2f(x, z); glVertex3f(x,0,z);
-			glTexCoord2f(x, z+1); glVertex3f(x,0,z+1);
+			glTexCoord2f(x, z);  heightedVertex(grid_width, (x+1), z);//glVertex3f(x,0,z);
+			glTexCoord2f(x, z+1);  heightedVertex(grid_width, x, z);//glVertex3f(x,0,z+1);
 		}
 	}
 

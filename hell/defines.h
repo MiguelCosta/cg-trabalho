@@ -20,6 +20,7 @@ typedef enum e_teclas {
 // Tamanho do Mapa
 #define MAPA_TAM	50
 #define TEXTURA_TERRENO "texturas/terreno/relva.png"
+#define TEXTURA_RELEVO  "texturas/terreno/relva.png"
 
 // numero de chaves
 #define NUM_CHAVES	3
