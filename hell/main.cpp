@@ -63,8 +63,8 @@ void changeSize(int w, int h) {
 }
 
 void carregaTexturas(){
-	_mapa->initTextura("texturas/terreno/relva.png");
-	_mapa->initRelevo("");
+	_mapa->initTextura(TEXTURA_TERRENO);
+	_mapa->initRelevo(RELEVO);
 }
 
 void carregaObjectos(){
@@ -116,6 +116,7 @@ int main(int argc, char **argv) {
 	//glutMouseFunc(processMouseButtons);
 	//glutMotionFunc(processMouseMotion);
 
+
 	// Definicoes do OpenGL
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
@@ -126,6 +127,8 @@ int main(int argc, char **argv) {
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 
+
+	glPolygonMode(GL_FRONT,GL_LINE);
 	//carregar texturas
 	carregaTexturas();
 
