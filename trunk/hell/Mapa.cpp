@@ -97,17 +97,10 @@ void Mapa::terreno(void){
 
 	// carrega a textura
 	initTextura(TEXTURA_TERRENO);
-	
 	glEnable(GL_TEXTURE_2D);
 	int x = 0, z = 0;	
-
-
-
 	float color[] = {1.0,1.0,1.0,1.0};
 	glMaterialfv(GL_FRONT,GL_AMBIENT_AND_DIFFUSE,color);
-
-
-
 	glBegin(GL_TRIANGLE_STRIP);
 
 	for(z = -MAPA_TAM; z <= MAPA_TAM; z++) {
@@ -116,7 +109,6 @@ void Mapa::terreno(void){
 			glVertex3f(x, 0, z);
             glTexCoord2f(x, z+1);
 			glVertex3f(x, 0, z+1);
-
 		}
 	}
 
