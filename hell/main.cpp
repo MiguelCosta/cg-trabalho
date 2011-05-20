@@ -126,7 +126,7 @@ int main(int argc, char **argv) {
 	glutSetCursor(GLUT_CURSOR_NONE);
 	//glutFullScreen();
 
-	glPolygonMode(GL_FRONT, GL_LINE);
+	//glPolygonMode(GL_FRONT, GL_LINE);
 	//inicialização da luz
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);

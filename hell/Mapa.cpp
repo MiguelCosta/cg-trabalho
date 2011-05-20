@@ -121,7 +121,7 @@ void Mapa::terreno(void){
 	glPushMatrix();
 	glBindTexture(GL_TEXTURE_2D, textura_solo);
 	glTranslatef(-128,0,-128);
-	for(x = 0; x < altu; x++) {
+	for(x = 0; x < altu-1; x++) {
 		glBegin(GL_TRIANGLE_STRIP);
 			for(z = 0; z < larg; z++) {
 			glTexCoord2f(z, 0); 
@@ -210,11 +210,55 @@ void Mapa::desenhaEstadoJogo(GLuint x, GLuint y){
 		glPopMatrix();
 }
 
+void Mapa::drawTree() {
+
+   glPushMatrix();
+   glRotatef(-90,1.0,0.0,0.0);
+   float color[] = {1.0,1.0,0.5,1.0};
+   glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
+   glutSolidCone(0.25,4,5,1);
+   float color2[] = {0.0, 0.5 + rand() * 0.5f/RAND_MAX,0.0,1.0};
+   glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color2);
+   glTranslatef(0.0,0.0,2.0);
+   glutSolidCone(2.0,5.0,5,1);
+   glPopMatrix();
+}
+
+void Mapa::placeTrees() {
+
+   float r = 35.0;
+   float alpha;
+   float rr;
+   float x,z;
+
+   srand(31457);
+   int arvores = 0;
+
+   while (arvores < 200) {
+
+      rr = rand() * 150.0/ RAND_MAX;
+      alpha = rand() * 6.28 / RAND_MAX;
+
+      x = cos(alpha) * (rr + r);
+      z = sin(alpha) * (rr + r);
+
+      if (fabs(x) < 128 && fabs(z) < 128) {
+
+         glPushMatrix();
+         glTranslatef(x, h (x+128, z+128),z);
+         drawTree();
+         glPopMatrix();
+         arvores++;
+      }
+   }
+}
+
 /* Desenha o mapa e tudo que esta nele */
 void Mapa::desenhar(void)	{
 
 	/***** DESENHAR OS OBJECTOS *****/
 	terreno();
+	placeTrees();
 	agente->desenhar();
 	edificio->desenhar();
 
