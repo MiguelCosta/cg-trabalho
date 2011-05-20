@@ -98,7 +98,7 @@ void Torre::desenha(void)	{
 	distanciaAgente();
 	if(dist < DISTANCIA_TORRE_AGENTE){
 		girar();
-		disparaBala();
+		//disparaBala();
 	}
 
 	float color[] = {1.0,1.0,0.0,1.0};
