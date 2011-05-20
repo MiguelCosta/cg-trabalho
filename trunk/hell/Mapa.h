@@ -47,6 +47,8 @@ public:
 	// coloca no ecra quantas chaves ja foram apanhadas e o que tem de fazer
 	void desenhaEstadoJogo(GLuint x, GLuint y);
 
+	void drawTree();
+	void placeTrees();
 	/**desenha tudo no mapa */
 	void desenhar(void);
 	~Mapa(void);
@@ -56,9 +58,5 @@ private:
 	unsigned int textura_solo, img_textura, img_alturas;
 	int textura_w, textura_h, altu, larg, grid_n;
 	unsigned char *textura_data, *dados_altura;
-
-
-
-
 };
 
