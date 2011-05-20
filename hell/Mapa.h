@@ -31,12 +31,6 @@ public:
 
 	void terreno(void);
 
-
-
-
-
-
-
 	/** textura para o terreno */
 	void initTextura(char * nome_textura);
 
