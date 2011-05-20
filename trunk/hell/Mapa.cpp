@@ -44,17 +44,6 @@ Mapa::Mapa(void)	{
 }
 
 
-void Mapa::initRelevo(char * nome_relevo){
-	ilInit();
-	
-	ilGenImages(1, &img_relevo);
-	ilBindImage(img_relevo);
-	ilLoadImage((ILstring)nome_relevo);
-    ilConvertImage(IL_LUMINANCE,IL_UNSIGNED_BYTE);
-    relevo_w = ilGetInteger(IL_IMAGE_WIDTH);
-    relevo_h = ilGetInteger(IL_IMAGE_HEIGHT);
-    relevo_data = ilGetData();
-}
 
 
 
@@ -92,30 +81,59 @@ void Mapa::initTextura(char * nome_textura){
 
 }
 
+void Mapa::initMapaAlturas(ILstring nome_textura){
+
+	ilGenImages(1, &img_alturas);
+	
+	ilBindImage(img_alturas);
+	ilLoadImage(nome_textura);
+	ilConvertImage(IL_LUMINANCE, IL_UNSIGNED_BYTE);
+	larg = ilGetInteger(IL_IMAGE_WIDTH);
+	altu = ilGetInteger(IL_IMAGE_HEIGHT);
+	dados_altura = ilGetData();
+
+	grid_n = larg;
+}
+
+float Mapa::h(float x, float z) {
+   return dados_altura[(int) x + (int) z * larg] / 2.0;
+}
+
+void Mapa::heightedVertex(float mult, float x, float z) {
+   glVertex3f(mult*x, h(x, z), mult*z);
+}
+
 /** desenha uma grelha para o terreno */
 void Mapa::terreno(void){
 
 	// carrega a textura
-	initTextura(TEXTURA_TERRENO);
-	glEnable(GL_TEXTURE_2D);
-	int x = 0, z = 0;	
+	//initTextura(TEXTURA_TERRENO);
+
+	//initTextura(TEXTURA_TERRENO);
+	
+	float grid_width = 256 / (float) grid_n;
+	
 	float color[] = {1.0,1.0,1.0,1.0};
 	glMaterialfv(GL_FRONT,GL_AMBIENT_AND_DIFFUSE,color);
-	glBegin(GL_TRIANGLE_STRIP);
+	int x = 0, z = 0;	
+	glEnable(GL_TEXTURE_2D);
 
-	for(z = -MAPA_TAM; z <= MAPA_TAM; z++) {
-		for(x = -MAPA_TAM; x <= MAPA_TAM; x++) {
-			glTexCoord2f(x, z);    
-			glVertex3f(x, 0, z);
-            glTexCoord2f(x, z+1);
-			glVertex3f(x, 0, z+1);
+	glPushMatrix();
+	glBindTexture(GL_TEXTURE_2D, textura_solo);
+	glTranslatef(-128,0,-128);
+	for(x = 0; x < altu; x++) {
+		glBegin(GL_TRIANGLE_STRIP);
+			for(z = 0; z < larg; z++) {
+			glTexCoord2f(z, 0); 
+			heightedVertex(grid_width, (x+1), z);
+			glTexCoord2f(z, 1); 
+			heightedVertex(grid_width, x, z);
 		}
+		glEnd();
 	}
-	glEnd();
 
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glPopMatrix();
-
 }
 
 void Mapa::verificaEstadoJogo(void){
