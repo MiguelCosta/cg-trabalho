@@ -215,7 +215,7 @@ glmFindMaterial(GLMmodel* model, char* name)
 
   /* didn't find the name, so print a warning and return the default
      material (0). */
-  printf("glmFindMaterial():  can't find material \"%s\".\n", name);
+  //printf("glmFindMaterial():  can't find material \"%s\".\n", name);
   i = 0;
 
 found:
