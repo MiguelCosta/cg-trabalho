@@ -29,13 +29,15 @@ public:
 	Mapa(void);
 	/** desenha o terreno */
 
+	float h(float x, float z);
+	void heightedVertex(float mult, float x, float z);
 	void terreno(void);
 
 	/** textura para o terreno */
 	void initTextura(char * nome_textura);
 
-	void initRelevo(char * nome_relevo);
 
+	void initMapaAlturas(ILstring nome_textura);
 	// conta quantas chaves já foram apanhadas
 	int chaves_apanhadas(void);
 
@@ -51,9 +53,9 @@ public:
 
 private:
 	// imagem de textura
-	unsigned int textura_solo, img_textura, img_relevo;
-	int textura_w, textura_h, relevo_w, relevo_h;
-	unsigned char *textura_data, *relevo_data;
+	unsigned int textura_solo, img_textura, img_alturas;
+	int textura_w, textura_h, altu, larg, grid_n;
+	unsigned char *textura_data, *dados_altura;
 
 
 

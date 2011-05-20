@@ -2,6 +2,7 @@
 #include <GL/glut.h>
 #include <math.h>
 #include <time.h>
+#include <IL/il.h>
 
 #include "Mapa.h"
 #include "Camera.h"
@@ -63,8 +64,10 @@ void changeSize(int w, int h) {
 }
 
 void carregaTexturas(){
-	_mapa->initTextura(TEXTURA_TERRENO);
-	_mapa->initRelevo(RELEVO);
+	ilInit();
+	_mapa->initMapaAlturas((ILstring)"texturas/mapa_alturas.jpg");
+	_mapa->initTextura("texturas/terreno/relva.png");
+	
 }
 
 void carregaObjectos(){
@@ -123,12 +126,13 @@ int main(int argc, char **argv) {
 	glutSetCursor(GLUT_CURSOR_NONE);
 	//glutFullScreen();
 
+	glPolygonMode(GL_FRONT, GL_LINE);
 	//inicialização da luz
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 
 
-	glPolygonMode(GL_FRONT,GL_LINE);
+
 	//carregar texturas
 	carregaTexturas();
 
