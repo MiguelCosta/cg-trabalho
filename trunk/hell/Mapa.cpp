@@ -119,7 +119,7 @@ void Mapa::terreno(void){
 
 	glPushMatrix();
 	glBindTexture(GL_TEXTURE_2D, textura_solo);
-	glTranslatef(-128,0,-128);
+	glTranslatef(-MAPA_METADE,0,-MAPA_METADE);
 	for(x = 0; x < altu-1; x++) {
 		glBegin(GL_TRIANGLE_STRIP);
 			for(z = 0; z < larg; z++) {
@@ -268,10 +268,10 @@ void Mapa::placeTrees() {
       x = cos(alpha) * (rr + r);
       z = sin(alpha) * (rr + r);
 
-      if (fabs(x) < 128 && fabs(z) < 128) {
+      if (fabs(x) < MAPA_METADE && fabs(z) < MAPA_METADE) {
 
          glPushMatrix();
-         glTranslatef(x, h (x+128, z+128),z);
+         glTranslatef(x, h (x+MAPA_METADE, z+MAPA_METADE),z);
          drawTree();
          glPopMatrix();
          arvores++;
@@ -303,10 +303,10 @@ void Mapa::desenhar(void)	{
 
 	float posX = agente->posicao[XX];
 	float posZ = agente->posicao[ZZ];
-	float posY = h(posX+128, posZ+128);
+	float posY = h(posX+MAPA_METADE, posZ+MAPA_METADE);
 
-	camY = alturaCamara(posX+128, posZ+128) + 2;
-
+	camY = alturaCamara(posX+MAPA_METADE, posZ+MAPA_METADE) + 2;
+	printf("altura: %d\n", posY);
 	agente->desenhar(posX, camY, posZ);
 
 	posX = edificio->posicao[XX];
@@ -315,7 +315,7 @@ void Mapa::desenhar(void)	{
 	//printf("Altua: %f",posY);
 	edificio->desenhar(posX, posY, posZ);
 
-	drawParedes(3);
+	drawParedes(50);
 	// desenhar as chaves
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
 		chaves[i]->desenha();
