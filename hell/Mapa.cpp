@@ -333,7 +333,7 @@ void Mapa::desenhar(void)	{
 		posZ = torres[i]->posicao[ZZ];
 		camY = h(posX+MAPA_METADE, posZ+MAPA_METADE);
 
-		torres[i]->desenha(posX,posY,posZ);
+		torres[i]->desenha();
 	}
 
 	// radar
