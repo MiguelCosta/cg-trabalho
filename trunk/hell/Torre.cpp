@@ -1,6 +1,6 @@
 
 #include "Torre.h"
-
+#include "util.h"
 #include "Mapa.h"
 extern Mapa * _mapa;
 
@@ -107,8 +107,14 @@ void Torre::desenhaBalas(){
 		} else {
 			// vai desenhar a chave na nova posicao
 			it->desenha(posX, posY, posZ);
+
+			// incrementa a colisão no agente
+			if(distancia3d(_mapa->agente->posicao[XX], _mapa->agente->posicao[YY], _mapa->agente->posicao[ZZ], posX, posY, posZ) < DIST_COLISAO){
+				_mapa->agente->incrementaColisao();
+			}
 		}
 
+		
 	}
 
 }
