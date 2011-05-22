@@ -30,7 +30,7 @@ public:
 	Chave(GLdouble posicaoInicialX, GLdouble posicaoInicialZ);
 
 	/** Desenha a chave */
-	void desenha(void);
+	void desenha(float posX, float posY, float posZ);
 
 	/** girar, actualiza o angulo para depois girar */
 	void girar(void);
