@@ -23,9 +23,13 @@ Agente::Agente(GLdouble posicaoInicialX, GLdouble posicaoInicialZ) {
 	velocidade = AGENTE_VELOCIDADE_INICIAL;
 }
 
-void Agente::desenhar(void)	{
+void Agente::desenhar(float posX, float posY, float posZ)	{
 	//float color[] = {1.0,0.0,0.0,1.0};
 	//glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
+
+	posicao[XX] = (GLdouble) posX;
+	posicao[YY] = (GLdouble) posY + 1;
+	posicao[ZZ] = (GLdouble) posZ;
 
 	glPushMatrix();
 		//glTranslatef(-1,0,0);

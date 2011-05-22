@@ -3,6 +3,7 @@
 #include <math.h>
 #include <time.h>
 #include <IL/il.h>
+//#include <GL/glew.h>
 
 #include "Mapa.h"
 #include "Camera.h"
@@ -15,8 +16,8 @@ bool teclas[NUM_TECLAS];
 
 void renderScene(void)	{
 	
-	float pos[4]={10.0,1.0,-1.0,0.0};
-	GLfloat amb[3]={0.5,0.5,0.5};
+	float pos[4]={10.0,10.0,-1.0,0.0};
+	GLfloat amb[3]={0.3,0.5,0.2};
 	GLfloat diff[3]={1.0,1.0,1.0};
 
 	glClearColor(0,0,0,0);
@@ -24,7 +25,6 @@ void renderScene(void)	{
 
 	glLoadIdentity();
 	_camera->desenhar();
-
 	//instruções de posicionamento da luz
 	glLightfv(GL_LIGHT0, GL_POSITION, pos);
 	glLightfv(GL_LIGHT0, GL_AMBIENT, amb);
@@ -65,14 +65,14 @@ void changeSize(int w, int h) {
 
 void carregaTexturas(){
 	ilInit();
-	_mapa->initMapaAlturas((ILstring)"texturas/mapa_alturas.jpg");
-	_mapa->initTextura("texturas/terreno/relva.png");
-	
+	_mapa->initMapaAlturas((ILstring)"texturas/alturas_256.jpg");
+	_mapa->initTextura("texturas/terreno/relva1.jpg");
+	//_mapa->initTextura("texturas/mosaico.jpg");
 }
 
 void carregaObjectos(){
 	//carregar edificio do tesouro
-			_mapa->edificio->edificio = glmReadOBJ("modelos/edificio/Observatory.obj");
+			_mapa->edificio->edificio = glmReadOBJ("modelos/edificio/observatory.obj");
 			glmUnitize(_mapa->edificio->edificio);
 			glmFacetNormals(_mapa->edificio->edificio);
 			glmVertexNormals(_mapa->edificio->edificio,90);
@@ -104,7 +104,9 @@ int main(int argc, char **argv) {
 	glutInitWindowPosition(100,100);
 	glutInitWindowSize(1024,1024);
 	glutCreateWindow("Trabalho CG");
-	
+	//para funcionamento dos vertex buffers
+	//glewInit();
+
 	// Registo de funcoes
 	glutDisplayFunc(renderScene);
 	glutIdleFunc(renderScene);

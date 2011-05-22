@@ -15,7 +15,7 @@ public:
 	Edificio(GLdouble posicaoInicialX, GLdouble posicaoInicialZ);
 
 	/** Desenha o edificio*/
-	void desenhar(void);
+	void desenhar(float posX, float posY, float posZ);
 
 
 	~Edificio(void);

@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <GL/glut.h>
 #include <time.h>
-
+//#include <GL/glew.h>
 
 #include "Mapa.h"
 #include "defines.h"
@@ -9,7 +9,6 @@
 
 /* Cria aleatoriamente um mapa */
 Mapa::Mapa(void)	{
-
 
 	//inicializa o gerador de numeros aleatorios
 	srand(time(NULL));
@@ -135,6 +134,33 @@ void Mapa::terreno(void){
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glPopMatrix();
 }
+void drawParedes(float altura){
+	
+	float a[3] = {MAPA_TAM+1.8, altura, -MAPA_TAM-1.8};
+	float b[3] = {MAPA_TAM+1.8, 0, -MAPA_TAM-1.8};
+	float c[3] = {MAPA_TAM+1.8, altura, MAPA_TAM+1.8};
+	float d[3] = {MAPA_TAM+1.8, 0, MAPA_TAM+1.8};
+	float e[3] = {-MAPA_TAM-1.8, altura, MAPA_TAM+1.8};
+	float f[3] = {-MAPA_TAM-1.8, 0, MAPA_TAM+1.8};
+	float g[3] = {-MAPA_TAM-1.8, altura, -MAPA_TAM-1.8};
+	float h[3] = {-MAPA_TAM-1.8, 0, -MAPA_TAM-1.8};
+
+	float color2[] = {0.2,0.3,0.4};
+	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,color2);
+	
+	glBegin(GL_QUAD_STRIP);
+		glVertex3fv(a);
+		glVertex3fv(b);
+		glVertex3fv(c);
+		glVertex3fv(d);
+		glVertex3fv(e);
+		glVertex3fv(f);
+		glVertex3fv(g);
+		glVertex3fv(h);
+		glVertex3fv(a);
+		glVertex3fv(b);
+	glEnd();
+}
 
 void Mapa::verificaEstadoJogo(void){
 
@@ -181,7 +207,7 @@ void resetPerspectiveProjection2() {
 	glMatrixMode(GL_MODELVIEW);
 }
 
-// coloca no ecrão a informação de quantas chaves já apanhou ou se já apanhou todas
+// coloca no ecrão a informação de quantas chaveous já apanhou ou se já apanhou todas
 void Mapa::desenhaEstadoJogo(GLuint x, GLuint y){
 
 	glPushMatrix();
@@ -253,15 +279,43 @@ void Mapa::placeTrees() {
    }
 }
 
+float Mapa::alturaCamara(float x, float z){
+   double intX, intZ;
+   float fracX, fracZ;
+
+   fracX = modf(x, &intX);
+   fracZ = modf(z, &intZ);
+
+   float alt1, alt2;
+   
+   alt1 = h(intX,     intZ) * (1 - fracZ) + h(intX,     intZ + 1) * fracZ;
+   alt2 = h(intX + 1, intZ) * (1 - fracZ) + h(intX + 1, intZ + 1) * fracZ;
+
+   return alt1 * (1 - fracX) + alt2 * fracX;
+}
+
 /* Desenha o mapa e tudo que esta nele */
 void Mapa::desenhar(void)	{
 
 	/***** DESENHAR OS OBJECTOS *****/
 	terreno();
 	placeTrees();
-	agente->desenhar();
-	edificio->desenhar();
 
+	float posX = agente->posicao[XX];
+	float posZ = agente->posicao[ZZ];
+	float posY = h(posX+128, posZ+128);
+
+	camY = alturaCamara(posX+128, posZ+128) + 2;
+
+	agente->desenhar(posX, camY, posZ);
+
+	posX = edificio->posicao[XX];
+	posZ = edificio->posicao[ZZ];
+	posY = camY;
+	//printf("Altua: %f",posY);
+	edificio->desenhar(posX, posY, posZ);
+
+	drawParedes(3);
 	// desenhar as chaves
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
 		chaves[i]->desenha();
