@@ -1,15 +1,16 @@
 #pragma once
 
+
 #include <GL/glut.h>
 #include <math.h>
 #include "defines.h"
 #include "Bala.h"
-#include <list>
-#include <iostream>
+//#include <list>
+//#include <iostream>
 
 //#include "Modelo.h"
 
-using namespace std;
+//using namespace std;
 
 class Torre
 {
@@ -22,7 +23,7 @@ public:
 	GLfloat dist;
 	
 	// Balas
-	list<Bala> lista_balas;
+	//list<Bala> lista_balas;
 
 	// Modelo MD2
 	//Modelo * modelo;
@@ -32,8 +33,8 @@ public:
 	Torre(GLdouble posicaoInicialX, GLdouble posicaoInicialZ);
 
 	/** Dispara Bala */
-	void disparaBala(void);
-	void desenhaBalas(void);
+	//void disparaBala(void);
+	//void desenhaBalas(void);
 
 	/** Desenha a torre */
 	void desenha(void);
