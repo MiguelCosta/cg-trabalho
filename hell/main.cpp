@@ -37,32 +37,6 @@ void renderScene(void)	{
 	glutSwapBuffers();
 }
 
-
-//Redimensionar a janela
-void changeSize(int w, int h) {
-
-	// Prevent a divide by zero, when window is too short
-	// (you can't make a window of zero width).
-	if(h == 0)
-		h = 1;
-
-	//width = w; 
-	//height = h;
-
-	float ratio = 1.0 * w / h;
-
-	// Reset the coordinate system before modifying
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	
-	// Set the viewport to be the entire window
-    glViewport(0, 0, w, h);
-
-	// Set the correct perspective.
-	gluPerspective(45,ratio,1.5,1000);
-	glMatrixMode(GL_MODELVIEW);
-}
-
 void carregaTexturas(){
 	ilInit();
 	_mapa->initMapaAlturas((ILstring)"texturas/alturas_256.jpg");
