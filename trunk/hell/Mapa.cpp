@@ -306,7 +306,6 @@ void Mapa::desenhar(void)	{
 	float posY = h(posX+MAPA_METADE, posZ+MAPA_METADE);
 	camY = alturaCamara(posX+MAPA_METADE, posZ+MAPA_METADE) + 2;
 
-	printf("altura: %d\n", posY);
 	agente->desenhar(posX, camY, posZ);
 
 	posX = edificio->posicao[XX];
@@ -322,17 +321,17 @@ void Mapa::desenhar(void)	{
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
 		
 		posX = chaves[i]->posicao[XX];
-		posZ = chaves[i]->posicao[ZZ];
-		posY = camY = alturaCamara(posX+MAPA_METADE, posZ+MAPA_METADE) + 2;
+	    posZ = chaves[i]->posicao[ZZ];
+		camY = h(posX+MAPA_METADE, posZ+MAPA_METADE);
 
-		chaves[i]->desenha(posX,posY, posZ);
+		chaves[i]->desenha(posX,camY, posZ);
 	}
 
 	// desenhar as torres
 	for( int i=0 ; i < NUM_TORRES ; i++)	{
 		posX = torres[i]->posicao[XX];
 		posZ = torres[i]->posicao[ZZ];
-		posY = camY = alturaCamara(posX+MAPA_METADE, posZ+MAPA_METADE) + 2;
+		camY = h(posX+MAPA_METADE, posZ+MAPA_METADE);
 
 		torres[i]->desenha(posX,posY,posZ);
 	}
