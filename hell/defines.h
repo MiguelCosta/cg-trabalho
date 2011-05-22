@@ -27,6 +27,7 @@ typedef enum e_teclas {
 #define NUM_CHAVES	3
 #define APANHA_CHAVE 5
 #define CHAVE_ANGULO_ROTACAO 1
+#define DIST_MIN_ENTRE_CHAVES 25
 
 // numero de torres
 #define NUM_TORRES	3
