@@ -1,13 +1,11 @@
 
 #include "Torre.h"
 
-
 #include "Mapa.h"
-#include <math.h>
 extern Mapa * _mapa;
 
-
 GLfloat _pi = 3.14159265358979323846;
+
 
 Torre::Torre(void)
 {

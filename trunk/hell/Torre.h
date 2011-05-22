@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include <GL/glut.h>
 #include <math.h>
 #include "defines.h"
@@ -12,9 +11,13 @@
 
 //using namespace std;
 
+
 class Torre
 {
 public:
+
+
+
 	GLdouble posicao[3];
 	// angulo para se girar relativamente à posição do utilizador
 	GLfloat ang;
