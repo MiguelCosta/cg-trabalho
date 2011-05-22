@@ -319,20 +319,21 @@ void Mapa::desenhar(void)	{
 	drawParedes(50);
 	// desenhar as chaves
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
-		
+	/*	
 		posX = chaves[i]->posicao[XX];
 	    posZ = chaves[i]->posicao[ZZ];
 		camY = h(posX+MAPA_METADE, posZ+MAPA_METADE);
-
+*/
 		chaves[i]->desenha(posX,camY, posZ);
 	}
 
 	// desenhar as torres
 	for( int i=0 ; i < NUM_TORRES ; i++)	{
+		/*
 		posX = torres[i]->posicao[XX];
 		posZ = torres[i]->posicao[ZZ];
 		camY = h(posX+MAPA_METADE, posZ+MAPA_METADE);
-
+		*/
 		torres[i]->desenha();
 	}
 
