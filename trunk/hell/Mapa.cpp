@@ -22,9 +22,31 @@ Mapa::Mapa(void)	{
 
 	/* Colocar as Chaves num array */
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
-		chaves[i] = new Chave( 
-			rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM, 
-			rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM);
+		// variável que diz se precisa ou nao de uma nova posição
+		int nova = 1;
+		while(nova == 1){
+			// coloca a zero para criar uma chave e não repetir o ciclo se a distancia às outras forem grandes
+			nova = 0;
+			chaves[i] = new Chave( 
+				rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM, 
+				rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM);
+
+			// posicao da chave criada
+			GLdouble cx = chaves[i]->posicao[XX];
+			GLdouble cz = chaves[i]->posicao[ZZ];
+
+			// vai comparar a chave criada com o resto das chaves e ver a distancia a elas
+			for(int j = 0 ; j < i ; j++){
+				GLdouble x = chaves[j]->posicao[XX];
+				GLdouble z = chaves[j]->posicao[ZZ];
+
+				double dist = sqrt(pow(cx-x,2)+pow(cz-z,2));
+				// se a chave criada não estiver à distância suficiente, vai criar uma nova chave
+				if(dist < 5) nova = 1;
+			}
+
+		}
+
 	}
 
 	/* Colocar as Torres num array */
