@@ -41,13 +41,17 @@ void Chave::girar(void){
 	ang +=CHAVE_ANGULO_ROTACAO;
 }
 
-void Chave::desenha(void)	{
+void Chave::desenha(float posX, float posY, float posZ)	{
 
 	// verifica se a chave ja foi encontrada
 	encontra();
 
 	// gira a chave
 	girar();
+
+	posicao[XX] = (GLdouble) posX;
+	posicao[YY] = (GLdouble) posY + 1;
+	posicao[ZZ] = (GLdouble) posZ;
 
 	// se a chave ainda nao for encontrada vai desenha-la
 	if(encontrada == 0){

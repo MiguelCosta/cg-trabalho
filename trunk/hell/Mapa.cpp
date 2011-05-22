@@ -304,26 +304,37 @@ void Mapa::desenhar(void)	{
 	float posX = agente->posicao[XX];
 	float posZ = agente->posicao[ZZ];
 	float posY = h(posX+MAPA_METADE, posZ+MAPA_METADE);
-
 	camY = alturaCamara(posX+MAPA_METADE, posZ+MAPA_METADE) + 2;
+
 	printf("altura: %d\n", posY);
 	agente->desenhar(posX, camY, posZ);
 
 	posX = edificio->posicao[XX];
 	posZ = edificio->posicao[ZZ];
+	camY = alturaCamara(posX+MAPA_METADE, posZ+MAPA_METADE) + 2;
 	posY = camY;
+
 	//printf("Altua: %f",posY);
 	edificio->desenhar(posX, posY, posZ);
 
 	drawParedes(50);
 	// desenhar as chaves
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
-		chaves[i]->desenha();
+		
+		posX = chaves[i]->posicao[XX];
+		posZ = chaves[i]->posicao[ZZ];
+		posY = camY = alturaCamara(posX+MAPA_METADE, posZ+MAPA_METADE) + 2;
+
+		chaves[i]->desenha(posX,posY, posZ);
 	}
 
 	// desenhar as torres
 	for( int i=0 ; i < NUM_TORRES ; i++)	{
-		torres[i]->desenha();
+		posX = torres[i]->posicao[XX];
+		posZ = torres[i]->posicao[ZZ];
+		posY = camY = alturaCamara(posX+MAPA_METADE, posZ+MAPA_METADE) + 2;
+
+		torres[i]->desenha(posX,posY,posZ);
 	}
 
 	// radar
