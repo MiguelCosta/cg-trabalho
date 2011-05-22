@@ -15,7 +15,7 @@ public:
 	Agente(void);
 	Agente(GLdouble posicaoInicialX, GLdouble posicaoInicialZ);
 	/** Desenha o agente */
-	void desenhar(void);
+	void desenhar(float posX, float posY, float posZ);
 	/** Mover o agente */
 	void andar();
 	/** Calcula a direcao que o agente esta a olhar */

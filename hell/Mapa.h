@@ -49,6 +49,8 @@ public:
 
 	void drawTree();
 	void placeTrees();
+	float alturaCamara(float x, float z);
+
 	/**desenha tudo no mapa */
 	void desenhar(void);
 	~Mapa(void);
@@ -58,5 +60,6 @@ private:
 	unsigned int textura_solo, img_textura, img_alturas;
 	int textura_w, textura_h, altu, larg, grid_n;
 	unsigned char *textura_data, *dados_altura;
+	float camY;
 };
 
