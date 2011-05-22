@@ -22,7 +22,9 @@ Mapa::Mapa(void)	{
 
 	/* Colocar as Chaves num array */
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
-		chaves[i] = new Chave( rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM, rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM);
+		chaves[i] = new Chave( 
+			rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM, 
+			rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM);
 	}
 
 	/* Colocar as Torres num array */
@@ -306,35 +308,40 @@ void Mapa::desenhar(void)	{
 	float posY = h(posX+MAPA_METADE, posZ+MAPA_METADE);
 	camY = alturaCamara(posX+MAPA_METADE, posZ+MAPA_METADE) + 2;
 
+	//printf("altura: %d\n", posY);
 	agente->desenhar(posX, camY, posZ);
 
 	posX = edificio->posicao[XX];
 	posZ = edificio->posicao[ZZ];
-	camY = alturaCamara(posX+MAPA_METADE, posZ+MAPA_METADE) + 2;
-	posY = camY;
+	posY = h(posX+MAPA_METADE, posZ+MAPA_METADE);
 
-	//printf("Altua: %f",posY);
 	edificio->desenhar(posX, posY, posZ);
 
 	drawParedes(50);
-	// desenhar as chaves
-	for( int i=0 ; i < NUM_CHAVES ; i++)	{
-	/*	
+	
+	
+	//################PROBLEMAS###################
+	
+	//desenhar as chaves
+	for( int i=0 ; i <= NUM_CHAVES ; i++)	{
+		
 		posX = chaves[i]->posicao[XX];
-	    posZ = chaves[i]->posicao[ZZ];
-		camY = h(posX+MAPA_METADE, posZ+MAPA_METADE);
-*/
-		chaves[i]->desenha(posX,camY, posZ);
+		//printf("PosicaoX da chave: %f\n",posX);
+
+		posZ = chaves[i]->posicao[ZZ];
+		posY = h(posX/*+MAPA_METADE*/, posZ/*+MAPA_METADE*/);
+	
+		chaves[i]->desenha(posX, posY, posZ);
 	}
 
 	// desenhar as torres
 	for( int i=0 ; i < NUM_TORRES ; i++)	{
-		/*
-		posX = torres[i]->posicao[XX];
-		posZ = torres[i]->posicao[ZZ];
-		camY = h(posX+MAPA_METADE, posZ+MAPA_METADE);
-		*/
-		torres[i]->desenha();
+	
+		//posX = torres[i]->posicao[XX];
+		//posZ = torres[i]->posicao[ZZ];
+		//posY = h(posX+MAPA_METADE, posZ+MAPA_METADE);
+	
+		torres[i]->desenha(posX, posY, posZ);
 	}
 
 	// radar

@@ -127,6 +127,12 @@ void processarTecladoUp		(unsigned char key, int x, int y)	{
 		case ' ':
 			teclas[CORRER] = false;
 			break;
+		case 'm':
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+			break;
+		case 'n':
+			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+			break;
 	}
 }
 

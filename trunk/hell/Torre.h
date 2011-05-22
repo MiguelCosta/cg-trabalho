@@ -40,7 +40,7 @@ public:
 	//void desenhaBalas(void);
 
 	/** Desenha a torre */
-	void desenha(void);
+	void desenha(float posX, float posY, float posZ);
 
 	/** Calcula o angulo que a torre tem de girar */
 	void girar(void);

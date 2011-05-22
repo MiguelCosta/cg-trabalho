@@ -50,7 +50,6 @@ public:
 	void drawTree();
 	void placeTrees();
 	float alturaCamara(float x, float z);
-
 	/**desenha tudo no mapa */
 	void desenhar(void);
 	~Mapa(void);

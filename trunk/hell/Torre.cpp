@@ -113,7 +113,7 @@ void Torre::desenhaBalas(){
 
 }
 */
-void Torre::desenha(void)	{
+void Torre::desenha(float posX, float posY, float posZ)	{
 
 	// alterar o angulo
 	distanciaAgente();
@@ -123,6 +123,10 @@ void Torre::desenha(void)	{
 	}
 
 	//desenhaBalas();
+
+	posicao[XX] = (GLdouble) posX;
+	posicao[YY] = (GLdouble) posY + 1;
+	posicao[ZZ] = (GLdouble) posZ;
 
 	float color[] = {1.0,1.0,0.0,1.0};
 	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
