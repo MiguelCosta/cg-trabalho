@@ -52,6 +52,9 @@ typedef enum e_teclas {
 #define VELOCIDADE_RATO_ALPHA	0.2
 #define VELOCIDADE_RATO_BETA	0.5
 
+// Distancia de colisao do agente com as balas
+#define DIST_COLISAO 100
+
 // Pi!
 #define PI						3.14159265
 

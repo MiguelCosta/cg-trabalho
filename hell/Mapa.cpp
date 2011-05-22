@@ -6,6 +6,7 @@
 #include "Mapa.h"
 #include "defines.h"
 #include <string.h>
+#include "util.h"
 
 /* Cria aleatoriamente um mapa */
 Mapa::Mapa(void)	{
@@ -330,8 +331,13 @@ void Mapa::desenhar(void)	{
 	float posY = h(posX+MAPA_METADE, posZ+MAPA_METADE);
 	camY = alturaCamara(posX+MAPA_METADE, posZ+MAPA_METADE) + 2;
 
-	//printf("altura: %d\n", posY);
-	agente->desenhar(posX, camY, posZ);
+	// colisões
+	for(int i = 0; i < NUM_TORRES ; i++){
+		if (distancia3d(agente->posicao[XX], agente->posicao[YY], agente->posicao[ZZ], torres[i]->posicao[XX], torres[i]->posicao[YY], torres[i]->posicao[ZZ]) < DIST_COLISAO){
+			agente->incrementaColisao();
+		} else agente->desenhar(posX, camY, posZ);
+	}
+
 
 	posX = edificio->posicao[XX];
 	posZ = edificio->posicao[ZZ];
@@ -359,9 +365,9 @@ void Mapa::desenhar(void)	{
 	// desenhar as torres
 	for( int i=0 ; i < NUM_TORRES ; i++)	{
 	
-		//posX = torres[i]->posicao[XX];
-		//posZ = torres[i]->posicao[ZZ];
-		//posY = h(posX+MAPA_METADE, posZ+MAPA_METADE);
+		posX = torres[i]->posicao[XX];
+		posZ = torres[i]->posicao[ZZ];
+		posY = h(posX+MAPA_METADE, posZ+MAPA_METADE);
 	
 		torres[i]->desenha(posX, posY, posZ);
 	}
@@ -377,6 +383,9 @@ void Mapa::desenhar(void)	{
 
 	// coloca no ecrã o estado actual do jogo, quantas chaves foram apanhadas e se já tem de ir para o edificio
 	desenhaEstadoJogo(7,15);
+
+
+	
 
 	//list<Chave *>::iterator it;
 	/* Colocar Chaves */

@@ -12,6 +12,7 @@ extern bool teclas[];
 
 Agente::Agente(void)	{
 	Agente(0, 0);
+	colisoes = 0;
 }
 
 Agente::Agente(GLdouble posicaoInicialX, GLdouble posicaoInicialZ) {
@@ -21,6 +22,7 @@ Agente::Agente(GLdouble posicaoInicialX, GLdouble posicaoInicialZ) {
 	angAlpha = 0;
 	angBeta = 0;
 	velocidade = AGENTE_VELOCIDADE_INICIAL;
+	colisoes = 0;
 }
 
 void Agente::desenhar(float posX, float posY, float posZ)	{
@@ -88,6 +90,10 @@ float Agente::direcao(int EIXO)	{
 	}
 	return -1;
 
+}
+
+void Agente::incrementaColisao(void){
+	colisoes++;
 }
 
 Agente::~Agente(void)	{

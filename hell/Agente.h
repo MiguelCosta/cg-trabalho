@@ -8,7 +8,7 @@ public:
 	GLdouble posicao[3];
 	GLfloat angAlpha;
 	GLfloat angBeta;
-
+	int colisoes;
 	GLMmodel *agente;
 
 	/** Construtores */
@@ -20,6 +20,8 @@ public:
 	void andar();
 	/** Calcula a direcao que o agente esta a olhar */
 	float direcao(int EIXO);
+	/**incrementa as colisões */
+	void incrementaColisao(void);
 	/** Destrutor */
 	~Agente(void);
 
