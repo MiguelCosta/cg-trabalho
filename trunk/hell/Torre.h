@@ -4,8 +4,12 @@
 #include <math.h>
 #include "defines.h"
 #include "Bala.h"
+#include <list>
+#include <iostream>
 
 //#include "Modelo.h"
+
+using namespace std;
 
 class Torre
 {
@@ -17,6 +21,9 @@ public:
 	// distancia da torre ao agente
 	GLfloat dist;
 	
+	// Balas
+	list<Bala> lista_balas;
+
 	// Modelo MD2
 	//Modelo * modelo;
 
@@ -26,6 +33,7 @@ public:
 
 	/** Dispara Bala */
 	void disparaBala(void);
+	void desenhaBalas(void);
 
 	/** Desenha a torre */
 	void desenha(void);

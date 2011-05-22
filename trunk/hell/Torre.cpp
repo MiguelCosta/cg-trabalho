@@ -76,7 +76,7 @@ void Torre::distanciaAgente(void){
 
 	// coordenadas da torre
 	GLfloat tx, tz;
-	
+
 	ax = _mapa->agente->posicao[XX];
 	az = _mapa->agente->posicao[ZZ];
 
@@ -88,32 +88,56 @@ void Torre::distanciaAgente(void){
 }
 
 void Torre::disparaBala(void){
-	Bala *b = new Bala(posicao[XX], posicao[YY], posicao[ZZ], ang);
-	b->desenha();
+	Bala *b = new Bala(posicao[XX], posicao[YY]+1, posicao[ZZ], ang);
+	lista_balas.push_front(*b);
+}
+
+void Torre::desenhaBalas(){
+	list<Bala>::iterator it;
+
+	for(it = lista_balas.begin() ; it != lista_balas.end() ; it++ ){
+		// vai buscar as posicoes da chave
+		float posX = it->getPosicaoXX();
+		float posZ = it->getPosicaoZZ();
+
+		// este posY tem de ser a altura dno mapa
+		float posY = _mapa->h(posX, posZ);
+
+		if(posX > MAPA_TAM || posX < -MAPA_TAM || posZ > MAPA_TAM || posZ < - MAPA_TAM){
+			it->~Bala();
+		} else {
+			// vai desenhar a chave na nova posicao
+			it->desenha(posX, posY, posZ);
+		}
+
+	}
+
 }
 
 void Torre::desenha(void)	{
-	
+
 	// alterar o angulo
 	distanciaAgente();
 	if(dist < DISTANCIA_TORRE_AGENTE){
 		girar();
-		//disparaBala();
+		disparaBala();
 	}
+
+	desenhaBalas();
 
 	float color[] = {1.0,1.0,0.0,1.0};
 	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
-	
+
 	glPushMatrix();
-		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
-		glRotatef(ang,0,posicao[YY],0);
-		
-		glutSolidCube(3);
-		
-		//modelo->modeloMD2->drawPlayerItp(false,(Md2Object::Md2RenderMode) modelo->modoVista);
+	glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
+	glRotatef(ang,0,posicao[YY],0);
+
+	glutSolidCube(3);
+
+	//modelo->modeloMD2->drawPlayerItp(false,(Md2Object::Md2RenderMode) modelo->modoVista);
 
 	glPopMatrix();
-	
+
 }
 
 Torre::~Torre(void)

@@ -1,6 +1,7 @@
 #pragma once
-#include <GL/glut.h>
 
+#include <GL/glut.h>
+#include "defines.h"
 
 class Bala
 {
@@ -16,7 +17,11 @@ public:
 	Bala(GLdouble posicaoInicialX, GLdouble posicaoInicialY, GLdouble posicaoInicialZ, GLdouble angTorre);
 
 	/** Desenha a chave */
-	void desenha(void);
+	void desenha(float posX, float posY, float posZ);
+
+	GLdouble getPosicaoXX(void);
+	GLdouble getPosicaoYY(void);
+	GLdouble getPosicaoZZ(void);
 
 	~Bala(void);
 };
