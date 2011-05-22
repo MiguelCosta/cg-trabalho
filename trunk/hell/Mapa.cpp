@@ -42,7 +42,7 @@ Mapa::Mapa(void)	{
 
 				double dist = sqrt(pow(cx-x,2)+pow(cz-z,2));
 				// se a chave criada não estiver à distância suficiente, vai criar uma nova chave
-				if(dist < 5) nova = 1;
+				if(dist < DIST_MIN_ENTRE_CHAVES) nova = 1;
 			}
 
 		}
