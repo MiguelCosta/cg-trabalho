@@ -16,16 +16,12 @@ Bala::Bala(GLdouble posicaoInicialX, GLdouble posicaoInicialY, GLdouble posicaoI
 	ang = (angTorre*PI)/180;
 }
 
-void Bala::desenha(void)
+void Bala::desenha(float posX, float posY, float posZ)
 {
-		
-	posicao[XX] = posicao[XX] + 10*cos(ang);
-	posicao[ZZ] = posicao[ZZ] + 10*sin(ang);
+	posicao[XX] = posicao[XX] + VELOCIDADE_BALA*cos(ang);
+	posicao[YY] = posY;
+	posicao[ZZ] = posicao[ZZ] + VELOCIDADE_BALA*sin(ang);
 
-	/*
-	posicao[XX] = pTorre[XX] + i * 10 * cos(ang);
-	posicao[ZZ] = pTorre[ZZ] + i * 10 * sin(ang);
-	*/
 	float color[] = {0.0,0.0,1.0,1.0};
 	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
 
@@ -37,6 +33,17 @@ void Bala::desenha(void)
 	
 }
 
+GLdouble Bala::getPosicaoXX(void){
+	return posicao[XX];
+}
+
+GLdouble Bala::getPosicaoYY(void){
+	return posicao[YY];
+}
+
+GLdouble Bala::getPosicaoZZ(void){
+	return posicao[ZZ];
+}
 
 Bala::~Bala(void)
 {
