@@ -26,9 +26,9 @@ void Edificio::desenhar(float posX, float posY, float posZ)	{
 	glMaterialfv(GL_FRONT,GL_AMBIENT_AND_DIFFUSE,color);
 	
 	glPushMatrix();
-		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
+		glTranslatef(posicao[XX], posicao[YY]+5, posicao[ZZ]);
 		//glutSolidTeapot(4);
-		glScalef(5,5,5);
+		glScalef(45,45,45);
 		glmDraw(edificio,GLM_SMOOTH|GLM_MATERIAL);
 	glPopMatrix();
 	
