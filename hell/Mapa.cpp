@@ -103,9 +103,9 @@ void Mapa::initTextura(char * nome_textura){
 	glEnable(GL_CULL_FACE);
 
 	//inicialização da iluminação
-	//glEnable(GL_LIGHTING);
-	//glEnable(GL_LIGHT0);
-	//glEnable(GL_LIGHT1);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+	glEnable(GL_LIGHT1);
 
 }
 
@@ -339,7 +339,10 @@ void Mapa::desenhar(void)	{
 	// colisões
 	for(int i = 0; i < NUM_TORRES ; i++){
 		if (distancia3d(agente->posicao[XX], agente->posicao[YY], agente->posicao[ZZ], torres[i]->posicao[XX], torres[i]->posicao[YY], torres[i]->posicao[ZZ]) < DIST_COLISAO){
-			agente->incrementaColisao();
+			agente->posicao[XX]+=0.2;
+			agente->posicao[ZZ]+=0.2;
+			int nada = 0;
+			//agente->incrementaColisao();
 		} else agente->desenhar(posX, camY, posZ);
 	}
 
@@ -350,7 +353,7 @@ void Mapa::desenhar(void)	{
 
 	edificio->desenhar(posX, posY, posZ);
 
-	drawParedes(50);
+	drawParedes(PAREDE_TAM);
 	
 	//desenhar as chaves
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
@@ -378,6 +381,7 @@ void Mapa::desenhar(void)	{
 
 		if(deveDesenhar(centro,2.6))
 			torres[i]->desenha(posX, posY, posZ);
+		
 	}
 
 	// desenhar as balas
