@@ -61,6 +61,7 @@ void Chave::desenha(float posX, float posY, float posZ)	{
 		glPushMatrix();
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
 		glRotatef(ang,0, posicao[YY],0);
+		glutSolidSphere(1.5,20,20);
 		glmDraw(chave,GLM_SMOOTH);
 		//glutSolidTorus(0.1,0.3,10,10);
 		glPopMatrix();
