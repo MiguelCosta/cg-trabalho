@@ -125,7 +125,7 @@ void Torre::desenha(float posX, float posY, float posZ)	{
 	distanciaAgente();
 	if(dist < DISTANCIA_TORRE_AGENTE){
 		girar();
-		//_mapa->listaBalas->addBala(posX, posY, posZ, ang);
+		_mapa->listaBalas->addBala(posX, posY, posZ, ang);
 		//disparaBala();
 	}
 
@@ -140,6 +140,7 @@ void Torre::desenha(float posX, float posY, float posZ)	{
 
 	glPushMatrix();
 	glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
+	glutSolidSphere(2.60,20,20);
 	glRotatef(ang,0,posicao[YY],0);
 
 	glutSolidCube(3);

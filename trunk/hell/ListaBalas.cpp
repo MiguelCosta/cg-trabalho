@@ -34,8 +34,8 @@ void ListaBalas::desenha(void){
 		if(posX < -MAPA_TAM || posX > MAPA_TAM || posZ < -MAPA_TAM || posZ > MAPA_TAM){
 			listaBalas[i]->ok = false;
 		} else {
-			for(int j = 0; j < MAPA_TAM ; )	
-			listaBalas[i]->desenha();
+			for(int j = 0; j < MAPA_TAM ; j++)
+				if(listaBalas[i]->ok) listaBalas[i]->desenha();
 
 		}
 	}

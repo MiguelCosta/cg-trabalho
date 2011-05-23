@@ -20,6 +20,7 @@ typedef enum e_teclas {
 // Tamanho do Mapa
 #define MAPA_TAM	110
 #define MAPA_METADE 128
+#define PAREDE_TAM 100
 
 #define TEXTURA_TERRENO "texturas/terreno/relva.png"
 
@@ -53,7 +54,7 @@ typedef enum e_teclas {
 #define VELOCIDADE_RATO_BETA	0.5
 
 // Distancia de colisao do agente com as balas
-#define DIST_COLISAO 100
+#define DIST_COLISAO 5
 
 // Pi!
 #define PI						3.14159265

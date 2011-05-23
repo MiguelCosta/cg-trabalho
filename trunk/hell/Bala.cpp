@@ -13,7 +13,7 @@ Bala::Bala(float posicaoInicialX, float posicaoInicialY, float posicaoInicialZ, 
 	posicao[XX] = posicaoInicialX;
 	posicao[YY] = posicaoInicialY;
 	posicao[ZZ] = posicaoInicialZ;
-	ang = (angTorre*PI)/180;
+	ang = angTorre;
 	ok = false;
 }
 
@@ -29,7 +29,7 @@ void Bala::desenha()
 
 		glPushMatrix();
 		glTranslatef(posicao[XX], posicao[YY], posicao[ZZ]);
-		glRotatef(ang,0,1,0);
+		glRotatef(ang,90,1,0);
 		// desenha um cone
 		glutSolidCone(1,2,5,5);
 		glPopMatrix();
