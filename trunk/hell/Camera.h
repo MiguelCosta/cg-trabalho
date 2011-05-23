@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Vec3.h"
+
 // Tipos de vista
 #define PRIMEIRA_PESSOA	1
 #define TERCEIRA_PESSOA	2
@@ -9,6 +11,13 @@
 class Camera	{
 private:
 public:
+
+	enum TroncoCamera	{
+		DENTRO,
+		INTERSEPTA,
+		FORA
+	};
+
 	int tipoDeVista;
 	GLdouble camPosOnGodMode[3];
 
@@ -18,5 +27,6 @@ public:
 	~Camera(void);
 };
 
+bool deveDesenhar(Vec3 centroEsfera, float raioEsfera);
 void changeSize(int w, int h);
 

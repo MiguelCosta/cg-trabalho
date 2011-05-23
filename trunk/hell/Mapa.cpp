@@ -7,6 +7,7 @@
 #include "defines.h"
 #include <string.h>
 #include "util.h"
+#include "Camera.h"
 
 /* Cria aleatoriamente um mapa */
 Mapa::Mapa(void)	{
@@ -162,6 +163,7 @@ void Mapa::terreno(void){
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glPopMatrix();
 }
+
 void drawParedes(float altura){
 	
 	float a[3] = {MAPA_TAM+1.8, altura, -MAPA_TAM-1.8};
@@ -266,43 +268,43 @@ void Mapa::desenhaEstadoJogo(GLuint x, GLuint y){
 
 void Mapa::drawTree() {
 
-   glPushMatrix();
-   glRotatef(-90,1.0,0.0,0.0);
-   float color[] = {1.0,1.0,0.5,1.0};
-   glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
-   glutSolidCone(0.25,4,5,1);
-   float color2[] = {0.0, 0.5 + rand() * 0.5f/RAND_MAX,0.0,1.0};
-   glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color2);
-   glTranslatef(0.0,0.0,2.0);
-   glutSolidCone(2.0,5.0,5,1);
-   glPopMatrix();
+	glPushMatrix();
+		glRotatef(-90,1.0,0.0,0.0);
+		float color[] = {1.0,1.0,0.5,1.0};
+		glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color);
+		glutSolidCone(0.25,4,5,1);
+
+		float color2[] = {0.0, 0.5 + rand() * 0.5f/RAND_MAX,0.0,1.0};
+		glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,color2);
+		glTranslatef(0.0,0.0,2.0);
+		glutSolidCone(2.0,5.0,5,1);
+	glPopMatrix();
 }
 
 void Mapa::placeTrees() {
+	
+	float r = 35.0;
+	float alpha;
+	float rr;
+	float x,z;
+	
+	srand(31457);
+	int arvores = 0;
 
-   float r = 35.0;
-   float alpha;
-   float rr;
-   float x,z;
+	while (arvores < 200) {
+		
+		rr = rand() * 150.0/ RAND_MAX;
+		alpha = rand() * 6.28 / RAND_MAX;
 
-   srand(31457);
-   int arvores = 0;
+		x = cos(alpha) * (rr + r);
+		z = sin(alpha) * (rr + r);
 
-   while (arvores < 200) {
-
-      rr = rand() * 150.0/ RAND_MAX;
-      alpha = rand() * 6.28 / RAND_MAX;
-
-      x = cos(alpha) * (rr + r);
-      z = sin(alpha) * (rr + r);
-
-      if (fabs(x) < MAPA_METADE && fabs(z) < MAPA_METADE) {
-
-         glPushMatrix();
-         glTranslatef(x, h (x+MAPA_METADE, z+MAPA_METADE),z);
-         drawTree();
-         glPopMatrix();
-         arvores++;
+		if (fabs(x) < MAPA_METADE && fabs(z) < MAPA_METADE) {					
+			glPushMatrix();
+			glTranslatef(x, h (x+MAPA_METADE,z+MAPA_METADE),z);
+			drawTree();
+			glPopMatrix();
+			arvores++;
       }
    }
 }
@@ -350,9 +352,6 @@ void Mapa::desenhar(void)	{
 
 	drawParedes(50);
 	
-	
-	//################PROBLEMAS###################
-	
 	//desenhar as chaves
 	for( int i=0 ; i < NUM_CHAVES ; i++)	{
 		
@@ -361,8 +360,11 @@ void Mapa::desenhar(void)	{
 
 		posZ = chaves[i]->posicao[ZZ];
 		posY = h(posX+128, posZ+128);
-	
-		chaves[i]->desenha(posX, posY, posZ);
+		
+		Vec3 centro(posX,posY,posZ);
+
+		if(deveDesenhar(centro,1.5))
+			chaves[i]->desenha(posX, posY, posZ);
 	}
 
 	// desenhar as torres
@@ -371,8 +373,11 @@ void Mapa::desenhar(void)	{
 		posX = torres[i]->posicao[XX];
 		posZ = torres[i]->posicao[ZZ];
 		posY = h(posX+MAPA_METADE, posZ+MAPA_METADE);
-	
-		torres[i]->desenha(posX, posY, posZ);
+
+		Vec3 centro(posX,posY,posZ);
+
+		if(deveDesenhar(centro,2.6))
+			torres[i]->desenha(posX, posY, posZ);
 	}
 
 	// desenhar as balas

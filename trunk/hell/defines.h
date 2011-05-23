@@ -24,7 +24,7 @@ typedef enum e_teclas {
 #define TEXTURA_TERRENO "texturas/terreno/relva.png"
 
 // numero de chaves
-#define NUM_CHAVES	1
+#define NUM_CHAVES	3
 #define APANHA_CHAVE 5
 #define CHAVE_ANGULO_ROTACAO 1
 #define DIST_MIN_ENTRE_CHAVES 10

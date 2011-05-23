@@ -1,10 +1,9 @@
 
-/*
 
 #include "Modelo.h"
 
 
-Modelo::Modelo(const string &pasta)	{
+Modelo::Modelo(char *pasta)	{
 
 	string dirname ("Modelos/");
 	dirname.append(pasta);
@@ -25,8 +24,3 @@ Modelo::Modelo(const string &pasta)	{
 	modoVista = 0;
 }
 
-
-Modelo::~Modelo(void)	{
-
-}
-*/
