@@ -71,7 +71,7 @@ const Vec3 Vec3::operator+(const Vec3 &other)	{
 	return res;
 }
 
-Vec3 Vec3::operator-(Vec3 &other)	{
+const Vec3 Vec3::operator-(const Vec3 &other)	{
 	Vec3 op = other;
 	Vec3 simetrico(-(op.getX()),-(op.getY()),-(op.getZ()));
 	Vec3 res = this->operator+(simetrico);
@@ -89,4 +89,10 @@ const Vec3 Vec3::operator*(const Vec3 &other) {
     return (res);
 }
 
+const Vec3 Vec3::operator*(const float &other)	{
+	const Vec3 res(x1*other,y1*other,z1*other);
+	return res;
+}
 
+Vec3::Vec3()	{
+}

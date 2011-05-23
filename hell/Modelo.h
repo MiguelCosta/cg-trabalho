@@ -1,5 +1,7 @@
 
-/*#include "md2loader\Md2Player.h"
+
+#include "../md2loader/Md2Player.h"
+#include <string>
 
 class Modelo	{
 public:
@@ -10,7 +12,7 @@ public:
 	Md2Player * modeloMD2;
 	int modoVista;
 
-	Modelo(const string &pasta);
+	Modelo(char *pasta);
 	~Modelo(void);
-};*/
+};
 

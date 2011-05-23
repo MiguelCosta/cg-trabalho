@@ -26,3 +26,10 @@ void Plano::set3pontos(Vec3 a,Vec3 b,Vec3 c)	{
 	normal = d1*d2;
 	ponto = a;
 }
+
+Plano::Plano()	{
+}
+
+Plano::~Plano()	{
+
+}
