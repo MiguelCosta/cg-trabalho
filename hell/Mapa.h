@@ -7,6 +7,7 @@
 #include "Radar.h"
 #include "defines.h"
 #include <IL/il.h>
+#include "ListaBalas.h"
 
 
 
@@ -19,6 +20,7 @@ public:
 	Edificio			*edificio;
 	Torre				*torres[3];
 	Radar				*radar;
+	ListaBalas			*listaBalas;
 
 	// variavel que diz quantas chaves foram apanhadas
 	int num_chaves_apanhadas;
