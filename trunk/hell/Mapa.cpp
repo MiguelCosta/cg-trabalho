@@ -58,6 +58,9 @@ Mapa::Mapa(void)	{
 			rand() * 2 * MAPA_TAM / RAND_MAX - MAPA_TAM);
 	}
 
+	/* Lista de Balas*/
+	listaBalas = new ListaBalas();
+
 	/* Radar */
 	radar = new Radar();
 
@@ -351,13 +354,13 @@ void Mapa::desenhar(void)	{
 	//################PROBLEMAS###################
 	
 	//desenhar as chaves
-	for( int i=0 ; i <= NUM_CHAVES ; i++)	{
+	for( int i=0 ; i < NUM_CHAVES ; i++)	{
 		
 		posX = chaves[i]->posicao[XX];
 		//printf("PosicaoX da chave: %f\n",posX);
 
 		posZ = chaves[i]->posicao[ZZ];
-		posY = h(posX/*+MAPA_METADE*/, posZ/*+MAPA_METADE*/);
+		posY = h(posX+128, posZ+128);
 	
 		chaves[i]->desenha(posX, posY, posZ);
 	}
@@ -371,6 +374,9 @@ void Mapa::desenhar(void)	{
 	
 		torres[i]->desenha(posX, posY, posZ);
 	}
+
+	// desenhar as balas
+	listaBalas->desenha();
 
 	// radar
 	radar->desenha(7,7);

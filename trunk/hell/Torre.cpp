@@ -125,6 +125,7 @@ void Torre::desenha(float posX, float posY, float posZ)	{
 	distanciaAgente();
 	if(dist < DISTANCIA_TORRE_AGENTE){
 		girar();
+		//_mapa->listaBalas->addBala(posX, posY, posZ, ang);
 		//disparaBala();
 	}
 

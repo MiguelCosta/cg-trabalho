@@ -86,6 +86,7 @@
     <ClCompile Include="Edificio.cpp" />
     <ClCompile Include="glm.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="ListaBalas.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mapa.cpp" />
     <ClCompile Include="Modelo.cpp" />
@@ -102,6 +103,7 @@
     <ClInclude Include="Edificio.h" />
     <ClInclude Include="glm.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="ListaBalas.h" />
     <ClInclude Include="Mapa.h" />
     <ClInclude Include="md2loader\Image.h" />
     <ClInclude Include="Modelo.h" />

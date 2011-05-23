@@ -18,21 +18,22 @@ typedef enum e_teclas {
 #define	ZZ	2
 
 // Tamanho do Mapa
-#define MAPA_TAM	256
+#define MAPA_TAM	110
 #define MAPA_METADE 128
 
 #define TEXTURA_TERRENO "texturas/terreno/relva.png"
 
 // numero de chaves
-#define NUM_CHAVES	3
+#define NUM_CHAVES	1
 #define APANHA_CHAVE 5
 #define CHAVE_ANGULO_ROTACAO 1
-#define DIST_MIN_ENTRE_CHAVES 25
+#define DIST_MIN_ENTRE_CHAVES 10
 
 // numero de torres
 #define NUM_TORRES	3
 #define DISTANCIA_TORRE_AGENTE 50
 #define VELOCIDADE_BALA 2
+#define MAX_BALAS 1024
 
 // edificio
 #define DISTANCIA_AGENTE_NO_EDIFICIO 10
@@ -41,12 +42,11 @@ typedef enum e_teclas {
 #define AGENTE_VELOCIDADE_INICIAL	0.8
 
 // distancia a que a camara na terceira pessoa está do agente
-#define CAMARA_TERCEIRA_PESSOA			1.5
-#define CAMARA_3_P_ZZ					3
+#define CAMARA_TERCEIRA_PESSOA			6
 #define CAMARA_3_P_YY					1.5
 
 // Radar
-#define RADAR_ALCALCE 50
+#define RADAR_ALCALCE 500
 
 // Velocidade do rato
 #define VELOCIDADE_RATO_ALPHA	0.2
