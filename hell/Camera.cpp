@@ -62,6 +62,9 @@ void initFrame()	{
 	pertoCentro = posicaoCamera + direcaoCamera * 1.5;
 	longeCentro = posicaoCamera + direcaoCamera * 1000;
 
+	Hperto *= 0.5;
+	Hlonge *= 0.5;
+	
 	pertoEsqCima = pertoCentro + up * Hperto;
 	pertoEsqCima = pertoEsqCima - dir * Wperto;
 
@@ -74,13 +77,13 @@ void initFrame()	{
 	pertoDirBaixo = pertoCentro - up * Hperto;
 	pertoDirBaixo = pertoCentro + dir * Wlonge;
 
-    longeEsqCima = longeCentro + up * (Hlonge / 2);
-	longeEsqCima = longeEsqCima - dir * (Wlonge /2);
+    longeEsqCima = longeCentro + up * Hlonge;
+	longeEsqCima = longeEsqCima - dir * Wlonge;
 	
-	longeDirCima = longeCentro + up * (Hlonge / 2);
+	longeDirCima = longeCentro + up * Hlonge;
 	longeDirCima = longeDirCima + dir * Wlonge;
 
-	longeEsqBaixo = longeCentro - up * (Hlonge / 2);
+	longeEsqBaixo = longeCentro - up * Hlonge;
 	longeEsqBaixo = longeEsqBaixo - dir * Wlonge;
 
 	longeDirBaixo = longeCentro - up * Hlonge;

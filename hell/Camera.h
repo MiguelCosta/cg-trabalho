@@ -9,14 +9,7 @@
 
 
 class Camera	{
-private:
 public:
-
-	enum TroncoCamera	{
-		DENTRO,
-		INTERSEPTA,
-		FORA
-	};
 
 	int tipoDeVista;
 	GLdouble camPosOnGodMode[3];
